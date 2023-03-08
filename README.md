@@ -1,1 +1,1 @@
-# textadventure
+# undertale-textadventure
