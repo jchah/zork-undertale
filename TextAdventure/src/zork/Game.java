@@ -93,6 +93,14 @@ public class Game {
     System.out.println(currentRoom.longDescription());
   }
 
+  private void printEncounter(String name) {
+    for(int i = 50; i >= 1; i--) {
+      for (int k = 0; k < i; k++) {
+        System.out.print(".");
+      }
+    }
+  }
+
   /**
    * Given a command, process (that is: execute) the command. If this command ends
    * the game, true is returned, otherwise false is returned.

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/textadventure.iml" filepath="$PROJECT_DIR$/textadventure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/undertale-textadventure.iml" filepath="$PROJECT_DIR$/undertale-textadventure.iml" />
     </modules>
   </component>
 </project>
