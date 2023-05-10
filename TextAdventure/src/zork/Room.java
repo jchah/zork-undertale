@@ -72,7 +72,6 @@ public class Room {
   public Room nextRoom(String direction) {
     try {
       for (Exit exit : exits) {
-        System.out.println(exit.getDirection());
         if (exit.getDirection().equalsIgnoreCase(direction)) {
           String adjacentRoom = exit.getAdjacentRoom();
 

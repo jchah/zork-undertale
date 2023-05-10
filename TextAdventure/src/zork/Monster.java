@@ -1,6 +1,6 @@
 package zork;
 
-public abstract class Monster extends Entity{
+public class Monster extends Entity{
 
     public Monster(int hp, int at, int df, String name) {
         super(hp, at, df, name);
@@ -14,7 +14,7 @@ public abstract class Monster extends Entity{
         super.setHp(super.getHp() - dmg);
     }
 
-    public void printDialogue() {
+    public void sayDialogue() {
         System.out.printf("%s awaits your next move", super.getName());
     }
 
