@@ -49,7 +49,7 @@ public class Game {
         while (true) {
             System.out.println("Name the fallen human: ");
             name = in.nextLine();
-            if (name.length() >= 1 && name.length() <= 6) {
+            if (name.length() >= 1 && name.length() <= 15) {
                 boolean good = false;
                 while(!good) {
                     System.out.println("Your name is " + name + ", confirm?");
@@ -63,7 +63,7 @@ public class Game {
                 }
             }
             else {
-                System.err.println("Name must be within 1 and 6 characters");
+                System.err.println("Name must be within 1 and 15 characters");
             }
         }
     }
@@ -158,6 +158,52 @@ public class Game {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void encounter(Monster monster) {
+        String option;
+        boolean keepFighting = false;
+        boolean canMercy = false;
+        printAsciiImage(monster.getName());
+        printDialouge("A wild " + monster.getName() + " appeared!");
+        while (player.getHp() > 0 && !keepFighting) {
+            option = serveEncounterOptions();
+            switch (option) {
+                case "fight": serveAttackSlider();
+                case "act": canMercy = serveActOptions(monster);
+                case "item": serveItemOptions();
+                case "mercy": keepFighting = canMercy;
+            }
+        }
+    }
+
+    private void serveItemOptions() {
+        inventory.showInventory();
+        String chosenItem = in.nextLine();
+        int index = inventory.findItemByName(chosenItem);
+        if (index > -1) {
+
+        }
+    }
+
+    private boolean serveActOptions(Monster monster) {
+        return false;
+    }
+
+    private void serveAttackSlider() {
+    }
+
+    private String serveEncounterOptions() {
+        String option;
+        System.out.println("FIGHT   ACT   ITEM   MERCY");
+        while (true) {
+            option = in.nextLine().toLowerCase();
+            if (!(option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy"))) {
+                System.err.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY");
+            }
+            else
+                return option;
         }
     }
 

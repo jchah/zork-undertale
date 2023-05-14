@@ -39,6 +39,15 @@ public class Inventory {
     }
 
     public void showInventory() {
-        System.out.println(items);
+        for (int i = 0; i < items.size(); i++)
+            System.out.println(i + 1 + ": " + items.get(i).getName());
+    }
+
+    public int findItemByName(String name) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(name))
+                return i;
+        }
+        return -1;
     }
 }
