@@ -1,6 +1,6 @@
 package zork;
 
-public class Food extends Item{
+public class Food extends Item {
     private final int hp;
 
     public Food(int hp, String name) {
@@ -14,9 +14,11 @@ public class Food extends Item{
 
     @Override
     public void use() {
-        Game.game.getPlayer().heal(hp);
-        int index = Game.game.getPlayer().inventory.findItemByName(super.getName());
-        Game.game.getPlayer().inventory.items.remove(index);
-        Game.game.getPlayer().inventory.decrementCurrentSize();
+        Player player = Game.game.getPlayer();
+        player.heal(hp);
+
+        Inventory inventory = player.inventory;
+        int index = inventory.findItemByName(getName());
+        inventory.removeItemByIndex(index);
     }
 }

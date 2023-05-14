@@ -1,9 +1,9 @@
 package zork;
 
-public class Weapon extends Item{
+public class Weapon extends ToggleableItem {
     private final int at;
 
-    public Weapon(String name, int at) {
+    public Weapon(int at, String name) {
         super(name);
         this.at = at;
     }
@@ -14,12 +14,24 @@ public class Weapon extends Item{
 
     @Override
     public void use() {
+        disableActiveItem();
+        System.out.println("Now wielding the " + getName());
         Game.game.getPlayer().setAt(at);
-        super.setInUse(true);
+        setInUse(true);
     }
 
+    @Override
     public void disuse() {
+        System.out.println("No longer wielding the " + getName());
         Game.game.getPlayer().setAt(0);
-        super.setInUse(false);
+        setInUse(false);
+    }
+
+    @Override
+    public void disableActiveItem() {
+        for (Item item: Game.game.getPlayer().inventory.items) {
+            if (item instanceof Weapon && ((Weapon) item).isInUse())
+                ((Weapon) item).disuse();
+        }
     }
 }

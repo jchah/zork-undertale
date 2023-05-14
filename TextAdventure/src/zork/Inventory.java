@@ -21,14 +21,6 @@ public class Inventory {
         return currentSize;
     }
 
-    public void incrementCurrentSize() {
-        currentSize++;
-    }
-
-    public void decrementCurrentSize() {
-        currentSize--;
-    }
-
     public boolean hasSpace() {
         return getCurrentSize() < getMaxCapacity();
     }
@@ -62,15 +54,23 @@ public class Inventory {
         return -1;
     }
 
+    public void removeItemByIndex(int index) {
+        if (index >= 0 && index < items.size()) {
+            items.remove(index);
+            currentSize--;
+        }
+    }
+
     public void dropItem(String name) {
         int index = findItemByName(name);
-        Item item = items.get(index);
-        if (item.isInUse()) {
-            if (item instanceof Armor)
-                ((Armor) item).disuse();
-            else if (item instanceof Weapon)
-                ((Weapon) item).disuse();
+        if (index == -1) {
+            System.out.printf("item \"%s\" not found", name);
+            return;
         }
+        Item item = items.get(index);
+        if (item instanceof ToggleableItem)
+            if (((ToggleableItem) item).isInUse())
+                ((ToggleableItem) item).disuse();
         items.remove(index);
         currentSize--;
     }

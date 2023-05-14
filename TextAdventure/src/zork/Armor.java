@@ -1,6 +1,6 @@
 package zork;
 
-public class Armor extends Item{
+public class Armor extends ToggleableItem {
     private final int df;
 
     public Armor(int df, String name) {
@@ -14,12 +14,24 @@ public class Armor extends Item{
 
     @Override
     public void use() {
+        disableActiveItem();
+        System.out.println("Now wearing the " + getName());
         Game.game.getPlayer().setDf(df);
-        super.setInUse(true);
+        setInUse(true);
     }
 
+    @Override
     public void disuse() {
+        System.out.println("No longer wearing the " + getName());
         Game.game.getPlayer().setDf(0);
-        super.setInUse(false);
+        setInUse(false);
+    }
+
+    @Override
+    public void disableActiveItem() {
+        for (Item item: Game.game.getPlayer().inventory.items) {
+            if (item instanceof Armor && ((Armor) item).isInUse())
+                ((Armor) item).disuse();
+        }
     }
 }

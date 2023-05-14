@@ -141,11 +141,6 @@ public class Game {
         }
     }
 
-    /**
-     * Given a command, process (that is: execute) the command. If this command ends
-     * the game, true is returned, otherwise false is returned.
-     */
-
     private void printDialouge(String str) {
         String[] chars = str.split("");
         for (String aChar : chars) {
@@ -180,20 +175,32 @@ public class Game {
         }
     }
 
+    /**
+     * Prints the inventory and prompts the player for the item to use.
+     */
     private void serveItemOptions() {
-        player.inventory.showInventory();
+        Inventory inventory = player.inventory;
+        inventory.showInventory();
         String chosenItem = in.nextLine();
-        int index = player.inventory.findItemByName(chosenItem);
+        int index = inventory.findItemByName(chosenItem);
         if (index > -1) {
-            Item item = player.inventory.items.get(index);
+            Item item = inventory.items.get(index);
             item.use();
         }
     }
-    // returns whether the right option was chosen
+
+    /**
+     * Prints the act options and prompts the player for their choice.
+     * Returns whether the player chose the correct option to mercy.
+     */
     private boolean serveActOptions(Monster monster) {
         return false;
     }
-    // returns damage done to monster
+
+    /**
+     * Plays an attack slider mini-game. The closer to the target, the more damage done.
+     * Returns the amount of damage done to the monster.
+     */
     private int serveAttackSlider() {
         return 0;
     }
@@ -233,16 +240,10 @@ public class Game {
         return false;
     }
 
-    // implementations of user commands:
-
     /**
-     * Print out some help information. Here we print some stupid, cryptic message
-     * and a list of the command words.
+     * Print out some help information. Here we print a list of the command words.
      */
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at Monash Uni, Peninsula Campus.");
-        System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
     }
