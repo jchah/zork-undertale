@@ -17,10 +17,10 @@ public class Game {
 
     public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
+    public static Game game = new Game();
     private Parser parser;
     private Room currentRoom;
     private Player player;
-    private Inventory inventory;
     private Scanner in = new Scanner(System.in);
 
     /**
@@ -28,7 +28,7 @@ public class Game {
      */
     public Game() {
         try {
-            initRooms("src\\zork\\data\\rooms.json");
+            initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
             currentRoom = roomMap.get("Bedroom");
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,9 +38,11 @@ public class Game {
 
         printIntro();
 
-        player = new Player(100, 0, 10, namePrompt());
+        player = new Player(20, 0, 0, namePrompt());
+    }
 
-        inventory = new Inventory(8);
+    public Player getPlayer() {
+        return player;
     }
 
     public String namePrompt() {
@@ -170,7 +172,7 @@ public class Game {
         while (player.getHp() > 0 && !keepFighting) {
             option = serveEncounterOptions();
             switch (option) {
-                case "fight": serveAttackSlider();
+                case "fight": monster.takeDamage(serveAttackSlider());
                 case "act": canMercy = serveActOptions(monster);
                 case "item": serveItemOptions();
                 case "mercy": keepFighting = canMercy;
@@ -179,19 +181,21 @@ public class Game {
     }
 
     private void serveItemOptions() {
-        inventory.showInventory();
+        player.inventory.showInventory();
         String chosenItem = in.nextLine();
-        int index = inventory.findItemByName(chosenItem);
+        int index = player.inventory.findItemByName(chosenItem);
         if (index > -1) {
-
+            Item item = player.inventory.items.get(index);
+            item.use();
         }
     }
-
+    // returns whether the right option was chosen
     private boolean serveActOptions(Monster monster) {
         return false;
     }
-
-    private void serveAttackSlider() {
+    // returns damage done to monster
+    private int serveAttackSlider() {
+        return 0;
     }
 
     private String serveEncounterOptions() {

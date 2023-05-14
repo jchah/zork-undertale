@@ -8,8 +8,15 @@ public class Food extends Item{
         this.hp = hp;
     }
 
-    public int getHeal() {
+    public int getHpValue() {
         return hp;
     }
 
+    @Override
+    public void use() {
+        Game.game.getPlayer().heal(hp);
+        int index = Game.game.getPlayer().inventory.findItemByName(super.getName());
+        Game.game.getPlayer().inventory.items.remove(index);
+        Game.game.getPlayer().inventory.decrementCurrentSize();
+    }
 }

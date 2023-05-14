@@ -1,25 +1,13 @@
 package zork;
 
 public class Player extends Entity{
-    private final int MAX_HP;
+    public Inventory inventory;
     private int exp;
     private int lv;
 
     public Player(int hp, int df, int at, String name) {
         super(hp, at, df, name);
-        MAX_HP = hp;
-    }
-
-    public void use(Armor armor) {
-        super.setDf(armor.getDf());
-    }
-
-    public void use(Weapon weapon) {
-        super.setAt(weapon.getAt());
-    }
-
-    public void use(Food food) {
-        super.setHp(super.getHp() + food.getHeal());
+        inventory = new Inventory(8);
     }
 
     public void addExp(int exp) {

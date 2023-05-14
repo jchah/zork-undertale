@@ -8,8 +8,18 @@ public class Armor extends Item{
         this.df = df;
     }
 
-    public int getDf() {
+    public int getDfValue() {
         return df;
     }
 
+    @Override
+    public void use() {
+        Game.game.getPlayer().setDf(df);
+        super.setInUse(true);
+    }
+
+    public void disuse() {
+        Game.game.getPlayer().setDf(0);
+        super.setInUse(false);
+    }
 }

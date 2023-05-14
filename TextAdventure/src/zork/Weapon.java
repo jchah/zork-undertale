@@ -8,8 +8,18 @@ public class Weapon extends Item{
         this.at = at;
     }
 
-    public int getAt() {
+    public int getAtValue() {
         return at;
     }
 
+    @Override
+    public void use() {
+        Game.game.getPlayer().setAt(at);
+        super.setInUse(true);
+    }
+
+    public void disuse() {
+        Game.game.getPlayer().setAt(0);
+        super.setInUse(false);
+    }
 }

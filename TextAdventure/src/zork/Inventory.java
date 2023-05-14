@@ -3,7 +3,7 @@ package zork;
 import java.util.ArrayList;
 
 public class Inventory {
-    private ArrayList<Item> items;
+    public ArrayList<Item> items;
     private final int maxCapacity;
     private int currentSize;
 
@@ -21,6 +21,14 @@ public class Inventory {
         return currentSize;
     }
 
+    public void incrementCurrentSize() {
+        currentSize++;
+    }
+
+    public void decrementCurrentSize() {
+        currentSize--;
+    }
+
     public boolean hasSpace() {
         return getCurrentSize() < getMaxCapacity();
     }
@@ -34,13 +42,16 @@ public class Inventory {
         return false;
     }
 
-    public ArrayList<Item> getInventory() {
-        return items;
-    }
-
     public void showInventory() {
-        for (int i = 0; i < items.size(); i++)
-            System.out.println(i + 1 + ": " + items.get(i).getName());
+        String item;
+        for (int i = 0; i < maxCapacity; i++) {
+            if (i + 1 > getCurrentSize())
+                item = "[empty slot]";
+            else
+                item = items.get(i).getName();
+            System.out.println(i + 1 + ": " + item);
+        }
+        System.out.println();
     }
 
     public int findItemByName(String name) {
@@ -49,5 +60,18 @@ public class Inventory {
                 return i;
         }
         return -1;
+    }
+
+    public void dropItem(String name) {
+        int index = findItemByName(name);
+        Item item = items.get(index);
+        if (item.isInUse()) {
+            if (item instanceof Armor)
+                ((Armor) item).disuse();
+            else if (item instanceof Weapon)
+                ((Weapon) item).disuse();
+        }
+        items.remove(index);
+        currentSize--;
     }
 }
