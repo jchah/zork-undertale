@@ -43,7 +43,6 @@ public class Inventory {
                 item = items.get(i).getName();
             System.out.println(i + 1 + ": " + item);
         }
-        System.out.println();
     }
 
     public int findItemByName(String name) {

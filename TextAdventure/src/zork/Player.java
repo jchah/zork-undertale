@@ -15,8 +15,8 @@ public class Player extends Entity{
     }
 
     public void updateLv() {
-        while (exp >= Math.pow(lv, 2)) {
-            exp -= Math.pow(lv, 2);
+        while (exp >= Math.pow(lv, 2) + 30) {
+            exp -= Math.pow(lv, 2) + 30;
             lv++;
         }
     }

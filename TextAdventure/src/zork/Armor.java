@@ -15,14 +15,14 @@ public class Armor extends ToggleableItem {
     @Override
     public void use() {
         disableActiveItem();
-        System.out.println("Now wearing the " + getName());
+        Game.game.printDialouge("Now wearing the " + getName() );
         Game.game.getPlayer().setDf(df);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
-        System.out.println("No longer wearing the " + getName());
+        Game.game.printDialouge("No longer wearing the " + getName() );
         Game.game.getPlayer().setDf(0);
         setInUse(false);
     }

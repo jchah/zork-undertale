@@ -22,6 +22,7 @@ public class Game {
     private Room currentRoom;
     private Player player;
     private Scanner in = new Scanner(System.in);
+    private boolean testMode = true;
 
     /**
      * Create the game and initialise its internal map.
@@ -36,9 +37,14 @@ public class Game {
 
         parser = new Parser();
 
-        printIntro();
-
-        player = new Player(20, 0, 0, namePrompt());
+        if (!testMode) {
+            printIntro();
+            player = new Player(20, 0, 0, namePrompt());
+        }
+        else {
+            System.out.println("GAME IN TEST MODE");
+            player = new Player(20, 0, 0, "Frisk");
+        }
     }
 
     public Player getPlayer() {
@@ -124,12 +130,12 @@ public class Game {
      */
     private void printIntro() {
         // play Once Upon a Time
-        printDialouge("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious. They sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
+        printDialouge("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
     }
 
     private void printAsciiImage(String name) {
         try {
-            File ascii = new File("src\\zork\\data\\" + name.toLowerCase() + ".txt");
+            File ascii = new File("TextAdventure\\src\\zork\\data\\" + name.toLowerCase() + ".txt");
             Scanner reader = new Scanner(ascii);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
@@ -141,7 +147,7 @@ public class Game {
         }
     }
 
-    private void printDialouge(String str) {
+    public void printDialouge(String str) {
         String[] chars = str.split("");
         for (String aChar : chars) {
             System.out.print(aChar);
@@ -181,11 +187,17 @@ public class Game {
     private void serveItemOptions() {
         Inventory inventory = player.inventory;
         inventory.showInventory();
-        String chosenItem = in.nextLine();
-        int index = inventory.findItemByName(chosenItem);
-        if (index > -1) {
-            Item item = inventory.items.get(index);
-            item.use();
+        while (true) {
+            System.out.print("> ");
+            String chosenItem = in.nextLine();
+            int index = inventory.findItemByName(chosenItem);
+            if (index > -1) {
+                Item item = inventory.items.get(index);
+                item.use();
+                return;
+            } else {
+                System.out.printf("No such item \"%s\"", chosenItem);
+            }
         }
     }
 
@@ -209,6 +221,7 @@ public class Game {
         String option;
         System.out.println("FIGHT   ACT   ITEM   MERCY");
         while (true) {
+            System.out.print("> ");
             option = in.nextLine().toLowerCase();
             if (!(option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy"))) {
                 System.err.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY");

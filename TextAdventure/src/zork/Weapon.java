@@ -15,14 +15,14 @@ public class Weapon extends ToggleableItem {
     @Override
     public void use() {
         disableActiveItem();
-        System.out.println("Now wielding the " + getName());
+        Game.game.printDialouge("Now wielding the " + getName());
         Game.game.getPlayer().setAt(at);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
-        System.out.println("No longer wielding the " + getName());
+        Game.game.printDialouge("No longer wielding the " + getName());
         Game.game.getPlayer().setAt(0);
         setInUse(false);
     }
