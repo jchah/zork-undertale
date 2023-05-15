@@ -3,19 +3,19 @@
     {
       "id": "Ruins",
       "name": "Ruins",
-      "description": "You have woken up from your fall to the underground are are now in the ruins.",
+      "description": "You've fallen into the deep depths of the RUINS.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Ruins hallway"
+          "adjacentRoom": "Ruins Hallway"
         }
       ]
     },
     {
       "id": "Ruins Hallway",
-      "name": "Ruins Halway",
-      "description": "You are in a hallway in the ruins",
+      "name": "Ruins Hallway",
+      "description": "You find yourself in a hallway leading to the rest of the RUINS.",
       "exits": [
         {
           "isLocked": false,
@@ -32,12 +32,12 @@
     {
       "id": "Ruins East",
       "name": "Ruins East",
-      "description": "You are in the eastern part of the Ruins",
+      "description": "You are east of the RUINS entry.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruins hallway"
+          "adjacentRoom": "Ruins Hallway"
           
         },
         {
@@ -50,7 +50,7 @@
     {
       "id": "Snowdin",
       "name": "Snowdin",
-      "description": "Its so cold outside, a sign at the front says, welcome to Snowdin",
+      "description": "Out of the ruins, ",
       "exits": [
         {
           "isLocked": false,
@@ -67,7 +67,7 @@
     {
       "id": "Snowdin Village",
       "name": "Snowdin Village",
-      "description": "You see some houses, and realize you are in Snowdin Village",
+      "description": "Its snowing, a big sign reads \"welcome to Snowdin!\"",
       "exits": [
         {
           "isLocked": false,
@@ -329,7 +329,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "San's Workshop"
+          "adjacentRoom": "Sans Workshop"
         }, 
         {
           "isLocked": false,
