@@ -1,73 +1,349 @@
 {
   "rooms": [
     {
-      "id": "Hallway",
-      "name": "Hallway",
-      "description": "You are in a long hallway. There are family pictures on all of the walls.",
+      "id": "Ruins",
+      "name": "Ruins",
+      "description": "You have woken up from your fall to the underground are are now in the ruins.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Bedroom"
-        },
-        {
-          "isLocked": true,
-          "direction": "East",
-          "adjacentRoom": "Bathroom",
-          "keyId": "1234"
+          "adjacentRoom": "Ruins hallway"
         }
       ]
     },
     {
-      "id": "Bedroom",
-      "name": "Bedroom",
-      "description": "You are in a large bedroom",
+      "id": "Ruins Hallway",
+      "name": "Ruins Halway",
+      "description": "You are in a hallway in the ruins",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Hallway"
-        },
-        {
-          "isLocked": false,
-          "direction": "SouthEast",
-          "adjacentRoom": "Bathroom"
+          "adjacentRoom": "Ruins"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Closet"
+          "adjacentRoom": "Ruins East"
         }
       ]
     },
     {
-      "id": "Bathroom",
-      "name": "Bathroom",
-      "description": "You are in a blue bathroom",
+      "id": "Ruins East",
+      "name": "Ruins East",
+      "description": "You are in the eastern part of the Ruins",
       "exits": [
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Hallway",
-          "keyId": "1234"
+          "adjacentRoom": "Ruins hallway"
+          
         },
         {
           "isLocked": false,
-          "direction": "NorthWest",
-          "adjacentRoom": "Bedroom"
+          "direction": "South",
+          "adjacentRoom": "Snowdin"
         }
       ]
     },
     {
-      "id": "Closet",
-      "name": "Closet",
-      "description": "You are in the closet. It is dark.",
+      "id": "Snowdin",
+      "name": "Snowdin",
+      "description": "Its so cold outside, a sign at the front says, welcome to Snowdin",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Ruins East"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Village"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Village",
+      "name": "Snowdin Village",
+      "description": "You see some houses, and realize you are in Snowdin Village",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Bedroom"
+          "adjacentRoom": "Snowdin"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Snowed Inn"
         }
+      ]
+    },
+    {
+      "id": "Snowed Inn",
+      "name": "Snowed Inn",
+      "description": "You enter a cozy inn called the Snowed Inn",
+      "exits": [
+       
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Shop"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Snowdin Village"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Shop",
+      "name": "Snowdin Shop",
+      "description": "You enter a cute shop called the Snowedin Shop",
+      "exits": [
+        
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Snowed Inn"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Library"
+        }
+      ]
+    },
+    {
+      "id": "Library",
+      "name": "Library",
+      "description": "You see a bunch of books and see a library",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Snowdin Hallway"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Snowdin Shop"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Hallway",
+      "name": "Snowdin Hallway",
+      "description": "You enter a hallway int the Snowdin",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Library"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Puzzles"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Puzzles",
+      "name": "Snow Puzzles",
+      "description": "Your in the snow puzzles",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Snowdin Hallway"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Waterfall Hallway"
+        }
+      ]
+    },
+    {
+      "id": "Waterfall Hallway",
+      "name": "Waterfall Hallway",
+      "description": "You see a bunch of books and see a library",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Snowdin Puzzles"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Monster Kid"
+        }
+      ]
+    },
+    {
+      "id": "Monster Kid",
+      "name": "Monster Kid",
+      "description": "You see a big monsyer named moster kid",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Waterfall Hallway"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Undyne fights"
+        }
+      ]
+    },
+    {
+      "id": "Undyne fights",
+      "name": "Undyne fights",
+      "description": "Your in the undyne fights",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Monster Kid"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Monster Kid 2"
+        }
+      ]
+    },
+    {
+      "id": "Monster Kid 2",
+      "name": "Monster Kid 2",
+      "description": "You are now in monster kid 2",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Undyne fights"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "The Core Hallway"
+        }
+      ]
+    },
+    {
+      "id": "The Core Hallway",
+      "name": "The Core Hallway",
+      "description": "You are in a hallway in the Core",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Monster Kid 2"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "The Core Puzzle Room"
+        }
+      ]
+    },
+    {
+      "id": "The Core Puzzle Room",
+      "name": "The Core Puzzle Room",
+      "description": "Wecome to the zore puzzle room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "The Core Hallway"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "The Core Hallway 2"
+        }
+      ]
+    },
+    {
+      "id": "The Core Hallway 2",
+      "name": "The Core Hallway 2",
+      "description": "You are now in the second hallway in The Core",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "The Core Puzzle Room"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "The Core Puzzle Room 2"
+        }
+      ]
+    },
+    {
+      "id": "The Core Puzzle Room 2",
+      "name": "The Core Puzzle room 2",
+      "description": "You are now in the second puzzle room in The Core",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "The Core Hallway 2"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "San's Workshop"
+        }
+      ]
+    },
+    {
+      "id": "San's Workshop",
+      "name": "San's Workhop",
+      "description": "You are now in San's workshop BITCH",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "The Core Puzzle Room 2"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "The FlowerBed In The Ruins"
+        }
+      ]
+    },
+    {
+      "id": "The FlowerBed In The Ruins",
+      "name": "The FlowerBed In The Ruins",
+      "description": "You are now in The FlowerBed In The Ruins",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "San's Workshop"
+        }, 
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "The End"
+        }
+      ]
+    },
+    {
+      "id": "The End",
+      "name": "The End",
+      "description": "You are now done Bitch",
+      "exits": [
+        
       ]
     }
   ]
