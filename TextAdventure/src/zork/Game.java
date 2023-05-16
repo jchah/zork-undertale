@@ -111,6 +111,9 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        player.addExp(71);
+        System.out.println(player.getLv());
+        System.out.println(player.getExp());
         boolean finished = false;
         while (!finished) {
             Command command;
@@ -130,7 +133,7 @@ public class Game {
      */
     private void printIntro() {
         // play Once Upon a Time
-        printDialouge("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
+        printText("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
     }
 
     private void printAsciiImage(String name) {
@@ -147,7 +150,7 @@ public class Game {
         }
     }
 
-    public void printDialouge(String str) {
+    public void printText(String str) {
         String[] chars = str.split("");
         for (String aChar : chars) {
             System.out.print(aChar);
@@ -169,11 +172,11 @@ public class Game {
         boolean keepFighting = false;
         boolean canMercy = false;
         printAsciiImage(monster.getName());
-        printDialouge("A wild " + monster.getName() + " appeared!");
+        printText("A wild " + monster.getName() + " appeared!");
         while (player.getHp() > 0 && !keepFighting) {
             option = serveEncounterOptions();
             switch (option) {
-                case "fight": monster.takeDamage(serveAttackSlider());
+                case "fight": monster.takeDamage(serveAttackMeter(monster));
                 case "act": canMercy = serveActOptions(monster);
                 case "item": serveItemOptions();
                 case "mercy": keepFighting = canMercy;
@@ -203,7 +206,7 @@ public class Game {
 
     /**
      * Prints the act options and prompts the player for their choice.
-     * Returns whether the player chose the correct option to mercy.
+     * @return whether the player chose the correct option to mercy.
      */
     private boolean serveActOptions(Monster monster) {
         return false;
@@ -211,10 +214,13 @@ public class Game {
 
     /**
      * Plays an attack slider mini-game. The closer to the target, the more damage done.
-     * Returns the amount of damage done to the monster.
+     * @return the amount of damage done to the monster.
      */
-    private int serveAttackSlider() {
-        return 0;
+
+    private int serveAttackMeter(Monster monster) {
+        String attackMeter = "";
+        int attackValue = 0;
+        return player.calcDamage(monster, attackValue);
     }
 
     private String serveEncounterOptions() {

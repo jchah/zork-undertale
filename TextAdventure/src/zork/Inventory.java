@@ -30,7 +30,7 @@ public class Inventory {
             currentSize++;
             return items.add(item);
         }
-        System.out.println("There is no room to add the item.");
+        Game.game.printText("There is no room to add the item.");
         return false;
     }
 
@@ -63,7 +63,7 @@ public class Inventory {
     public void dropItem(String name) {
         int index = findItemByName(name);
         if (index == -1) {
-            System.out.printf("item \"%s\" not found", name);
+            Game.game.printText("item \"" + name + "\" not found");
             return;
         }
         Item item = items.get(index);

@@ -1,14 +1,14 @@
 package zork;
 
 public abstract class Entity {
-    private final int MAX_HP;
+    private int maxHp;
     private int hp; // health
     private int at; // attack
     private int df; // defence
     private final String name;
 
     public Entity(int hp, int at, int df, String name) {
-        MAX_HP = hp;
+        maxHp = hp;
         this.hp = hp;
         this.at = at;
         this.df = df;
@@ -40,10 +40,18 @@ public abstract class Entity {
         this.df = df;
     }
 
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
     public void heal(int hp) {
         this.hp += hp;
-        if (this.hp > MAX_HP)
-            this.hp = MAX_HP;
+        if (this.hp > maxHp)
+            this.hp = maxHp;
     }
 
     public void takeDamage(int dmg) {
