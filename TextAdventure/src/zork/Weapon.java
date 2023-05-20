@@ -1,29 +1,29 @@
 package zork;
 
 public class Weapon extends ToggleableItem {
-    private final int at;
+    private final int atk;
 
-    public Weapon(int at, String name) {
+    public Weapon(int atk, String name) {
         super(name);
-        this.at = at;
+        this.atk = atk;
     }
 
     public int getAtValue() {
-        return at;
+        return atk;
     }
 
     @Override
     public void use() {
         disableActiveItem();
         Game.game.printText("Now wielding the " + getName());
-        Game.game.getPlayer().setAt(at);
+        Game.game.getPlayer().setAtk(atk);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
         Game.game.printText("No longer wielding the " + getName());
-        Game.game.getPlayer().setAt(0);
+        Game.game.getPlayer().setAtk(0);
         setInUse(false);
     }
 

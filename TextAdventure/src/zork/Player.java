@@ -35,6 +35,6 @@ public class Player extends Entity{
     }
 
     public int calcDamage(Monster monster, int b) {
-        return Math.round(((getAt() - monster.getDf() + (int) (Math.random()*2))) * b);
+        return Math.round(((getAtk() - monster.getDef() + (int) (Math.random()*2))) * b);
     }
 }

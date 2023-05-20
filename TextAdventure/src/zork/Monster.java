@@ -2,9 +2,10 @@ package zork;
 
 public class Monster extends Entity{
     private int expReward;
+    private String[] actOptions;
 
-    public Monster(int hp, int at, int df, int expReward, String name) {
-        super(hp, at, df, name);
+    public Monster(int hp, int atk, int def, int expReward, String name) {
+        super(hp, atk, def, name);
         this.expReward = expReward;
     }
 
@@ -13,15 +14,15 @@ public class Monster extends Entity{
      */
 
     public int calcDamage(Player player) {
-        return getAt() - player.getDf();
+        return getAtk() - player.getDef();
     }
 
     public void takeDamage(int dmg) {
-        super.setHp(getHp() - dmg);
+        setHp(getHp() - dmg);
     }
 
-    public void sayDialogue() {
-        Game.game.printText(getName() + " awaits your next move");
+    public String check() {
+        return getName() + "- " + "ATK " + getAtk() + " DEF " + getDef();
     }
 
 }

@@ -3,15 +3,15 @@ package zork;
 public abstract class Entity {
     private int maxHp;
     private int hp; // health
-    private int at; // attack
-    private int df; // defence
+    private int atk; // attack
+    private int def; // defence
     private final String name;
 
-    public Entity(int hp, int at, int df, String name) {
+    public Entity(int hp, int atk, int def, String name) {
         maxHp = hp;
         this.hp = hp;
-        this.at = at;
-        this.df = df;
+        this.atk = atk;
+        this.def = def;
         this.name = name;
     }
 
@@ -24,20 +24,20 @@ public abstract class Entity {
         this.hp = hp;
     }
 
-    public int getAt() {
-        return at;
+    public int getAtk() {
+        return atk;
     }
 
-    public void setAt(int at) {
-        this.at = at;
+    public void setAtk(int atk) {
+        this.atk = atk;
     }
 
-    public int getDf() {
-        return df;
+    public int getDef() {
+        return def;
     }
 
-    public void setDf(int df) {
-        this.df = df;
+    public void setDef(int def) {
+        this.def = def;
     }
 
     public int getMaxHp() {

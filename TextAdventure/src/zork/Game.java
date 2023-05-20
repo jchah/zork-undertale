@@ -18,11 +18,13 @@ public class Game {
     public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
     public static Game game = new Game();
-    private Parser parser;
+    private final Parser parser;
     private Room currentRoom;
-    private Player player;
-    private Scanner in = new Scanner(System.in);
-    private boolean testMode = true;
+    private final Player player;
+    private final Scanner in = new Scanner(System.in);
+    private final AttackMeterGame attackMeterGame= new AttackMeterGame();
+
+
 
     /**
      * Create the game and initialise its internal map.
@@ -37,6 +39,7 @@ public class Game {
 
         parser = new Parser();
 
+        boolean testMode = true;
         if (!testMode) {
             printIntro();
             player = new Player(20, 0, 0, namePrompt());
@@ -111,9 +114,9 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        player.addExp(71);
-        System.out.println(player.getLv());
-        System.out.println(player.getExp());
+        Monster froggit = new Monster(30, 4, 2, 4, "froggit");
+        encounter(froggit);
+
         boolean finished = false;
         while (!finished) {
             Command command;
@@ -159,7 +162,7 @@ public class Game {
         System.out.println();
     }
 
-    private void sleep(int ms) {
+    public void sleep(int ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
@@ -169,17 +172,17 @@ public class Game {
 
     private void encounter(Monster monster) {
         String option;
-        boolean keepFighting = false;
+        boolean keepFighting = true;
         boolean canMercy = false;
         printAsciiImage(monster.getName());
         printText("A wild " + monster.getName() + " appeared!");
-        while (player.getHp() > 0 && !keepFighting) {
-            option = serveEncounterOptions();
+        while (player.getHp() > 0 && keepFighting) {
+            option = giveEncounterOptions();
             switch (option) {
-                case "fight": monster.takeDamage(serveAttackMeter(monster));
-                case "act": canMercy = serveActOptions(monster);
-                case "item": serveItemOptions();
-                case "mercy": keepFighting = canMercy;
+                case "fight" -> monster.takeDamage(attackMeterGame.playGame(monster));
+                case "act" -> canMercy = giveActOptions(monster);
+                case "item" -> giveItemOptions();
+                case "mercy" -> keepFighting = !canMercy;
             }
         }
     }
@@ -187,7 +190,7 @@ public class Game {
     /**
      * Prints the inventory and prompts the player for the item to use.
      */
-    private void serveItemOptions() {
+    private void giveItemOptions() {
         Inventory inventory = player.inventory;
         inventory.showInventory();
         while (true) {
@@ -199,7 +202,7 @@ public class Game {
                 item.use();
                 return;
             } else {
-                System.out.printf("No such item \"%s\"", chosenItem);
+                printText("No such item " + chosenItem);
             }
         }
     }
@@ -208,8 +211,20 @@ public class Game {
      * Prints the act options and prompts the player for their choice.
      * @return whether the player chose the correct option to mercy.
      */
-    private boolean serveActOptions(Monster monster) {
-        return false;
+    private boolean giveActOptions(Monster monster) {
+        HashMap<String, ArrayList<Action>> actOptions = ActOptions.actOptions;
+        ArrayList<Action> actionList = actOptions.get(monster.getName());
+        for (Action action : actionList) {
+            System.out.print(action + " ");
+        }
+
+        while (true) {
+            System.out.print("> ");
+            String chosenAction = in.nextLine();
+            // if no action.getName() in actionList returns chosenAction continue
+            // if action is check, print monster.check() + " " + action response
+            // else...
+        }
     }
 
     /**
@@ -217,13 +232,7 @@ public class Game {
      * @return the amount of damage done to the monster.
      */
 
-    private int serveAttackMeter(Monster monster) {
-        String attackMeter = "";
-        int attackValue = 0;
-        return player.calcDamage(monster, attackValue);
-    }
-
-    private String serveEncounterOptions() {
+    private String giveEncounterOptions() {
         String option;
         System.out.println("FIGHT   ACT   ITEM   MERCY");
         while (true) {
@@ -244,17 +253,22 @@ public class Game {
         }
 
         String commandWord = command.getCommandWord();
-        if (commandWord.equals("help"))
-            printHelp();
-        else if (commandWord.equals("go"))
-            goRoom(command);
-        else if (commandWord.equals("quit")) {
-            if (command.hasSecondWord())
-                System.out.println("Quit what?");
-            else
-                return true; // signal that we want to quit
-        } else if (commandWord.equals("eat")) {
-            System.out.println("Do you really think you should be eating at a time like this?");
+        switch (commandWord) {
+            case "help":
+                printHelp();
+                break;
+            case "go":
+                goRoom(command);
+                break;
+            case "quit":
+                if (command.hasSecondWord())
+                    System.out.println("Quit what?");
+                else
+                    return true; // signal that we want to quit
+                break;
+            case "eat":
+                System.out.println("Do you really think you should be eating at a time like this?");
+                break;
         }
         return false;
     }

@@ -1,29 +1,29 @@
 package zork;
 
 public class Armor extends ToggleableItem {
-    private final int df;
+    private final int def;
 
-    public Armor(int df, String name) {
+    public Armor(int def, String name) {
         super(name);
-        this.df = df;
+        this.def = def;
     }
 
     public int getDfValue() {
-        return df;
+        return def;
     }
 
     @Override
     public void use() {
         disableActiveItem();
         Game.game.printText("Now wearing the " + getName() );
-        Game.game.getPlayer().setDf(df);
+        Game.game.getPlayer().setDef(def);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
         Game.game.printText("No longer wearing the " + getName() );
-        Game.game.getPlayer().setDf(0);
+        Game.game.getPlayer().setDef(0);
         setInUse(false);
     }
 
