@@ -4,6 +4,7 @@ public class Player extends Entity{
     public Inventory inventory;
     private int exp;
     private int lv = 1;
+    // todo adjust these numbers
     private final int[] expToLv = {0, 10, 20, 40, 50, 80, 100, 200, 300, 400, 500, 800, 1000, 1500, 2000, 3000, 5000, 10000, 25000, 49999};
 
     public Player(int hp, int df, int at, String name) {
@@ -28,7 +29,7 @@ public class Player extends Entity{
         while (exp >= expToLv[lv]) {
             exp -= expToLv[lv];
             lv++;
-            Game.game.printText("Your LOVE increased.");
+            Game.printText("Your LOVE increased.");
             setMaxHp(getMaxHp() + 4);
         }
 

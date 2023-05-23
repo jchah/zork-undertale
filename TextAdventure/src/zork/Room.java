@@ -31,7 +31,7 @@ public class Room {
     exits = new ArrayList<Exit>();
   }
 
-  public void addExit(Exit exit) throws Exception {
+  public void addExit(Exit exit) {
     exits.add(exit);
   }
 
@@ -57,12 +57,12 @@ public class Room {
    * ".
    */
   private String exitString() {
-    String returnString = "Exits: ";
+    StringBuilder returnString = new StringBuilder("Exits: ");
     for (Exit exit : exits) {
-      returnString += exit.getDirection() + " ";
+      returnString.append(exit.getDirection()).append(" ");
     }
 
-    return returnString;
+    return returnString.toString();
   }
 
   /**

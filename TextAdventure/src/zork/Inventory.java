@@ -38,13 +38,13 @@ public class Inventory {
         return getCurrentSize() < getMaxCapacity();
     }
 
-    public boolean addItem(Item item) {
+    public void addItem(Item item) {
         if (hasSpace()) {
+            items.add(item);
             currentSize++;
-            return items.add(item);
         }
-        Game.game.printText("There is no room to add the item.");
-        return false;
+        else
+            Game.printText("There is no room to add the item.");
     }
 
     public void showInventory() {
@@ -77,7 +77,7 @@ public class Inventory {
     public void dropItem(String name) {
         int index = findItemByName(name);
         if (index == -1) {
-            Game.game.printText("item \"" + name + "\" not found");
+            Game.printText("item \"" + name + "\" not found");
             return;
         }
         Item item = items.get(index);

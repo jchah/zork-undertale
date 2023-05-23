@@ -48,7 +48,7 @@ public class AttackMeterGame {
                 System.out.print(c);
             }
 
-            Game.game.sleep(100);
+            Game.sleep(100);
 
             if (i == attackMeter.length / 2)
                 attackMeter[attackMeter.length / 2] = "o";

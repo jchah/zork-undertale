@@ -1,8 +1,8 @@
 package zork;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -21,15 +21,24 @@ public class Game {
     private final Parser parser;
     private Room currentRoom;
     private final Player player;
-    private final Scanner in = new Scanner(System.in);
-    private final AttackMeterGame attackMeterGame= new AttackMeterGame();
-
-
+    private static final Scanner in = new Scanner(System.in);
+    private static final AttackMeterGame attackMeterGame= new AttackMeterGame();
+    private static final Charset defaultCharset = Charset.defaultCharset();
+    private PrintStream out = null;
 
     /**
      * Create the game and initialise its internal map.
      */
     public Game() {
+        Charset utf8Charset = StandardCharsets.UTF_8;
+        // charset is windows-1252
+
+        try {
+            out = new PrintStream(System.out, true, utf8Charset.name());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
             currentRoom = roomMap.get("Bedroom");
@@ -54,7 +63,7 @@ public class Game {
         return player;
     }
 
-    public String namePrompt() {
+    public static String namePrompt() {
         String name;
         String temp;
         while (true) {
@@ -116,6 +125,7 @@ public class Game {
     public void play() {
         Monster froggit = new Monster(30, 5, 2, 4, 2, "froggit");
         encounter(froggit);
+        player.inventory.addItem(new Food(5, "Candy"));
 
         boolean finished = false;
         while (!finished) {
@@ -134,12 +144,12 @@ public class Game {
     /**
      * Print out the opening message for the player.
      */
-    private void printIntro() {
+    private static void printIntro() {
         // play Once Upon a Time
         printText("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
     }
 
-    private void printAsciiImage(String name) {
+    private static void printAsciiImage(String name) {
         try {
             File ascii = new File("TextAdventure\\src\\zork\\data\\" + name.toLowerCase() + ".txt");
             Scanner reader = new Scanner(ascii);
@@ -153,7 +163,7 @@ public class Game {
         }
     }
 
-    public void printText(String str) {
+    public static void printText(String str) {
         String[] chars = str.split("");
         for (String aChar : chars) {
             System.out.print(aChar);
@@ -162,7 +172,7 @@ public class Game {
         System.out.println();
     }
 
-    public void sleep(int ms) {
+    public static void sleep(int ms) {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
@@ -170,16 +180,28 @@ public class Game {
         }
     }
 
+    public String encodeToString(String string) {
+        String data = "";
+        byte[] sourceBytes = string.getBytes(StandardCharsets.UTF_8);
+        try {
+            data = new String(sourceBytes , defaultCharset.name());
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
     public void showHealthBar(Entity entity) {
-        String[] bar = "||||||||||||||||||||".split("");
+        String data = encodeToString("❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤");
+        String[] bar = data.split("");
         int startIndex = bar.length - 1;
         double percent = (double) entity.getHp() / entity.getMaxHp();
         int offset = (int) (bar.length * (1 - percent));
         for (int i = 0; i < offset; i++) {
-            bar[startIndex--] = "X";
+            bar[startIndex--] = "\uD83D\uDC94";
         }
         for (String marker: bar) {
-            System.out.print(marker);
+            out.print(marker);
         }
         System.out.println();
     }
@@ -192,32 +214,49 @@ public class Game {
         printAsciiImage(monsterName);
         printText("A wild " + monsterName + " appeared!");
         while (keepFighting) {
+            player.takeDamage(5);
             System.out.print(player.getName() + " health: ");
             showHealthBar(player);
             System.out.print(monsterName + " health: ");
             showHealthBar(monster);
 
             if (player.isDead()) {
+                printText("GAME OVER");
                 printDeathMessage();
                 return;
             }
             option = giveEncounterOptions();
             switch (option) {
-                case "fight" -> monster.takeDamage(attackMeterGame.playGame(monster));
-                case "act" -> canMercy = giveActOptions(monster);
-                case "item" -> giveItemOptions();
-                case "mercy" -> keepFighting = !canMercy;
+                case "fight":
+                    monster.takeDamage(attackMeterGame.playGame(monster));
+                    break;
+                case "act":
+                    canMercy = giveActOptions(monster);
+                    break;
+                case "item":
+                    giveItemOptions();
+                    break;
+                case "mercy":
+                    if (!canMercy)
+                        printText(monsterName + " still wants to fight.");
+                    else
+                        keepFighting = false;
+                    break;
             }
 
             if (monster.isDead()) {
-                printText(monsterName + " was defeated");
-                printText("You earned " + monster.getExpReward() + " exp and " + monster.calcGoldReward() + " gold");
+                int gold = monster.calcGoldReward();
+                printText(monsterName + " was defeated.");
+                printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
                 player.addExp(monster.getExpReward());
+                player.inventory.addGold(gold);
                 return;
             }
         }
-        printText("You spared " + monsterName);
-        printText("You earned 0 exp and " + monster.calcGoldReward() + " gold");
+        int gold = monster.calcGoldReward();
+        printText("You spared " + monsterName + ".");
+        printText("You earned 0 exp and " + gold + " gold.");
+        player.inventory.addGold(gold);
     }
 
     /**
@@ -227,7 +266,7 @@ public class Game {
         Inventory inventory = player.inventory;
         inventory.showInventory();
         if (inventory.getCurrentSize() == 0) {
-            printText("Your inventory is empty");
+            printText("Your inventory is empty.");
             return;
         }
         while (true) {
@@ -239,7 +278,7 @@ public class Game {
                 item.use();
                 return;
             } else {
-                printText("No such item " + chosenItem);
+                printText("No such item " + chosenItem + ".");
             }
         }
     }
@@ -251,25 +290,29 @@ public class Game {
     private boolean giveActOptions(Monster monster) {
         HashMap<String, ArrayList<Action>> actOptions = ActOptions.actOptions;
         ArrayList<Action> actionList = actOptions.get(monster.getName());
-        for (Action action : actionList) {
-            System.out.print(action.getName() + " ");
+        for (Action action: actionList) {
+            System.out.print(action.getName() + "   ");
         }
         System.out.println();
 
         while (true) {
             System.out.print("> ");
             String chosenAction = in.nextLine();
-            for (Action action : actionList) {
-                if (action.getName().equalsIgnoreCase("check")) {
-                    printText(monster.check() + " " + action.getResponse());
-                    return false;
+            if (chosenAction.equalsIgnoreCase("check")) {
+                for (Action action: actionList) {
+                    if (action.getName().equalsIgnoreCase("check")) {
+                        printText(monster.check() + " " + action.getResponse());
+                        return false;
+                    }
                 }
-
+            }
+            for (Action action : actionList) {
                 if (action.getName().equalsIgnoreCase(chosenAction)) {
                     printText(action.getResponse());
                     return action.isMercyOption();
                 }
             }
+            printText("No such action " + chosenAction + ".");
         }
     }
 
@@ -277,27 +320,29 @@ public class Game {
      * Plays an attack slider mini-game. The closer to the target, the more damage done.
      * @return the amount of damage done to the monster.
      */
-
     private String giveEncounterOptions() {
         String option;
         System.out.println("FIGHT   ACT   ITEM   MERCY");
         while (true) {
             System.out.print("> ");
             option = in.nextLine().toLowerCase();
-            if (!(option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy"))) {
-                System.out.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY");
-            }
-            else
+            if (isValidOption(option))
                 return option;
+            else
+                System.out.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY.");
         }
+    }
+
+    public static boolean isValidOption(String option) {
+        return option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy");
     }
 
     public void printDeathMessage() {
         int r = (int) (Math.random() * 3);
-        switch(r) {
-            case 0: printText("You cannot give up just yet...");
-            case 1: printText("Don't lose hope!");
-            case 2: printText("Our fate rests upon you...");
+        switch (r) {
+            case 0 -> printText("You cannot give up just yet...");
+            case 1 -> printText("Don't lose hope!");
+            case 2 -> printText("Our fate rests upon you...");
         }
         printText(player.getName() + "! Stay determined!");
     }

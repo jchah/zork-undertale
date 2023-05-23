@@ -8,21 +8,21 @@ public class Armor extends ToggleableItem {
         this.def = def;
     }
 
-    public int getDfValue() {
+    public int getDef() {
         return def;
     }
 
     @Override
     public void use() {
         disableActiveItem();
-        Game.game.printText("Now wearing the " + getName() );
+        Game.printText("Now wearing the " + getName() );
         Game.game.getPlayer().setDef(def);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
-        Game.game.printText("No longer wearing the " + getName() );
+        Game.printText("No longer wearing the " + getName() );
         Game.game.getPlayer().setDef(0);
         setInUse(false);
     }

@@ -8,21 +8,21 @@ public class Weapon extends ToggleableItem {
         this.atk = atk;
     }
 
-    public int getAtValue() {
+    public int getAtk() {
         return atk;
     }
 
     @Override
     public void use() {
         disableActiveItem();
-        Game.game.printText("Now wielding the " + getName());
+        Game.printText("Now wielding the " + getName());
         Game.game.getPlayer().setAtk(atk);
         setInUse(true);
     }
 
     @Override
     public void disuse() {
-        Game.game.printText("No longer wielding the " + getName());
+        Game.printText("No longer wielding the " + getName());
         Game.game.getPlayer().setAtk(0);
         setInUse(false);
     }

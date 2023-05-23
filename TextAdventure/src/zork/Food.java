@@ -8,7 +8,7 @@ public class Food extends Item {
         this.hp = hp;
     }
 
-    public int getHpValue() {
+    public int getHp() {
         return hp;
     }
 
@@ -21,6 +21,6 @@ public class Food extends Item {
         Inventory inventory = player.inventory;
         int index = inventory.findItemByName(getName());
         inventory.removeItemByIndex(index);
-        Game.game.printText("You ate the " + getName() + " and recovered " + (player.getHp() - beforeHealth) + "hp");
+        Game.printText("You ate the " + getName() + " and recovered " + (player.getHp() - beforeHealth) + "hp");
     }
 }
