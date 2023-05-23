@@ -214,7 +214,6 @@ public class Game {
         printAsciiImage(monsterName);
         printText("A wild " + monsterName + " appeared!");
         while (keepFighting) {
-            player.takeDamage(5);
             System.out.print(player.getName() + " health: ");
             showHealthBar(player);
             System.out.print(monsterName + " health: ");
