@@ -68,13 +68,13 @@ public class Game {
                     if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                         return name;
                     } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
-                        System.err.println("Invalid response. Please answer (y)es or (n)o");
+                        System.out.println("Invalid response. Please answer (y)es or (n)o");
                     } else
                         good = true;
                 }
             }
             else {
-                System.err.println("Name must be within 1 and 15 characters");
+                System.out.println("Name must be within 1 and 15 characters");
             }
         }
     }
@@ -114,7 +114,7 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        Monster froggit = new Monster(30, 4, 2, 4, "froggit");
+        Monster froggit = new Monster(30, 5, 2, 4, 2, "froggit");
         encounter(froggit);
 
         boolean finished = false;
@@ -170,13 +170,37 @@ public class Game {
         }
     }
 
+    public void showHealthBar(Entity entity) {
+        String[] bar = "||||||||||||||||||||".split("");
+        int startIndex = bar.length - 1;
+        double percent = (double) entity.getHp() / entity.getMaxHp();
+        int offset = (int) (bar.length * (1 - percent));
+        for (int i = 0; i < offset; i++) {
+            bar[startIndex--] = "X";
+        }
+        for (String marker: bar) {
+            System.out.print(marker);
+        }
+        System.out.println();
+    }
+
     private void encounter(Monster monster) {
         String option;
         boolean keepFighting = true;
         boolean canMercy = false;
-        printAsciiImage(monster.getName());
-        printText("A wild " + monster.getName() + " appeared!");
-        while (player.getHp() > 0 && keepFighting) {
+        String monsterName = monster.getName();
+        printAsciiImage(monsterName);
+        printText("A wild " + monsterName + " appeared!");
+        while (keepFighting) {
+            System.out.print(player.getName() + " health: ");
+            showHealthBar(player);
+            System.out.print(monsterName + " health: ");
+            showHealthBar(monster);
+
+            if (player.isDead()) {
+                printDeathMessage();
+                return;
+            }
             option = giveEncounterOptions();
             switch (option) {
                 case "fight" -> monster.takeDamage(attackMeterGame.playGame(monster));
@@ -184,7 +208,16 @@ public class Game {
                 case "item" -> giveItemOptions();
                 case "mercy" -> keepFighting = !canMercy;
             }
+
+            if (monster.isDead()) {
+                printText(monsterName + " was defeated");
+                printText("You earned " + monster.getExpReward() + " exp and " + monster.calcGoldReward() + " gold");
+                player.addExp(monster.getExpReward());
+                return;
+            }
         }
+        printText("You spared " + monsterName);
+        printText("You earned 0 exp and " + monster.calcGoldReward() + " gold");
     }
 
     /**
@@ -193,6 +226,10 @@ public class Game {
     private void giveItemOptions() {
         Inventory inventory = player.inventory;
         inventory.showInventory();
+        if (inventory.getCurrentSize() == 0) {
+            printText("Your inventory is empty");
+            return;
+        }
         while (true) {
             System.out.print("> ");
             String chosenItem = in.nextLine();
@@ -215,15 +252,24 @@ public class Game {
         HashMap<String, ArrayList<Action>> actOptions = ActOptions.actOptions;
         ArrayList<Action> actionList = actOptions.get(monster.getName());
         for (Action action : actionList) {
-            System.out.print(action + " ");
+            System.out.print(action.getName() + " ");
         }
+        System.out.println();
 
         while (true) {
             System.out.print("> ");
             String chosenAction = in.nextLine();
-            // if no action.getName() in actionList returns chosenAction continue
-            // if action is check, print monster.check() + " " + action response
-            // else...
+            for (Action action : actionList) {
+                if (action.getName().equalsIgnoreCase("check")) {
+                    printText(monster.check() + " " + action.getResponse());
+                    return false;
+                }
+
+                if (action.getName().equalsIgnoreCase(chosenAction)) {
+                    printText(action.getResponse());
+                    return action.isMercyOption();
+                }
+            }
         }
     }
 
@@ -239,11 +285,21 @@ public class Game {
             System.out.print("> ");
             option = in.nextLine().toLowerCase();
             if (!(option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy"))) {
-                System.err.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY");
+                System.out.println("Not a valid option: choose FIGHT, ACT, ITEM, or MERCY");
             }
             else
                 return option;
         }
+    }
+
+    public void printDeathMessage() {
+        int r = (int) (Math.random() * 3);
+        switch(r) {
+            case 0: printText("You cannot give up just yet...");
+            case 1: printText("Don't lose hope!");
+            case 2: printText("Our fate rests upon you...");
+        }
+        printText(player.getName() + "! Stay determined!");
     }
 
     private boolean processCommand(Command command) {

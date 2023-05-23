@@ -6,6 +6,7 @@ public class Inventory {
     public ArrayList<Item> items;
     private final int maxCapacity;
     private int currentSize;
+    private int gold;
 
     public Inventory(int maxCapacity) {
         this.items = new ArrayList<Item>();
@@ -19,6 +20,18 @@ public class Inventory {
 
     public int getCurrentSize() {
         return currentSize;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void addGold(int gold) {
+        this.gold += gold;
+    }
+
+    public void spendGold(int gold) {
+        this.gold -= gold;
     }
 
     public boolean hasSpace() {
@@ -43,6 +56,7 @@ public class Inventory {
                 item = items.get(i).getName();
             System.out.println(i + 1 + ": " + item);
         }
+        System.out.println(gold + " gold");
     }
 
     public int findItemByName(String name) {

@@ -19,7 +19,6 @@ public abstract class Entity {
         return hp;
     }
 
-
     public void setHp(int hp) {
         this.hp = hp;
     }
@@ -52,6 +51,10 @@ public abstract class Entity {
         this.hp += hp;
         if (this.hp > maxHp)
             this.hp = maxHp;
+    }
+
+    public boolean isDead() {
+        return getHp() <= 0;
     }
 
     public void takeDamage(int dmg) {

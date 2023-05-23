@@ -36,4 +36,7 @@ public class Action {
         this.mercyOption = mercyOption;
     }
 
+    public boolean isMercyOption() {
+        return mercyOption;
+    }
 }
