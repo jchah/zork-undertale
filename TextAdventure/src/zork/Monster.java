@@ -30,7 +30,7 @@ public class Monster extends Entity{
     }
 
     public int calcGoldReward() {
-        int r = (int) (Math.random() * 3);
+        int r = (int) (1 + Math.random() * 3);
         return goldMultiplier * r;
     }
 }

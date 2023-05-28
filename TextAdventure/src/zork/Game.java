@@ -18,10 +18,11 @@ public class Game {
     public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
     public static Game game = new Game();
+    public boolean testMode;
     private final Parser parser;
     private Room currentRoom;
     private final Player player;
-    private static final Scanner in = new Scanner(System.in);
+    private final Scanner in = new Scanner(System.in);
     private static final AttackMeterGame attackMeterGame= new AttackMeterGame();
     private static final Charset defaultCharset = Charset.defaultCharset();
     private PrintStream out = null;
@@ -48,14 +49,15 @@ public class Game {
 
         parser = new Parser();
 
-        boolean testMode = true;
-        if (!testMode) {
-            printIntro();
-            player = new Player(20, 0, 0, namePrompt());
-        }
-        else {
+        testMode = true;
+
+        if (testMode) {
             System.out.println("GAME IN TEST MODE");
             player = new Player(20, 0, 0, "Frisk");
+        }
+        else {
+            printIntro();
+            player = new Player(20, 0, 0, namePrompt());
         }
     }
 
@@ -63,7 +65,7 @@ public class Game {
         return player;
     }
 
-    public static String namePrompt() {
+    public String namePrompt() {
         String name;
         String temp;
         while (true) {
@@ -170,6 +172,7 @@ public class Game {
             sleep(50);
         }
         System.out.println();
+        sleep(1000);
     }
 
     public static void sleep(int ms) {
@@ -180,7 +183,7 @@ public class Game {
         }
     }
 
-    public String encodeToString(String string) {
+    public static String encodeToString(String string) {
         String data = "";
         byte[] sourceBytes = string.getBytes(StandardCharsets.UTF_8);
         try {
@@ -210,7 +213,7 @@ public class Game {
         String option;
         boolean keepFighting = true;
         boolean canMercy = false;
-        String monsterName = monster.getName();
+        String monsterName = monster.getName().toUpperCase();
         printAsciiImage(monsterName);
         printText("A wild " + monsterName + " appeared!");
         while (keepFighting) {
@@ -251,11 +254,24 @@ public class Game {
                 player.inventory.addGold(gold);
                 return;
             }
+            if (keepFighting)
+                player.takeDamage(playMiniGame(monster));
         }
         int gold = monster.calcGoldReward();
         printText("You spared " + monsterName + ".");
         printText("You earned 0 exp and " + gold + " gold.");
         player.inventory.addGold(gold);
+    }
+
+    private int playMiniGame(Monster monster) {
+        // todo Customize battles depending on monster name.
+        // todo Give play() a parameter, customize attributes using switch.
+        // todo play() should return the damage done to the player depending on the number of times they hit obstacles.
+        // this function will return the play() function.
+        KeyListener.run = true;
+        MiniGame.miniGame.play(monster);
+        KeyListener.run = false;
+        return 0;
     }
 
     /**
@@ -324,6 +340,11 @@ public class Game {
         System.out.println("FIGHT   ACT   ITEM   MERCY");
         while (true) {
             System.out.print("> ");
+            try {
+                System.in.read(new byte[System.in.available()]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             option = in.nextLine().toLowerCase();
             if (isValidOption(option))
                 return option;

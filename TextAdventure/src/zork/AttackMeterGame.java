@@ -39,7 +39,7 @@ public class AttackMeterGame {
                 break;
             }
 
-            for (int j = 0; j < attackMeter.length; j++)
+            for (int j = 0; j < attackMeter.length * 2; j++)
                 System.out.print("\b");
 
             attackMeter[i] = "|";
