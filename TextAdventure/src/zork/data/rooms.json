@@ -1,350 +1,1301 @@
 {
   "rooms": [
     {
-      "id": "Ruins",
-      "name": "Ruins",
-      "description": "You've fallen into the deep depths of the RUINS.",
+      "id": "flower room",
+      "name": "flower room",
+      "description": "welcome to the underground",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Ruins Hallway"
+          "adjacentRoom": "ruins entrance"
         }
       ]
     },
     {
-      "id": "Ruins Hallway",
-      "name": "Ruins Hallway",
-      "description": "You find yourself in a hallway leading to the rest of the RUINS.",
+      "id": "ruins entrance",
+      "name": "flower room",
+      "description": "you are now in the ruins",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Ruins"
+          "adjacentRoom": "flower room"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Ruins East"
+          "adjacentRoom": "ruins hallway"
         }
       ]
     },
     {
-      "id": "Ruins East",
-      "name": "Ruins East",
-      "description": "You are east of the RUINS entry.",
+      "id": "ruins hallway",
+      "name": "ruins hallway",
+      "description": "you are in a hallway in the ruins",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruins Hallway"
-          
+          "adjacentRoom": "ruins entrance"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Snowdin"
+          "adjacentRoom": "ruins save1"
         }
       ]
     },
     {
-      "id": "Snowdin",
-      "name": "Snowdin",
-      "description": "Out of the ruins, ",
+      "id": "ruins save1",
+      "name": "ruins save1",
+      "description": "you are in a save room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "ruins save1 candy"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "ruins hallway"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "ruins puzzleroom1"
+        }
+      ]
+    },
+    {
+      "id": "ruins save1 candy",
+      "name": "ruins save1 candy",
+      "description": "you are in a candy room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "ruins save1 "
+        }
+      ]
+    },
+    {
+      "id": "ruins puzzleroom1",
+      "name": "ruins puzzleroom1",
+      "description": "you are in a puzzle room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "ruins save1"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "ghost room"
+      
+        }
+      ]
+    },
+    {
+      "id": "ghost room",
+      "name": "ghost room",
+      "description": "you are in a ghost room",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Ruins East"
-        }, 
+          "adjacentRoom": "ghost room candy"
+        },
         {
           "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Snowdin Village"
+          "direction": "West",
+          "adjacentRoom": "ruins puzzleroom1"
+      
         }
       ]
     },
     {
-      "id": "Snowdin Village",
-      "name": "Snowdin Village",
-      "description": "Its snowing, a big sign reads \"welcome to Snowdin!\"",
+      "id": "ghost room candy",
+      "name": "ghost room candy",
+      "description": "you are in a candy room in ghost",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "ruins puzzle room2"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "ghost room"
+      
+        }
+      ]
+    },
+    {
+      "id": "ruins puzzle room2",
+      "name": "ruins puzzle room2",
+      "description": "you are in a puzzle room two",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Snowdin"
-        }, 
+          "adjacentRoom": "ghost room candy"
+        },
         {
           "isLocked": false,
           "direction": "South",
+          "adjacentRoom": "ruins crosspath"
+      
+        }
+      ]
+    },
+    {
+      "id": "ruins crosspath",
+      "name": "ruins crosspath",
+      "description": "you are in the crosspath",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "ruins puzzle room2"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "knife room"
+      
+        },
+        {
+          "isLocked": true,
+          "direction": "West",
+          "adjacentRoom": "house entrance save"
+      
+        }
+      ]
+    },
+    {
+      "id": "knife room",
+      "name": "knife room",
+      "description": "you are in the knife room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "ruins crosspath"
+        }
+      ]
+    },
+    {
+      "id": "house entrance save",
+      "name": "house entrance save",
+      "description": "this is hose entrnace save",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "ruins crosspath"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Toriel's house"
+      
+        }
+      ]
+    },
+    {
+      "id": "Toriel's house",
+      "name": "Toriel's house",
+      "description": "this is hose entrnace save",
+      "exits": [
+        {
+          "isLocked": true,
+          "direction": "North",
+          "adjacentRoom": "house downstairs"
+        },
+        {
+          "isLocked": false,
+          "direction": "west",
+          "adjacentRoom": "chair room"
+      
+        },
+        {
+          "isLocked": false,
+          "direction": "east",
+          "adjacentRoom": "bedrooms "
+      
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "house entrance save"
+      
+        }
+      ]
+    },
+    {
+      "id": "bedrooms",
+      "name": "bedrooms",
+      "description": "chair room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Toriel's House"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Toriel's room"
+      
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "your room"
+      
+        }
+      ]
+    },
+    {
+      "id": "Toriel's room",
+      "name": "Toriel's room",
+      "description": "chair room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "bedrooms"
+        }
+      ]
+    },
+    {
+      "id": "your room",
+      "name": "your room",
+      "description": "chair room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "bedrooms"
+        }
+      ]
+    },
+    {
+      "id": "Chair Room",
+      "name": "Chair Room",
+      "description": "chair room",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Toriel's House"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Kitchen"
+      
+        }
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "kitchen",
+      "description": "monkey",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "chair room"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Kitchen"
+      
+        }
+      ]
+    },
+    {
+      "id": "house downstairs",
+      "name": "house downstairs",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "downstairs hallway"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Toriel's house"
+      
+        }
+      ]
+    },
+    {
+      "id": "downstairs hallway",
+      "name": "downstairs hallway",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "house downstairs"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Toriel encounter"
+      
+        }
+      ]
+    },
+    {
+      "id": "Toriel encoutner",
+      "name": "Toriel encoutner",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "downstairs hallway"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Ruin's exit"
+      
+        }
+      ]
+    },
+    {
+      "id": "Ruin's Exit",
+      "name": "Ruins Exit",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Toriel encoutner"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Tundra Hallway"
+      
+        }
+      ]
+    },
+    {
+      "id": "Tundra Hallway",
+      "name": "Tundra Hallway",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ruin's Exit"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Sans dialogue"
+      
+        }
+      ]
+    },
+    {
+      "id": "Sans Dialogue",
+      "name": "Sans Dialogue",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Tundra Hallway"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Lamp Room"
+      
+        }
+      ]
+    },
+    {
+      "id": "Lamp Room",
+      "name": "Lamp Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Sans dialogue"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Tundra Save1"
+      
+        }
+      ]
+    },
+    {
+      "id": "Tundra Save1",
+      "name": "Tunnda Save1",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Lamp Room"
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Doggo Encounter"
+      
+        },
+        {
+          "isLocked": true,
+          "direction": "North",
+          "adjacentRoom": "Fishing Room"
+      
+        }
+      ]
+    },
+    {
+      "id": "Fishing Room",
+      "name": "Fishing Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Tundra Save1"
+        }
+      ]
+    },
+    {
+      "id": "Doggo Encounter",
+      "name": "Doggo Encounter",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Tundra Save1"
+        },
+        {
+          "isLocked": true,
+          "direction": "North",
+          "adjacentRoom": "Snowman Room"
+      
+        },
+        {
+          "isLocked": true,
+          "direction": "East",
+          "adjacentRoom": "Tundra Puzzle"
+      
+        }
+      ]
+    },
+    {
+      "id": "Snowman Room",
+      "name": "Snowman Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Doggo Encounter"
+        }
+      ]
+    },
+    {
+      "id": "Tundra Puzzle",
+      "name": "Tundra Puzzle",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Doggo Encounter"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Tundra Spaghetti Save2"
+        }
+      ]
+    },
+    {
+      "id": "Tundra Spaghetti Save2",
+      "name": "Tundra Spaghetti Save2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Tundra Puzzle"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Ice Cream Room"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Danger Bridge"
+        }
+      ]
+    },
+    {
+      "id": "Ice Cream Room",
+      "name": "Ice Cream Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Tundra Spaghetti Save2"
+        }
+      ]
+    },
+    {
+      "id": "Danger Bridge",
+      "name": "Danger Bridge",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Tundra Spaghetti Save2"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Town"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Town",
+      "name": "Snowdin Town",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Danger Bridge"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Grillbys"
+        },
+        {
+          "isLocked": true,
+          "direction": "South",
+          "adjacentRoom": "Papyrus House"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Town2"
+        }
+      ]
+    },
+    {
+      "id": "Grillbys",
+      "name": "Grillbys",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Snowdin Town"
+        }
+      ]
+    },
+    {
+      "id": "Papyrus House",
+      "name": "Papyrus House",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Snowdin Town"
+        }
+      ]
+    },
+    {
+      "id": "Snowdin Town2",
+      "name": "Snowdin Town2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Snowdin Town"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
           "adjacentRoom": "Snowed Inn"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Snowdin Town3"
         }
       ]
     },
     {
       "id": "Snowed Inn",
       "name": "Snowed Inn",
-      "description": "You enter a cozy inn called the Snowed Inn",
+      "description": "you are in the downstairs of the house",
       "exits": [
-       
         {
           "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Snowdin Shop"
-        },
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Snowdin Village"
+          "direction": "South",
+          "adjacentRoom": "Snowdin Town2"
         }
       ]
     },
     {
-      "id": "Snowdin Shop",
-      "name": "Snowdin Shop",
-      "description": "You enter a cute shop called the Snowedin Shop",
+      "id": "Snowdin Town3",
+      "name": "Snowdin Town3",
+      "description": "you are in the downstairs of the house",
       "exits": [
-        
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Snowed Inn"
-        }, 
+          "adjacentRoom": "Snowdin Town2"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Library"
+        },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Library"
+          "adjacentRoom": "Waterfall Entrance"
         }
       ]
     },
     {
       "id": "Library",
       "name": "Library",
-      "description": "You see a bunch of books and see a library",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Snowdin Hallway"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Snowdin Shop"
-        }
-      ]
-    },
-    {
-      "id": "Snowdin Hallway",
-      "name": "Snowdin Hallway",
-      "description": "You enter a hallway int the Snowdin",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Library"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Snowdin Puzzles"
+          "adjacentRoom": "Snowdin Town3"
         }
       ]
     },
     {
-      "id": "Snowdin Puzzles",
-      "name": "Snow Puzzles",
-      "description": "Your in the snow puzzles",
+      "id": "Waterfall Entrance",
+      "name": "Waterfall Entrance",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Snowdin Hallway"
-        }, 
+          "adjacentRoom": "Snowdin Town3"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Waterfall save1"
+        }
+      ]
+    },
+    {
+      "id": "Waterfall Save1",
+      "name": "Waterfall Save1",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Waterfall Entrance"
+        },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Waterfall Hallway"
+          "adjacentRoom": "Waterfall Puzzle1"
         }
       ]
     },
     {
-      "id": "Waterfall Hallway",
-      "name": "Waterfall Hallway",
-      "description": "You see a bunch of books and see a library",
+      "id": "Waterfall Puzzle1",
+      "name": "Waterfall Puzzle1",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Snowdin Puzzles"
-        }, 
+          "adjacentRoom": "Waterfall save1"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Quiche Room"
+        },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Monster Kid"
+          "adjacentRoom": "Telescope Room"
         }
       ]
     },
     {
-      "id": "Monster Kid",
-      "name": "Monster Kid",
-      "description": "You see a big monsyer named moster kid",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Waterfall Hallway"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Undyne fights"
-        }
-      ]
-    },
-    {
-      "id": "Undyne fights",
-      "name": "Undyne fights",
-      "description": "Your in the undyne fights",
+      "id": "Quiche Room",
+      "name": "QUiche Room",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Monster Kid"
-        }, 
+          "adjacentRoom": "Waterfall Puzzle1"
+        }
+      ]
+    },
+    {
+      "id": "Telescope Room",
+      "name": "Telescope Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Ice Cream Room2"
+        },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Monster Kid 2"
+          "adjacentRoom": "Waterfall Save2"
         }
       ]
     },
     {
-      "id": "Monster Kid 2",
-      "name": "Monster Kid 2",
-      "description": "You are now in monster kid 2",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Undyne fights"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "The Core Hallway"
-        }
-      ]
-    },
-    {
-      "id": "The Core Hallway",
-      "name": "The Core Hallway",
-      "description": "You are in a hallway in the Core",
+      "id": "Ice Cream Room2",
+      "name": "Ice Cream Room2",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Monster Kid 2"
-        }, 
+          "adjacentRoom": "Telescope Room2"
+        }
+      ]
+    },
+    {
+      "id": "Waterfall Save2",
+      "name": "Waterfall Save2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Telescope Room"
+        },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "The Core Puzzle Room"
+          "adjacentRoom": "Undyne Maze"
         }
       ]
     },
     {
-      "id": "The Core Puzzle Room",
-      "name": "The Core Puzzle Room",
-      "description": "Wecome to the zore puzzle room",
+      "id": "Undyne Maze",
+      "name": "Undyne Maze",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "The Core Hallway"
-        }, 
+          "adjacentRoom": "Waterfall Save2"
+        },
         {
           "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "The Core Hallway 2"
+          "direction": "South",
+          "adjacentRoom": "Undyne Encounter"
         }
       ]
     },
     {
-      "id": "The Core Hallway 2",
-      "name": "The Core Hallway 2",
-      "description": "You are now in the second hallway in The Core",
+      "id": "Undyne Encoutner",
+      "name": "Undyne Encoutner",
+      "description": "you are in the downstairs of the house",
       "exits": [
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "The Core Puzzle Room"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "The Core Puzzle Room 2"
-        }
-      ]
-    },
-    {
-      "id": "The Core Puzzle Room 2",
-      "name": "The Core Puzzle room 2",
-      "description": "You are now in the second puzzle room in The Core",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "The Core Hallway 2"
-        }, 
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "San's Workshop"
+          "adjacentRoom": "Undyne Maze"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Entrance"
         }
       ]
     },
     {
-      "id": "San's Workshop",
-      "name": "San's Workhop",
-      "description": "You are now in San's workshop BITCH",
+      "id": "Core Entrance",
+      "name": "Core Entrance",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Undyne Encounter"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Lobby"
+        }
+      ]
+    },
+    {
+      "id": "Core Lobby",
+      "name": "Core Lobby",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Entrance"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Puzzle Room1"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Puzzle Room2"
+        },
+        {
+          "isLocked": true,
+          "direction": "South",
+          "adjacentRoom": "Core Lobby Main"
+        }
+      ]
+    },
+    {
+      "id": "Core Puzzle Room1",
+      "name": "Core Puzzle Room1",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Lobby"
+        }
+      ]
+    },
+    {
+      "id": "Core Puzzle Room2",
+      "name": "Core Puzzle Room2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Lobby"
+        }
+      ]
+    },
+    {
+      "id": "Core Lobby Main",
+      "name": "Core Lobby Main",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Lobby"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Bridge"
+        }
+      ]
+    },
+    {
+      "id": "Core Bridge",
+      "name": "Core Bridge",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Lobby Main"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Bridge1"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Bridge2"
+        }
+      ]
+    },
+    {
+      "id": "Core Bridge1",
+      "name": "Core Bridge1",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "The Core Puzzle Room 2"
-        }, 
+          "adjacentRoom": "Core Bridge"
+        },
         {
           "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "The FlowerBed In The Ruins"
+          "direction": "East",
+          "adjacentRoom": "Core Bridge Item Room1"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Bridge Item Room2"
         }
       ]
     },
     {
-      "id": "The FlowerBed In The Ruins",
-      "name": "The FlowerBed In The Ruins",
-      "description": "You are now in The FlowerBed In The Ruins",
+      "id": "Core Bridge Item Room1",
+      "name": "Core Bridge Item Room1",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Bridge1"
+        }
+      ]
+    },
+    {
+      "id": "Core Bridge Item Room2",
+      "name": "Core Bridge Item Room2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Bridge1"
+        }
+      ]
+    },
+    {
+      "id": "Core Bridge2",
+      "name": "Core Bridge2",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Bridge"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Maze"
+        }
+      ]
+    },
+    {
+      "id": "Core Maze",
+      "name": "Core Maze",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Bridge2"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Bridge Main"
+        }
+      ]
+    },
+    {
+      "id": "Core Bridge Main",
+      "name": "Core Bridge Main",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Maze"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Center Puzzle"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Item Room"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Center Main"
+        }
+      ]
+    },
+    {
+      "id": "Core Center Puzzle",
+      "name": "Core Center Puzzle",
+      "description": "you are in the downstairs of the house",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Sans Workshop"
-        }, 
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "The End"
+          "adjacentRoom": "Core Bridge Main"
         }
       ]
     },
     {
-      "id": "The End",
-      "name": "The End",
-      "description": "You are now done Bitch",
+      "id": "Core Item Room",
+      "name": "Core Item Room",
+      "description": "you are in the downstairs of the house",
       "exits": [
-        
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Core Bridge Main"
+        }
+      ]
+    },
+    {
+      "id": "Core Center Main",
+      "name": "Core Center Main",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Bridge Main"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Hallway"
+        }
+      ]
+    },
+    {
+      "id": "Core Hallway",
+      "name": "Core Hallway",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Center Main"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Asgore's Castle"
+        }
+      ]
+    },
+    {
+      "id": "Asgore's Castle",
+      "name": "Asgore's Castle",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Core Hallway"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Tea Room"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Castle Hall"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Secret Room"
+        }
+      ]
+    },
+    {
+      "id": "Tea Room",
+      "name": "Tea Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Asgore's House"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Throne"
+        }
+      ]
+    },
+    {
+      "id": "Throne",
+      "name": "Throne",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Tea Room"
+        }
+      ]
+    },
+    {
+      "id": "Secret Room",
+      "name": "Secret Room",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Asgore's Castle"
+        }
+      ]
+    },
+    {
+      "id": "Castle Hall",
+      "name": "Castle Hall",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Asgore's House"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Asgore Encouter"
+        }
+      ]
+    },
+    {
+      "id": "Asgore Encounter",
+      "name": "Asgore Encounter",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Castle Hall"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Flowey Encounter"
+        }
+      ]
+    },
+    {
+      "id": "Flowey Encounter",
+      "name": "Flowey Encounter ",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Asgore Encouter"
+        },
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Barrier Break"
+        }
+      ]
+    },
+    {
+      "id": "Barrier Break",
+      "name": "Barrier Break",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Flowey Encounter"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Core Elevator"
+        }
+      ]
+    },
+    {
+      "id": "Core Elevator",
+      "name": "Core Elevator",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Barrier Break"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Underground Exit"
+        }
+      ]
+    },
+    {
+      "id": "Underground Exit",
+      "name": "Underground Exit",
+      "description": "you are in the downstairs of the house",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Core Elevator"
+        }
+       
       ]
     }
+    
+
+    
+
+       
+    
   ]
 }
