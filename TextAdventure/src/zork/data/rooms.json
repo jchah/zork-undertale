@@ -3,7 +3,7 @@
     {
       "id": "flower room",
       "name": "flower room",
-      "description": "welcome to the underground",
+      "description": "A serene chamber adorned with vibrant flowers, casting a gentle fragrance in the air.",
       "exits": [
         {
           "isLocked": false,
@@ -15,7 +15,7 @@
     {
       "id": "ruins entrance",
       "name": "flower room",
-      "description": "you are now in the ruins",
+      "description": "You find yourself at the entrance of the ancient Ruins, its eerie atmosphere lingering around you.",
       "exits": [
         {
           "isLocked": false,
@@ -32,7 +32,7 @@
     {
       "id": "ruins hallway",
       "name": "ruins hallway",
-      "description": "you are in a hallway in the ruins",
+      "description": "A dimly lit hallway stretches before you, lined with cracked stone walls and whispering echoes.",
       "exits": [
         {
           "isLocked": false,
@@ -49,7 +49,7 @@
     {
       "id": "ruins save1",
       "name": "ruins save1",
-      "description": "you are in a save room",
+      "description": "A small room with a peculiar aura, emanating a sense of safety and respite from the harsh world outside.",
       "exits": [
         {
           "isLocked": false,
@@ -71,19 +71,19 @@
     {
       "id": "ruins save1 candy",
       "name": "ruins save1 candy",
-      "description": "you are in a candy room",
+      "description": "A whimsical room filled with colorful candies and treats, tempting you with their sugary allure.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "ruins save1 "
+          "adjacentRoom": "ruins save1"
         }
       ]
     },
     {
       "id": "ruins puzzleroom1",
       "name": "ruins puzzleroom1",
-      "description": "you are in a puzzle room",
+      "description": "You step into a perplexing chamber, its walls adorned with intricate puzzles and enigmatic symbols.",
       "exits": [
         {
           "isLocked": false,
@@ -94,14 +94,13 @@
           "isLocked": false,
           "direction": "East",
           "adjacentRoom": "ghost room"
-      
         }
       ]
     },
     {
       "id": "ghost room",
       "name": "ghost room",
-      "description": "you are in a ghost room",
+      "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
       "exits": [
         {
           "isLocked": false,
@@ -112,14 +111,13 @@
           "isLocked": false,
           "direction": "West",
           "adjacentRoom": "ruins puzzleroom1"
-      
         }
       ]
     },
     {
       "id": "ghost room candy",
       "name": "ghost room candy",
-      "description": "you are in a candy room in ghost",
+      "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
       "exits": [
         {
           "isLocked": false,
@@ -130,14 +128,13 @@
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "ghost room"
-      
         }
       ]
     },
     {
       "id": "ruins puzzle room2",
       "name": "ruins puzzle room2",
-      "description": "you are in a puzzle room two",
+      "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
       "exits": [
         {
           "isLocked": false,
@@ -148,14 +145,13 @@
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "ruins crosspath"
-      
         }
       ]
     },
     {
       "id": "ruins crosspath",
       "name": "ruins crosspath",
-      "description": "you are in the crosspath",
+      "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
       "exits": [
         {
           "isLocked": false,
@@ -166,20 +162,18 @@
           "isLocked": false,
           "direction": "East",
           "adjacentRoom": "knife room"
-      
         },
         {
           "isLocked": true,
           "direction": "West",
           "adjacentRoom": "house entrance save"
-      
         }
       ]
     },
     {
       "id": "knife room",
       "name": "knife room",
-      "description": "you are in the knife room",
+      "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
       "exits": [
         {
           "isLocked": false,
@@ -191,7 +185,7 @@
     {
       "id": "house entrance save",
       "name": "house entrance save",
-      "description": "this is hose entrnace save",
+      "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
       "exits": [
         {
           "isLocked": false,
@@ -202,14 +196,13 @@
           "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Toriel's house"
-      
         }
       ]
     },
     {
       "id": "Toriel's house",
       "name": "Toriel's house",
-      "description": "this is hose entrnace save",
+      "description": "As you step into Toriel's cozy home, a warm ambiance welcomes you, emanating from the crackling fireplace and butterscotch pie.",
       "exits": [
         {
           "isLocked": true,
@@ -218,52 +211,47 @@
         },
         {
           "isLocked": false,
-          "direction": "west",
+          "direction": "West",
           "adjacentRoom": "chair room"
-      
         },
         {
           "isLocked": false,
-          "direction": "east",
-          "adjacentRoom": "bedrooms "
-      
+          "direction": "East",
+          "adjacentRoom": "bedrooms"
         },
         {
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "house entrance save"
-      
         }
       ]
     },
     {
       "id": "bedrooms",
       "name": "bedrooms",
-      "description": "chair room",
+      "description": "Within the bedrooms, a tranquil aura envelops the air, beckoning weary adventurers to rest their heads and find solace in their dreams.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Toriel's House"
+          "adjacentRoom": "Toriel's house"
         },
         {
           "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Toriel's room"
-      
         },
         {
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "your room"
-      
         }
       ]
     },
     {
       "id": "Toriel's room",
       "name": "Toriel's room",
-      "description": "chair room",
+      "description": "Within Toriel's home, a sense of maternal warmth permeates the air, offering a haven of comfort and love.",
       "exits": [
         {
           "isLocked": false,
@@ -275,7 +263,7 @@
     {
       "id": "your room",
       "name": "your room",
-      "description": "chair room",
+      "description": "As you enter your own private retreat, the room reflects your own personality and desires, providing a sense of familiarity and belonging.",
       "exits": [
         {
           "isLocked": false,
@@ -285,27 +273,26 @@
       ]
     },
     {
-      "id": "Chair Room",
+      "id": "chair room",
       "name": "Chair Room",
-      "description": "chair room",
+      "description": "Step into the Chair Room, where an assortment of comfortable chairs invites you to take a moment and relax amidst their welcoming embrace.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Toriel's House"
+          "adjacentRoom": "Toriel's house"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Kitchen"
-      
+          "adjacentRoom": "kitchen"
         }
       ]
     },
     {
       "id": "kitchen",
       "name": "kitchen",
-      "description": "monkey",
+      "description": "Embark into the Kitchen, filled with tantalizing aromas and culinary delights, where delectable creations come to life and nourish the soul.",
       "exits": [
         {
           "isLocked": false,
@@ -315,15 +302,14 @@
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Kitchen"
-      
+          "adjacentRoom": "kitchen"
         }
       ]
     },
     {
       "id": "house downstairs",
       "name": "house downstairs",
-      "description": "you are in the downstairs of the house",
+      "description": "Venture into the depths of the house as you find yourself in the downstairs area, where mysterious secrets lurk within its dimly lit corridors.",
       "exits": [
         {
           "isLocked": false,
@@ -334,14 +320,13 @@
           "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Toriel's house"
-      
         }
       ]
     },
     {
       "id": "downstairs hallway",
       "name": "downstairs hallway",
-      "description": "you are in the downstairs of the house",
+      "description": "Traverse the eerie downstairs hallway, its atmosphere heavy with a sense of foreboding, as if it holds the key to unfolding mysteries.",
       "exits": [
         {
           "isLocked": false,
@@ -352,14 +337,13 @@
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Toriel encounter"
-      
         }
       ]
     },
     {
-      "id": "Toriel encoutner",
-      "name": "Toriel encoutner",
-      "description": "you are in the downstairs of the house",
+      "id": "Toriel encounter",
+      "name": "Toriel encounter",
+      "description": "Find yourself face-to-face with Toriel, a kind-hearted caretaker, whose warm eyes hold both wisdom and concern for your safety.",
       "exits": [
         {
           "isLocked": false,
@@ -369,87 +353,82 @@
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Ruin's exit"
-      
+          "adjacentRoom": "Ruins exit"
         }
       ]
     },
     {
-      "id": "Ruin's Exit",
-      "name": "Ruins Exit",
-      "description": "you are in the downstairs of the house",
+      "id": "Ruins exit",
+      "name": "Ruins exit",
+      "description": "Stand at the threshold of the Ruins, the gateway to the unknown, where ancient remnants and unseen dangers await those who dare to venture forth.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Toriel encoutner"
+          "adjacentRoom": "Toriel encounter"
         },
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Tundra Hallway"
-      
+          "adjacentRoom": "Tundra hallway"
         }
       ]
     },
     {
-      "id": "Tundra Hallway",
-      "name": "Tundra Hallway",
-      "description": "you are in the downstairs of the house",
+      "id": "Tundra hallway",
+      "name": "Tundra hallway",
+      "description": "Step into the chilling Tundra hallway, where the frigid air bites at your skin and the silence is broken only by the faint echoes of distant howls.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruin's Exit"
+          "adjacentRoom": "Ruins exit"
         },
         {
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Sans dialogue"
-      
         }
       ]
     },
     {
       "id": "Sans Dialogue",
       "name": "Sans Dialogue",
-      "description": "you are in the downstairs of the house",
+      "description": "Engage in a conversation with Sans, a laid-back and enigmatic skeleton, as he imparts his cryptic wisdom and witty remarks.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Tundra Hallway"
+          "adjacentRoom": "Tundra hallway"
         },
         {
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Lamp Room"
-      
         }
       ]
     },
     {
       "id": "Lamp Room",
       "name": "Lamp Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Discover a dimly lit room adorned with flickering lamps, casting mysterious shadows on the walls, as if concealing secrets waiting to be unveiled.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Sans dialogue"
+          "adjacentRoom": "Sans Dialogue"
         },
         {
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Tundra Save1"
-      
         }
       ]
     },
     {
       "id": "Tundra Save1",
-      "name": "Tunnda Save1",
-      "description": "you are in the downstairs of the house",
+      "name": "Tundra Save1",
+      "description": "Navigate through the icy Tundra, where a bitter cold permeates the air, and make a pivotal decision that may shape the course of your journey.",
       "exits": [
         {
           "isLocked": false,
@@ -460,20 +439,18 @@
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Doggo Encounter"
-      
         },
         {
           "isLocked": true,
           "direction": "North",
           "adjacentRoom": "Fishing Room"
-      
         }
       ]
     },
     {
       "id": "Fishing Room",
       "name": "Fishing Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter a serene room where the sound of trickling water and the anticipation of a successful catch fill the air, beckoning you to try your hand at fishing.",
       "exits": [
         {
           "isLocked": false,
@@ -485,7 +462,7 @@
     {
       "id": "Doggo Encounter",
       "name": "Doggo Encounter",
-      "description": "you are in the downstairs of the house",
+      "description": "Encounter Doggo, a mischievous yet friendly canine, whose playful nature hides a deeper loyalty and a secret that may lead to unexpected discoveries.",
       "exits": [
         {
           "isLocked": false,
@@ -496,20 +473,18 @@
           "isLocked": true,
           "direction": "North",
           "adjacentRoom": "Snowman Room"
-      
         },
         {
           "isLocked": true,
           "direction": "East",
           "adjacentRoom": "Tundra Puzzle"
-      
         }
       ]
     },
     {
       "id": "Snowman Room",
       "name": "Snowman Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter a room where a jovial snowman stands, his infectious laughter and heartwarming tales providing a brief respite from the cold and challenges ahead.",
       "exits": [
         {
           "isLocked": false,
@@ -521,7 +496,7 @@
     {
       "id": "Tundra Puzzle",
       "name": "Tundra Puzzle",
-      "description": "you are in the downstairs of the house",
+      "description": "Embark on a challenging puzzle in the icy Tundra, where logic and wit are your only companions, and success leads to the next step of your journey.",
       "exits": [
         {
           "isLocked": false,
@@ -538,7 +513,7 @@
     {
       "id": "Tundra Spaghetti Save2",
       "name": "Tundra Spaghetti Save2",
-      "description": "you are in the downstairs of the house",
+      "description": "Continue your exploration through the frigid Tundra, encountering new challenges and indulging in a warm plate of spaghetti to restore your determination.",
       "exits": [
         {
           "isLocked": false,
@@ -560,7 +535,7 @@
     {
       "id": "Ice Cream Room",
       "name": "Ice Cream Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter a delightful room filled with frozen treats, where the sweet taste of ice cream melts away your worries and prepares you for the challenges that lie ahead.",
       "exits": [
         {
           "isLocked": false,
@@ -572,7 +547,7 @@
     {
       "id": "Danger Bridge",
       "name": "Danger Bridge",
-      "description": "you are in the downstairs of the house",
+      "description": "Cross a perilous bridge suspended over a treacherous chasm, as the howling wind and cracking ice serve as reminders of the dangers that lurk in the unforgiving Tundra.",
       "exits": [
         {
           "isLocked": false,
@@ -589,7 +564,7 @@
     {
       "id": "Snowdin Town",
       "name": "Snowdin Town",
-      "description": "you are in the downstairs of the house",
+      "description": "Arrive in the quaint Snowdin Town, a peaceful haven amidst the icy landscape, where friendly monsters reside and await your arrival with warm hospitality.",
       "exits": [
         {
           "isLocked": false,
@@ -616,7 +591,7 @@
     {
       "id": "Grillbys",
       "name": "Grillbys",
-      "description": "you are in the downstairs of the house",
+      "description": "Step into Grillby's, a cozy diner where mouthwatering aromas invite you to take a break and engage in lively conversations with the local monsters.",
       "exits": [
         {
           "isLocked": false,
@@ -628,7 +603,7 @@
     {
       "id": "Papyrus House",
       "name": "Papyrus House",
-      "description": "you are in the downstairs of the house",
+      "description": "Step inside Papyrus' House, a peculiar abode filled with eccentric decorations and the constant sound of bone-chilling puns.",
       "exits": [
         {
           "isLocked": false,
@@ -640,7 +615,7 @@
     {
       "id": "Snowdin Town2",
       "name": "Snowdin Town2",
-      "description": "you are in the downstairs of the house",
+      "description": "Explore more of the charming Snowdin Town, where cozy shops and friendly monsters await your visit.",
       "exits": [
         {
           "isLocked": false,
@@ -662,7 +637,7 @@
     {
       "id": "Snowed Inn",
       "name": "Snowed Inn",
-      "description": "you are in the downstairs of the house",
+      "description": "Rest and recuperate in the warm embrace of the Snowed Inn, a charming inn that offers a cozy haven from the cold.",
       "exits": [
         {
           "isLocked": false,
@@ -674,7 +649,7 @@
     {
       "id": "Snowdin Town3",
       "name": "Snowdin Town3",
-      "description": "you are in the downstairs of the house",
+      "description": "Continue your exploration of Snowdin Town, discovering new corners and meeting intriguing characters along the way.",
       "exits": [
         {
           "isLocked": false,
@@ -696,7 +671,7 @@
     {
       "id": "Library",
       "name": "Library",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter the vast Library, where shelves upon shelves of books beckon you to immerse yourself in knowledge and stories of the Underground.",
       "exits": [
         {
           "isLocked": false,
@@ -708,7 +683,7 @@
     {
       "id": "Waterfall Entrance",
       "name": "Waterfall Entrance",
-      "description": "you are in the downstairs of the house",
+      "description": "Reach the grand entrance to the enchanting Waterfall, where the sound of cascading water and mystical echoes fill the air.",
       "exits": [
         {
           "isLocked": false,
@@ -725,7 +700,7 @@
     {
       "id": "Waterfall Save1",
       "name": "Waterfall Save1",
-      "description": "you are in the downstairs of the house",
+      "description": "Find yourself in a tranquil space within the Waterfall, offering respite and a chance to save your progress.",
       "exits": [
         {
           "isLocked": false,
@@ -742,12 +717,12 @@
     {
       "id": "Waterfall Puzzle1",
       "name": "Waterfall Puzzle1",
-      "description": "you are in the downstairs of the house",
+      "description": "Engage your wits in a challenging puzzle room that tests your problem-solving skills.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Waterfall save1"
+          "adjacentRoom": "Waterfall Save1"
         },
         {
           "isLocked": false,
@@ -763,8 +738,8 @@
     },
     {
       "id": "Quiche Room",
-      "name": "QUiche Room",
-      "description": "you are in the downstairs of the house",
+      "name": "Quiche Room",
+      "description": "Discover a room dedicated to quiches, where tantalizing aromas fill the air and delicious treats await your indulgence.",
       "exits": [
         {
           "isLocked": false,
@@ -776,7 +751,7 @@
     {
       "id": "Telescope Room",
       "name": "Telescope Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Peer through a powerful telescope and witness the wonders of the cosmos, as well as the breathtaking beauty of the Waterfall.",
       "exits": [
         {
           "isLocked": false,
@@ -793,7 +768,7 @@
     {
       "id": "Ice Cream Room2",
       "name": "Ice Cream Room2",
-      "description": "you are in the downstairs of the house",
+      "description": "Savor the sweet delights of the Waterfall's renowned ice cream, a delectable treat that will tickle your taste buds.",
       "exits": [
         {
           "isLocked": false,
@@ -805,7 +780,7 @@
     {
       "id": "Waterfall Save2",
       "name": "Waterfall Save2",
-      "description": "you are in the downstairs of the house",
+      "description": "Take another opportunity to save your progress in the midst of the Waterfall's captivating ambience.",
       "exits": [
         {
           "isLocked": false,
@@ -822,7 +797,7 @@
     {
       "id": "Undyne Maze",
       "name": "Undyne Maze",
-      "description": "you are in the downstairs of the house",
+      "description": "Embark on a treacherous journey through the perilous Undyne Maze, where danger lurks around every corner.",
       "exits": [
         {
           "isLocked": false,
@@ -837,9 +812,9 @@
       ]
     },
     {
-      "id": "Undyne Encoutner",
-      "name": "Undyne Encoutner",
-      "description": "you are in the downstairs of the house",
+      "id": "Undyne Encounter",
+      "name": "Undyne Encounter",
+      "description": "Prepare to face the formidable Undyne in a thrilling encounter that will test your mettle and determination.",
       "exits": [
         {
           "isLocked": false,
@@ -856,7 +831,7 @@
     {
       "id": "Core Entrance",
       "name": "Core Entrance",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter the majestic Core, the heart of the Underground, as you embark on the final leg of your journey.",
       "exits": [
         {
           "isLocked": false,
@@ -873,7 +848,7 @@
     {
       "id": "Core Lobby",
       "name": "Core Lobby",
-      "description": "you are in the downstairs of the house",
+      "description": "Find yourself in the grandiose Core Lobby, a sprawling area that leads to various chambers and challenges.",
       "exits": [
         {
           "isLocked": false,
@@ -900,7 +875,7 @@
     {
       "id": "Core Puzzle Room1",
       "name": "Core Puzzle Room1",
-      "description": "you are in the downstairs of the house",
+      "description": "Engage in a challenging puzzle that tests your intelligence and problem-solving abilities.",
       "exits": [
         {
           "isLocked": false,
@@ -912,7 +887,7 @@
     {
       "id": "Core Puzzle Room2",
       "name": "Core Puzzle Room2",
-      "description": "you are in the downstairs of the house",
+      "description": "Navigate through a complex labyrinth of puzzles and obstacles, pushing your skills to the limit.",
       "exits": [
         {
           "isLocked": false,
@@ -924,7 +899,7 @@
     {
       "id": "Core Lobby Main",
       "name": "Core Lobby Main",
-      "description": "you are in the downstairs of the house",
+      "description": "Step into the main area of the Core Lobby, the central hub of the core facilities.",
       "exits": [
         {
           "isLocked": false,
@@ -941,7 +916,7 @@
     {
       "id": "Core Bridge",
       "name": "Core Bridge",
-      "description": "you are in the downstairs of the house",
+      "description": "Cross the expansive Core Bridge, a suspended pathway that leads deeper into the core.",
       "exits": [
         {
           "isLocked": false,
@@ -963,7 +938,7 @@
     {
       "id": "Core Bridge1",
       "name": "Core Bridge1",
-      "description": "you are in the downstairs of the house",
+      "description": "Explore the upper section of Core Bridge, where secrets and challenges await.",
       "exits": [
         {
           "isLocked": false,
@@ -985,7 +960,7 @@
     {
       "id": "Core Bridge Item Room1",
       "name": "Core Bridge Item Room1",
-      "description": "you are in the downstairs of the house",
+      "description": "Discover a hidden room on Core Bridge, filled with valuable items and treasures.",
       "exits": [
         {
           "isLocked": false,
@@ -997,7 +972,7 @@
     {
       "id": "Core Bridge Item Room2",
       "name": "Core Bridge Item Room2",
-      "description": "you are in the downstairs of the house",
+      "description": "Uncover another secret room on Core Bridge, containing rare artifacts and useful equipment.",
       "exits": [
         {
           "isLocked": false,
@@ -1009,7 +984,7 @@
     {
       "id": "Core Bridge2",
       "name": "Core Bridge2",
-      "description": "you are in the downstairs of the house",
+      "description": "Continue your journey across the lower section of Core Bridge, venturing deeper into the core's mysteries.",
       "exits": [
         {
           "isLocked": false,
@@ -1026,7 +1001,7 @@
     {
       "id": "Core Maze",
       "name": "Core Maze",
-      "description": "you are in the downstairs of the house",
+      "description": "Navigate through the intricate Core Maze, a labyrinthine network of passages and corridors.",
       "exits": [
         {
           "isLocked": false,
@@ -1043,7 +1018,7 @@
     {
       "id": "Core Bridge Main",
       "name": "Core Bridge Main",
-      "description": "you are in the downstairs of the house",
+      "description": "Arrive at the central area of Core Bridge, connecting various sections of the core's infrastructure.",
       "exits": [
         {
           "isLocked": false,
@@ -1070,7 +1045,7 @@
     {
       "id": "Core Center Puzzle",
       "name": "Core Center Puzzle",
-      "description": "you are in the downstairs of the house",
+      "description": "Engage in a challenging puzzle within the Core Center, testing your wits and problem-solving skills.",
       "exits": [
         {
           "isLocked": false,
@@ -1082,7 +1057,7 @@
     {
       "id": "Core Item Room",
       "name": "Core Item Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Discover a hidden room in the core, filled with valuable items and equipment to aid your journey.",
       "exits": [
         {
           "isLocked": false,
@@ -1094,7 +1069,7 @@
     {
       "id": "Core Center Main",
       "name": "Core Center Main",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter the heart of the core's operations, the bustling and central area of the Core Center.",
       "exits": [
         {
           "isLocked": false,
@@ -1111,7 +1086,7 @@
     {
       "id": "Core Hallway",
       "name": "Core Hallway",
-      "description": "you are in the downstairs of the house",
+      "description": "Proceed through the expansive Core Hallway, a passageway leading to various significant areas.",
       "exits": [
         {
           "isLocked": false,
@@ -1128,7 +1103,7 @@
     {
       "id": "Asgore's Castle",
       "name": "Asgore's Castle",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter Asgore's majestic castle, a grand structure that houses the ruler of the underground.",
       "exits": [
         {
           "isLocked": false,
@@ -1155,7 +1130,7 @@
     {
       "id": "Tea Room",
       "name": "Tea Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Relax in the Tea Room, a tranquil space where you can enjoy a soothing cup of tea and gather your thoughts.",
       "exits": [
         {
           "isLocked": false,
@@ -1172,7 +1147,7 @@
     {
       "id": "Throne",
       "name": "Throne",
-      "description": "you are in the downstairs of the house",
+      "description": "Approach the grand throne room, where Asgore presides over his kingdom.",
       "exits": [
         {
           "isLocked": false,
@@ -1184,7 +1159,7 @@
     {
       "id": "Secret Room",
       "name": "Secret Room",
-      "description": "you are in the downstairs of the house",
+      "description": "Discover a hidden chamber tucked away within the depths of Asgore's Castle.",
       "exits": [
         {
           "isLocked": false,
@@ -1196,7 +1171,7 @@
     {
       "id": "Castle Hall",
       "name": "Castle Hall",
-      "description": "you are in the downstairs of the house",
+      "description": "Enter the grand Castle Hall, a regal space connecting different areas of Asgore's Castle.",
       "exits": [
         {
           "isLocked": false,
@@ -1206,14 +1181,14 @@
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Asgore Encouter"
+          "adjacentRoom": "Asgore Encounter"
         }
       ]
     },
     {
       "id": "Asgore Encounter",
       "name": "Asgore Encounter",
-      "description": "you are in the downstairs of the house",
+      "description": "Prepare for a fateful encounter with Asgore, the formidable ruler of the underground.",
       "exits": [
         {
           "isLocked": false,
@@ -1229,13 +1204,13 @@
     },
     {
       "id": "Flowey Encounter",
-      "name": "Flowey Encounter ",
-      "description": "you are in the downstairs of the house",
+      "name": "Flowey Encounter",
+      "description": "Confront Flowey, the mischievous and enigmatic creature who guards the path ahead.",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Asgore Encouter"
+          "adjacentRoom": "Asgore Encounter"
         },
         {
           "isLocked": false,
@@ -1247,7 +1222,7 @@
     {
       "id": "Barrier Break",
       "name": "Barrier Break",
-      "description": "you are in the downstairs of the house",
+      "description": "Witness the climactic moment as the barrier stands ready to be shattered.",
       "exits": [
         {
           "isLocked": false,
@@ -1264,7 +1239,7 @@
     {
       "id": "Core Elevator",
       "name": "Core Elevator",
-      "description": "you are in the downstairs of the house",
+      "description": "Ride the Core Elevator, a vertical conduit leading to the depths of the underground.",
       "exits": [
         {
           "isLocked": false,
@@ -1281,14 +1256,13 @@
     {
       "id": "Underground Exit",
       "name": "Underground Exit",
-      "description": "you are in the downstairs of the house",
+      "description": "Reach the exit of the underground, where a new world awaits beyond.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Core Elevator"
         }
-       
       ]
     }
   ]

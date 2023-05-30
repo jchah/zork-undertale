@@ -264,14 +264,11 @@ public class Game {
     }
 
     private int playMiniGame(Monster monster) {
-        // todo Customize battles depending on monster name.
-        // todo Give play() a parameter, customize attributes using switch.
-        // todo play() should return the damage done to the player depending on the number of times they hit obstacles.
-        // this function will return the play() function.
+        int temp;
         KeyListener.run = true;
-        MiniGame.miniGame.play(monster);
+        temp = MiniGame.miniGame.play(monster);
         KeyListener.run = false;
-        return 0;
+        return temp;
     }
 
     /**
