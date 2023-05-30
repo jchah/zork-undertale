@@ -143,8 +143,8 @@ public class MiniGame {
             }
             area[r][f] = symbol;
             printArea();
+            Game.sleep(500);
         }
-        Game.sleep(500);
         return totalDamage;
     }
 }
