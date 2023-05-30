@@ -20,374 +20,374 @@
         {
           "isLocked": false,
           "direction": "south",
-          "adjacentRoom": "flower room"
+          "adjacentRoom": "Flower Room"
         },
         {
           "isLocked": false,
           "direction": "east",
-          "adjacentRoom": "ruins hallway"
+          "adjacentRoom": "Ruins Hallway"
         }
       ]
     },
     {
-      "id": "ruins hallway",
-      "name": "ruins hallway",
+      "id": "Ruins Hallway",
+      "name": "Ruins Hallway",
       "description": "A dimly lit hallway stretches before you, lined with cracked stone walls and whispering echoes.",
       "exits": [
         {
           "isLocked": false,
           "direction": "west",
-          "adjacentRoom": "ruins entrance"
+          "adjacentRoom": "Ruins Entrance"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "ruins save1"
+          "adjacentRoom": "Ruins Save1"
         }
       ]
     },
     {
-      "id": "ruins save1",
-      "name": "ruins save1",
+      "id": "Ruins Save1",
+      "name": "Ruins Save1",
       "description": "A small room with a peculiar aura, emanating a sense of safety and respite from the harsh world outside.",
       "exits": [
         {
           "isLocked": false,
           "direction": "west",
-          "adjacentRoom": "ruins save1 candy"
+          "adjacentRoom": "Ruins Save1 Candy"
         },
         {
           "isLocked": false,
           "direction": "north",
-          "adjacentRoom": "ruins hallway"
+          "adjacentRoom": "Ruins Hallway"
         },
         {
           "isLocked": false,
           "direction": "southeast",
-          "adjacentRoom": "ruins puzzleroom1"
+          "adjacentRoom": "Ruins Puzzleroom1"
         }
       ]
     },
     {
-      "id": "ruins save1 candy",
-      "name": "ruins save1 candy",
+      "id": "Ruins Save1 Candy",
+      "name": "Ruins Save1 Candy",
       "description": "A whimsical room filled with colorful candies and treats, tempting you with their sugary allure.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "ruins save1"
+          "adjacentRoom": "Ruins Save1"
         }
       ]
     },
     {
-      "id": "ruins puzzleroom1",
-      "name": "ruins puzzleroom1",
+      "id": "Ruins Puzzleroom1",
+      "name": "Ruins Puzzleroom1",
       "description": "You step into a perplexing chamber, its walls adorned with intricate puzzles and enigmatic symbols.",
       "exits": [
         {
           "isLocked": false,
           "direction": "northwest",
-          "adjacentRoom": "ruins save1"
+          "adjacentRoom": "Ruins Save1"
         },
         {
           "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "ghost room"
+          "direction": "east",
+          "adjacentRoom": "Ghost Room"
         }
       ]
     },
     {
-      "id": "ghost room",
-      "name": "ghost room",
+      "id": "Ghost Room",
+      "name": "Ghost Room",
       "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "ghost room candy"
+          "adjacentRoom": "Ghost Room Candy"
         },
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "ruins puzzleroom1"
+          "adjacentRoom": "Ruins Puzzleroom1"
         }
       ]
     },
     {
-      "id": "ghost room candy",
-      "name": "ghost room candy",
+      "id": "Ghost Room Candy",
+      "name": "Ghost Room Candy",
       "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "ruins puzzle room2"
+          "adjacentRoom": "Ruins Puzzle Room2"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "ghost room"
+          "adjacentRoom": "Ghost Room"
         }
       ]
     },
     {
-      "id": "ruins puzzle room2",
-      "name": "ruins puzzle room2",
+      "id": "Ruins Puzzle Room2",
+      "name": "Ruins Puzzle Room2",
       "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "ghost room candy"
+          "adjacentRoom": "Ghost Room Candy"
         },
         {
           "isLocked": false,
-          "direction": "southwest",
-          "adjacentRoom": "ruins crosspath"
+          "direction": "SouthWest",
+          "adjacentRoom": "Ruins Crosspath"
         }
       ]
     },
     {
-      "id": "ruins crosspath",
-      "name": "ruins crosspath",
+      "id": "Ruins Crosspath",
+      "name": "Ruins Crosspath",
       "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
       "exits": [
         {
           "isLocked": false,
-          "direction": " northeast",
-          "adjacentRoom": "ruins puzzle room2"
+          "direction": " NorthEast",
+          "adjacentRoom": "Ruins Puzzle Room2"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "knife room"
+          "adjacentRoom": "Knife Room"
         },
         {
           "isLocked": true,
           "direction": "West",
-          "adjacentRoom": "house entrance save"
+          "adjacentRoom": "House Entrance Save"
         }
       ]
     },
     {
-      "id": "knife room",
-      "name": "knife room",
+      "id": "Knife room",
+      "name": "Knife room",
       "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "ruins crosspath"
+          "adjacentRoom": "Ruins Crosspath"
         }
       ]
     },
     {
-      "id": "house entrance save",
-      "name": "house entrance save",
+      "id": "House Entrance Save",
+      "name": "House Entrance Save",
       "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "ruins crosspath"
+          "adjacentRoom": "Ruins Crosspath"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Toriel's house"
+          "adjacentRoom": "Toriel's House"
         }
       ]
     },
     {
-      "id": "Toriel's house",
-      "name": "Toriel's house",
+      "id": "Toriel's House",
+      "name": "Toriel's House",
       "description": "As you step into Toriel's cozy home, a warm ambiance welcomes you, emanating from the crackling fireplace and butterscotch pie.",
       "exits": [
         {
           "isLocked": true,
           "direction": "North",
-          "adjacentRoom": "house downstairs"
+          "adjacentRoom": "House Downstairs"
         },
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "chair room"
+          "adjacentRoom": "Chair Room"
         },
         {
           "isLocked": false,
-          "direction": "southeast",
-          "adjacentRoom": "bedrooms"
+          "direction": "SouthEast",
+          "adjacentRoom": "Bedrooms"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "house entrance save"
+          "adjacentRoom": "House Entrance Save"
         }
       ]
     },
     {
-      "id": "bedrooms",
-      "name": "bedrooms",
+      "id": "Bedrooms",
+      "name": "Bedrooms",
       "description": "Within the bedrooms, a tranquil aura envelops the air, beckoning weary adventurers to rest their heads and find solace in their dreams.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "northwest",
-          "adjacentRoom": "Toriel's house"
+          "direction": "NorthWest",
+          "adjacentRoom": "Toriel's House"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Toriel's room"
+          "adjacentRoom": "Toriel's Room"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "your room"
+          "adjacentRoom": "Your Room"
         }
       ]
     },
     {
-      "id": "Toriel's room",
-      "name": "Toriel's room",
+      "id": "Toriel's Room",
+      "name": "Toriel's Room",
       "description": "Within Toriel's home, a sense of maternal warmth permeates the air, offering a haven of comfort and love.",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "bedrooms"
+          "adjacentRoom": "Bedrooms"
         }
       ]
     },
     {
-      "id": "your room",
-      "name": "your room",
+      "id": "Your Room",
+      "name": "Your Room",
       "description": "As you enter your own private retreat, the room reflects your own personality and desires, providing a sense of familiarity and belonging.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "bedrooms"
+          "adjacentRoom": "Bedrooms"
         }
       ]
     },
     {
-      "id": "chair room",
+      "id": "Chair Room",
       "name": "Chair Room",
       "description": "Step into the Chair Room, where an assortment of comfortable chairs invites you to take a moment and relax amidst their welcoming embrace.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Toriel's house"
+          "adjacentRoom": "Toriel's House"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "kitchen"
+          "adjacentRoom": "Kitchen"
         }
       ]
     },
     {
-      "id": "kitchen",
-      "name": "kitchen",
+      "id": "Kitchen",
+      "name": "Kitchen",
       "description": "Embark into the Kitchen, filled with tantalizing aromas and culinary delights, where delectable creations come to life and nourish the soul.",
       "exits": [
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "chair room"
+          "adjacentRoom": "Chair Room"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "kitchen"
+          "adjacentRoom": "Kitchen"
         }
       ]
     },
     {
-      "id": "house downstairs",
-      "name": "house downstairs",
+      "id": "House Downstairs",
+      "name": "House Downstairs",
       "description": "Venture into the depths of the house as you find yourself in the downstairs area, where mysterious secrets lurk within its dimly lit corridors.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "downstairs hallway"
+          "adjacentRoom": "Downstairs Hallway"
         },
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Toriel's house"
+          "adjacentRoom": "Toriel's House"
         }
       ]
     },
     {
-      "id": "downstairs hallway",
-      "name": "downstairs hallway",
+      "id": "Downstairs Hallway",
+      "name": "Downstairs Hallway",
       "description": "Traverse the eerie downstairs hallway, its atmosphere heavy with a sense of foreboding, as if it holds the key to unfolding mysteries.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "house downstairs"
+          "adjacentRoom": "House Downstairs"
         },
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Toriel encounter"
+          "adjacentRoom": "Toriel Encounter"
         }
       ]
     },
     {
-      "id": "Toriel encounter",
-      "name": "Toriel encounter",
+      "id": "Toriel Encounter",
+      "name": "Toriel Encounter",
       "description": "Find yourself face-to-face with Toriel, a kind-hearted caretaker, whose warm eyes hold both wisdom and concern for your safety.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "downstairs hallway"
+          "adjacentRoom": "Downstairs Hallway"
         },
         {
           "isLocked": true,
-          "direction": "northeast",
-          "adjacentRoom": "Ruins exit"
+          "direction": "NorthEast",
+          "adjacentRoom": "Ruins Exit"
         }
       ]
     },
     {
-      "id": "Ruins exit",
-      "name": "Ruins exit",
+      "id": "Ruins Exit",
+      "name": "Ruins Exit",
       "description": "Stand at the threshold of the Ruins, the gateway to the unknown, where ancient remnants and unseen dangers await those who dare to venture forth.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "southwest",
-          "adjacentRoom": "Toriel encounter"
+          "direction": "SouthWest",
+          "adjacentRoom": "Toriel Encounter"
         },
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Tundra hallway"
+          "adjacentRoom": "Tundra Hallway"
         }
       ]
     },
     {
-      "id": "Tundra hallway",
-      "name": "Tundra hallway",
+      "id": "Tundra Hallway",
+      "name": "Tundra Hallway",
       "description": "Step into the chilling Tundra hallway, where the frigid air bites at your skin and the silence is broken only by the faint echoes of distant howls.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruins exit"
+          "adjacentRoom": "Ruins Exit"
         },
         {
           "isLocked": true,
           "direction": "East",
-          "adjacentRoom": "Sans dialogue"
+          "adjacentRoom": "Sans Dialogue"
         }
       ]
     },
@@ -399,7 +399,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Tundra hallway"
+          "adjacentRoom": "Tundra Hallway"
         },
         {
           "isLocked": true,
@@ -415,12 +415,12 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "west",
+          "direction": "West",
           "adjacentRoom": "Sans Dialogue"
         },
         {
           "isLocked": true,
-          "direction": "northeast",
+          "direction": "NorthEast",
           "adjacentRoom": "Tundra Save1"
         }
       ]
