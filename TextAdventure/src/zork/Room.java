@@ -7,6 +7,7 @@ public class Room {
   private String roomName;
   private String description;
   private ArrayList<Exit> exits;
+  private final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
 
   public ArrayList<Exit> getExits() {
     return exits;
@@ -59,7 +60,7 @@ public class Room {
   private String exitString() {
     StringBuilder returnString = new StringBuilder("Exits: ");
     for (Exit exit : exits) {
-      returnString.append(exit.getDirection()).append(" ");
+      returnString.append(exit.getDirection()).append("  ");
     }
 
     return returnString.toString();
@@ -70,6 +71,7 @@ public class Room {
    * "direction". If there is no room in that direction, return null.
    */
   public Room nextRoom(String direction) {
+    direction = direction.toLowerCase();
     try {
       for (Exit exit : exits) {
         if (exit.getDirection().equalsIgnoreCase(direction)) {
@@ -84,6 +86,12 @@ public class Room {
       return null;
     }
 
+    for (String validDirection : validDirections) {
+      if (validDirection.equals(direction)) {
+        Game.printText("You can't go that way. Nothing lies " + direction + ".");
+        return null;
+      }
+    }
     System.out.println(direction + " is not a valid direction.");
     return null;
   }

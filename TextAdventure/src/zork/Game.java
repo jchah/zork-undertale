@@ -42,7 +42,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Bedroom");
+            currentRoom = roomMap.get("flower room");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -125,10 +125,6 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        Monster froggit = new Monster(30, 5, 2, 4, 2, "froggit");
-        encounter(froggit);
-        player.inventory.addItem(new Food(5, "Candy"));
-
         boolean finished = false;
         while (!finished) {
             Command command;
@@ -148,7 +144,7 @@ public class Game {
      */
     private static void printIntro() {
         // play Once Upon a Time
-        printText("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n");
+        printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n", 50);
     }
 
     private static void printAsciiImage(String name) {
@@ -169,10 +165,18 @@ public class Game {
         String[] chars = str.split("");
         for (String aChar : chars) {
             System.out.print(aChar);
-            sleep(50);
+            sleep(30);
         }
         System.out.println();
-        sleep(1000);
+    }
+
+    public static void printTextCustomDelay(String str, int delay) {
+        String[] chars = str.split("");
+        for (String aChar : chars) {
+            System.out.print(aChar);
+            sleep(delay);
+        }
+        System.out.println();
     }
 
     public static void sleep(int ms) {
@@ -415,11 +419,9 @@ public class Game {
         // Try to leave current room.
         Room nextRoom = currentRoom.nextRoom(direction);
 
-        if (nextRoom == null)
-            System.out.println("There is no door!");
-        else {
+        if (nextRoom != null) {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.longDescription());
+            Game.printText(currentRoom.longDescription());
         }
     }
 }
