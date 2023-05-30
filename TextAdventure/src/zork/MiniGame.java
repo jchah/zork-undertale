@@ -16,9 +16,7 @@ public class MiniGame {
 
     public MiniGame() {
 
-        if (Game.game.testMode)
-            GAME_TIME = 20;
-        else GAME_TIME = 10;
+        GAME_TIME = 10;
         try {
             out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
         } catch (UnsupportedEncodingException e) {
@@ -103,33 +101,22 @@ public class MiniGame {
         resetArea();
         printArea();
         timer.start();
-        int level = 1;
+
+        int r = 0;
+        int f = 0;
+
         while (true) {
-            if (monster.getName().equals("froggit")) {
-                for (int r = 0; r < area.length; r++) {
-                    if (r % 2 == 0)
-                        printArea();
-                        Game.sleep(500);
-
-                    for (int f = 0; f < area[0].length; f++) {
-
-                        if (f == area[0].length - 1) {
-                            level++;
-                            resetArea();
-                        }
-                        if (level == 1)
-                            if (r % 2 == 0)
-                                area[f][r] = "\uD80C\uDD8F";
-                        if (level == 2)
-                            if (r % 2 == 0)
-                                area[r][f] = "\uD80C\uDD8F";
-                    }
-                    if (MiniGame.timer.get() >= GAME_TIME) {
-                        MiniGame.timer.set(0);
-                        break;
-                    }
-                }
+            if (MiniGame.timer.get() >= GAME_TIME) {
+                MiniGame.timer.set(0);
+                break;
             }
+            if (monster.getName().equals("froggit")) {
+                r = (int) (Math.random() * area.length);
+                f = (int) (Math.random() * area[0].length);
+                area[r][f] = "\uD80C\uDD8F";
+                printArea();
+            }
+            Game.sleep(500);
         }
     }
 }
