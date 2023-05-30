@@ -1,30 +1,30 @@
 {
   "rooms": [
     {
-      "id": "flower room",
-      "name": "flower room",
+      "id": "Flower Room",
+      "name": "Flower Room",
       "description": "A serene chamber adorned with vibrant flowers, casting a gentle fragrance in the air.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "ruins entrance"
+          "direction": "north",
+          "adjacentRoom": "Ruins Entrance"
         }
       ]
     },
     {
-      "id": "ruins entrance",
-      "name": "flower room",
+      "id": "Ruins Entrance",
+      "name": "Flower Room",
       "description": "You find yourself at the entrance of the ancient Ruins, its eerie atmosphere lingering around you.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "south",
           "adjacentRoom": "flower room"
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "east",
           "adjacentRoom": "ruins hallway"
         }
       ]
@@ -36,7 +36,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "west",
           "adjacentRoom": "ruins entrance"
         },
         {
@@ -53,17 +53,17 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "west",
           "adjacentRoom": "ruins save1 candy"
         },
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "north",
           "adjacentRoom": "ruins hallway"
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "southeast",
           "adjacentRoom": "ruins puzzleroom1"
         }
       ]
@@ -87,7 +87,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "northwest",
           "adjacentRoom": "ruins save1"
         },
         {
@@ -143,7 +143,7 @@
         },
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "southwest",
           "adjacentRoom": "ruins crosspath"
         }
       ]
@@ -155,7 +155,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": " northeast",
           "adjacentRoom": "ruins puzzle room2"
         },
         {
@@ -216,7 +216,7 @@
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "southeast",
           "adjacentRoom": "bedrooms"
         },
         {
@@ -233,7 +233,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "northwest",
           "adjacentRoom": "Toriel's house"
         },
         {
@@ -352,7 +352,7 @@
         },
         {
           "isLocked": true,
-          "direction": "East",
+          "direction": "northeast",
           "adjacentRoom": "Ruins exit"
         }
       ]
@@ -364,7 +364,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "southwest",
           "adjacentRoom": "Toriel encounter"
         },
         {
@@ -415,12 +415,12 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "west",
           "adjacentRoom": "Sans Dialogue"
         },
         {
           "isLocked": true,
-          "direction": "East",
+          "direction": "northeast",
           "adjacentRoom": "Tundra Save1"
         }
       ]
@@ -432,7 +432,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "southwest",
           "adjacentRoom": "Lamp Room"
         },
         {
@@ -505,7 +505,7 @@
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "northeast",
           "adjacentRoom": "Tundra Spaghetti Save2"
         }
       ]
@@ -517,7 +517,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "southwest",
           "adjacentRoom": "Tundra Puzzle"
         },
         {
@@ -619,17 +619,17 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "west",
           "adjacentRoom": "Snowdin Town"
         },
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "north",
           "adjacentRoom": "Snowed Inn"
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "southeast",
           "adjacentRoom": "Snowdin Town3"
         }
       ]
@@ -641,7 +641,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "northwest",
           "adjacentRoom": "Snowdin Town2"
         }
       ]
@@ -663,7 +663,7 @@
         },
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "southwest",
           "adjacentRoom": "Waterfall Entrance"
         }
       ]
@@ -687,7 +687,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "northeast",
           "adjacentRoom": "Snowdin Town3"
         },
         {
@@ -731,7 +731,7 @@
         },
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "southwest",
           "adjacentRoom": "Telescope Room"
         }
       ]
@@ -789,7 +789,7 @@
         },
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "SouthWest",
           "adjacentRoom": "Undyne Maze"
         }
       ]
@@ -801,7 +801,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "NorthEast",
           "adjacentRoom": "Waterfall Save2"
         },
         {
@@ -840,7 +840,7 @@
         },
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "SouthWest",
           "adjacentRoom": "Core Lobby"
         }
       ]
@@ -852,7 +852,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "NorthEast",
           "adjacentRoom": "Core Entrance"
         },
         {
@@ -952,7 +952,7 @@
         },
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "NorthWest",
           "adjacentRoom": "Core Bridge Item Room2"
         }
       ]
@@ -1037,7 +1037,7 @@
         },
         {
           "isLocked": false,
-          "direction": "South",
+          "direction": "SouthWest",
           "adjacentRoom": "Core Center Main"
         }
       ]
@@ -1073,7 +1073,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "NorthEast",
           "adjacentRoom": "Core Bridge Main"
         },
         {
