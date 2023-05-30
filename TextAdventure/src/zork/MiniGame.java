@@ -13,6 +13,9 @@ public class MiniGame {
     private int file = area[0].length / 2;
     public static MiniGame miniGame = new MiniGame();
     String data = Game.encodeToString("❤");
+    private int totalDamage;
+    private int hitDamage;
+    private String symbol;
 
     public MiniGame() {
 
@@ -38,6 +41,9 @@ public class MiniGame {
         area[rank][file] = "-";  // Mark current position as empty
         rank = newRow;  // Update the new row position
         file = newCol;  // Update the new column position
+        if (area[rank][file].equals(symbol)) {
+            totalDamage += hitDamage;
+        }
         area[rank][file] = data;  // Mark the new position with the data
     }
 
@@ -66,14 +72,24 @@ public class MiniGame {
             out.println();
     }
 
-    private String getPlayerLocation() {
+    private int getPlayerFile() {
+        for (String[] strings : area) {
+            for (int f = 0; f < area[0].length; f++) {
+                if (strings[f].equals("❤"))
+                    return f;
+            }
+        }
+        return -1;
+    }
+
+    private int getPlayerRank() {
         for (int r = 0; r < area.length; r++) {
             for (int f = 0; f < area[0].length; f++) {
                 if (area[r][f].equals("❤"))
-                    return r + "~" + f;
+                    return r;
             }
         }
-        return null;
+        return -1;
     }
 
     private void resetArea() {
@@ -85,8 +101,18 @@ public class MiniGame {
         area[rank][file] = data;
     }
 
-
-    public void play(Monster monster) {
+    public int play(Monster monster) {
+        switch (monster.getName().toLowerCase()) {
+            case "froggit" -> {
+                symbol = "\uD80C\uDD8F";
+                hitDamage = 4;
+            }
+            case "whimsum" -> {
+                symbol = "\uD83D\uDC1D";
+                hitDamage = 2;
+            }
+        }
+        totalDamage = 0;
         Thread timer = new Thread(() -> {
             while (true) {
                 Game.sleep(1000);
@@ -102,21 +128,23 @@ public class MiniGame {
         printArea();
         timer.start();
 
-        int r = 0;
-        int f = 0;
+        int r;
+        int f;
 
         while (true) {
             if (MiniGame.timer.get() >= GAME_TIME) {
                 MiniGame.timer.set(0);
                 break;
             }
-            if (monster.getName().equals("froggit")) {
-                r = (int) (Math.random() * area.length);
-                f = (int) (Math.random() * area[0].length);
-                area[r][f] = "\uD80C\uDD8F";
-                printArea();
+            r = (int) (Math.random() * area.length);
+            f = (int) (Math.random() * area[0].length);
+            if (r == getPlayerRank() && f == getPlayerFile()) {
+                totalDamage += 2;
             }
-            Game.sleep(500);
+            area[r][f] = symbol;
+            printArea();
         }
+        Game.sleep(500);
+        return totalDamage;
     }
 }
