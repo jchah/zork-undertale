@@ -42,7 +42,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("flower room");
+            currentRoom = roomMap.get("Flower Room");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,7 +134,6 @@ public class Game {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -366,6 +365,20 @@ public class Game {
             case 2 -> printText("Our fate rests upon you...");
         }
         printText(player.getName() + "! Stay determined!");
+    }
+
+    public boolean savePrompt() {
+        String temp;
+        while (true) {
+            printText("Save?: ");
+            temp = in.nextLine();
+            if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
+                return true;
+            } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
+                return false;
+            } else
+                printText("Invalid response. Please answer (y)es or (n)o");
+        }
     }
 
     private boolean processCommand(Command command) {

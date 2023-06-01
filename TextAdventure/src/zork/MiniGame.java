@@ -110,6 +110,7 @@ public class MiniGame {
             case "whimsum" -> {
                 symbol = "\uD83D\uDC1D";
                 hitDamage = 2;
+
             }
         }
         totalDamage = 0;
