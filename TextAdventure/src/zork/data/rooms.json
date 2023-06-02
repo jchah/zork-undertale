@@ -104,116 +104,112 @@
       "isSave": false
     },
     {
-      "rooms": [
+      "id": "Ghost Room",
+      "name": "Ghost Room",
+      "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
+      "exits": [
         {
-          "id": "Ghost Room",
-          "name": "Ghost Room",
-          "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": "North",
-              "adjacentRoom": "Ghost Room Candy"
-            },
-            {
-              "isLocked": false,
-              "direction": "West",
-              "adjacentRoom": "Ruins Puzzle1"
-            }
-          ],
-          "isSave": false
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Ghost Room Candy"
         },
         {
-          "id": "Ghost Room Candy",
-          "name": "Ghost Room Candy",
-          "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": "East",
-              "adjacentRoom": "Ruins Puzzle2"
-            },
-            {
-              "isLocked": false,
-              "direction": "South",
-              "adjacentRoom": "Ghost Room"
-            }
-          ],
-          "isSave": false
-        },
-        {
-          "id": "Ruins Puzzle2",
-          "name": "Ruins Puzzle2",
-          "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": "West",
-              "adjacentRoom": "Ghost Room Candy"
-            },
-            {
-              "isLocked": false,
-              "direction": "SouthWest",
-              "adjacentRoom": "Ruins Crossroads"
-            }
-          ],
-          "isSave": false
-        },
-        {
-          "id": "Ruins Crossroads",
-          "name": "Ruins Crossroads",
-          "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": " NorthEast",
-              "adjacentRoom": "Ruins Puzzle2"
-            },
-            {
-              "isLocked": false,
-              "direction": "East",
-              "adjacentRoom": "Knife Room"
-            },
-            {
-              "isLocked": true,
-              "direction": "West",
-              "adjacentRoom": "House Entrance"
-            }
-          ],
-          "isSave": false
-        },
-        {
-          "id": "Knife Room",
-          "name": "Knife Room",
-          "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": "West",
-              "adjacentRoom": "Ruins Crossroads"
-            }
-          ],
-          "isSave": false
-        },
-        {
-          "id": "House Entrance",
-          "name": "House Entrance",
-          "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
-          "exits": [
-            {
-              "isLocked": false,
-              "direction": "East",
-              "adjacentRoom": "Ruins Crossroads"
-            },
-            {
-              "isLocked": false,
-              "direction": "North",
-              "adjacentRoom": "Toriel's House"
-            }
-          ],
-          "isSave": false
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ruins Puzzle1"
         }
-      ]
+      ],
+      "isSave": false
+    },
+    {
+      "id": "Ghost Room Candy",
+      "name": "Ghost Room Candy",
+      "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Ruins Puzzle2"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Ghost Room"
+        }
+      ],
+      "isSave": false
+    },
+    {
+      "id": "Ruins Puzzle2",
+      "name": "Ruins Puzzle2",
+      "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ghost Room Candy"
+        },
+        {
+          "isLocked": false,
+          "direction": "SouthWest",
+          "adjacentRoom": "Ruins Crossroads"
+        }
+      ],
+      "isSave": false
+    },
+    {
+      "id": "Ruins Crossroads",
+      "name": "Ruins Crossroads",
+      "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": " NorthEast",
+          "adjacentRoom": "Ruins Puzzle2"
+        },
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Knife Room"
+        },
+        {
+          "isLocked": true,
+          "direction": "West",
+          "adjacentRoom": "House Entrance"
+        }
+      ],
+      "isSave": false
+    },
+    {
+      "id": "Knife Room",
+      "name": "Knife Room",
+      "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Ruins Crossroads"
+        }
+      ],
+      "isSave": false
+    },
+    {
+      "id": "House Entrance",
+      "name": "House Entrance",
+      "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "East",
+          "adjacentRoom": "Ruins Crossroads"
+        },
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Toriel's House"
+        }
+      ],
+      "isSave": false
     },
     {
       "id": "Ghost Room",
@@ -392,7 +388,7 @@
           "direction": "NorthEast",
           "adjacentRoom": "Ruins Exit"
         }
-        ],
+      ],
       "isSave": false
     },
     {
