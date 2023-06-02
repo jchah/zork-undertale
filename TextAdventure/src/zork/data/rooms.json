@@ -636,7 +636,8 @@
           "direction": "East",
           "adjacentRoom": "Snowdin Town2"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Grillby's",
@@ -648,7 +649,8 @@
           "direction": "South",
           "adjacentRoom": "Snowdin Town"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Papyrus House",
@@ -660,7 +662,8 @@
           "direction": "North",
           "adjacentRoom": "Snowdin Town"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Snowdin Town2",
@@ -682,7 +685,8 @@
           "direction": "SouthEast",
           "adjacentRoom": "Snowdin Town3"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Snowed Inn",
@@ -694,7 +698,8 @@
           "direction": "NorthWest",
           "adjacentRoom": "Snowdin Town2"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Snowdin Town3",
@@ -716,7 +721,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Waterfall Entrance"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Library",
@@ -728,7 +734,8 @@
           "direction": "South",
           "adjacentRoom": "Snowdin Town3"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Waterfall Entrance",
@@ -745,7 +752,8 @@
           "direction": "East",
           "adjacentRoom": "Waterfall"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Waterfall Start",
@@ -762,7 +770,8 @@
           "direction": "South",
           "adjacentRoom": "Waterfall Puzzle"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Waterfall Puzzle",
@@ -784,7 +793,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Telescope Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Quiche Room",
@@ -796,7 +806,8 @@
           "direction": "West",
           "adjacentRoom": "Waterfall Puzzle"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Telescope Room",
@@ -813,7 +824,8 @@
           "direction": "South",
           "adjacentRoom": "Waterfall Exit"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ice Cream Room2",
@@ -825,7 +837,8 @@
           "direction": "West",
           "adjacentRoom": "Telescope Room2"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Waterfall Exit",
@@ -842,7 +855,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Undyne Maze"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Undyne Maze",
@@ -859,7 +873,8 @@
           "direction": "South",
           "adjacentRoom": "Undyne Encounter"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Undyne Encounter",
@@ -876,7 +891,8 @@
           "direction": "East",
           "adjacentRoom": "Core Entrance"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Entrance",
@@ -893,7 +909,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Core Lobby"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Lobby",
@@ -920,7 +937,8 @@
           "direction": "South",
           "adjacentRoom": "Core Lobby Main"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Puzzle1",
@@ -932,7 +950,8 @@
           "direction": "East",
           "adjacentRoom": "Core Lobby"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Puzzle2",
@@ -944,7 +963,8 @@
           "direction": "West",
           "adjacentRoom": "Core Lobby"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Lobby Main",
@@ -961,7 +981,8 @@
           "direction": "West",
           "adjacentRoom": "Core Bridge"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge",
@@ -983,7 +1004,8 @@
           "direction": "South",
           "adjacentRoom": "Core Bridge2"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge1",
@@ -1005,7 +1027,8 @@
           "direction": "NorthWest",
           "adjacentRoom": "Core Bridge Item Room2"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge Item Room1",
@@ -1017,7 +1040,8 @@
           "direction": "West",
           "adjacentRoom": "Core Bridge1"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge Item Room2",
@@ -1029,7 +1053,8 @@
           "direction": "South",
           "adjacentRoom": "Core Bridge1"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge2",
@@ -1046,7 +1071,8 @@
           "direction": "South",
           "adjacentRoom": "Core Maze"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Maze",
@@ -1063,7 +1089,8 @@
           "direction": "South",
           "adjacentRoom": "Core Bridge Main"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Bridge Main",
@@ -1090,7 +1117,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Core Center Main"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Center Puzzle",
@@ -1102,7 +1130,8 @@
           "direction": "East",
           "adjacentRoom": "Core Bridge Main"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Item Room",
@@ -1114,7 +1143,8 @@
           "direction": "West",
           "adjacentRoom": "Core Bridge Main"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Center Main",
@@ -1131,7 +1161,8 @@
           "direction": "South",
           "adjacentRoom": "Core Hallway"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Hallway",
@@ -1148,7 +1179,8 @@
           "direction": "West",
           "adjacentRoom": "Asgore's Castle"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Asgore's Castle",
@@ -1175,7 +1207,8 @@
           "direction": "South",
           "adjacentRoom": "Secret Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Tea Room",
@@ -1192,7 +1225,8 @@
           "direction": "North",
           "adjacentRoom": "Throne"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Throne",
@@ -1204,7 +1238,8 @@
           "direction": "South",
           "adjacentRoom": "Tea Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Secret Room",
@@ -1216,7 +1251,8 @@
           "direction": "North",
           "adjacentRoom": "Asgore's Castle"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Castle Hall",
@@ -1233,7 +1269,8 @@
           "direction": "North",
           "adjacentRoom": "Asgore Encounter"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Asgore Encounter",
@@ -1250,7 +1287,8 @@
           "direction": "North",
           "adjacentRoom": "Flowey Encounter"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Flowey Encounter",
@@ -1267,7 +1305,8 @@
           "direction": "West",
           "adjacentRoom": "Barrier Break"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Barrier Break",
@@ -1284,7 +1323,8 @@
           "direction": "South",
           "adjacentRoom": "Core Elevator"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Core Elevator",
@@ -1301,7 +1341,8 @@
           "direction": "South",
           "adjacentRoom": "Underground Exit"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Underground Exit",
@@ -1313,7 +1354,8 @@
           "direction": "North",
           "adjacentRoom": "Core Elevator"
         }
-      ]
+      ],
+      "isSave": false
     }
   ]
 }
