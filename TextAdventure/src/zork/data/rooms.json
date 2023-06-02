@@ -7,10 +7,11 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "north",
+          "direction": "North",
           "adjacentRoom": "Ruins Entrance"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ruins Entrance",
@@ -19,7 +20,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "south",
+          "direction": "South",
           "adjacentRoom": "Flower Room"
         },
         {
@@ -27,7 +28,8 @@
           "direction": "east",
           "adjacentRoom": "Ruins Hallway"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ruins Hallway",
@@ -36,64 +38,180 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "west",
+          "direction": "West",
           "adjacentRoom": "Ruins Entrance"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Ruins Save1"
+          "adjacentRoom": "Ruins Start"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Ruins Save1",
-      "name": "Ruins Save1",
+      "id": "Ruins Start",
+      "name": "Ruins Start",
       "description": "A small room with a peculiar aura, emanating a sense of safety and respite from the harsh world outside.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "west",
-          "adjacentRoom": "Ruins Save1 Candy"
+          "direction": "West",
+          "adjacentRoom": "Ruins Start Candy"
         },
         {
           "isLocked": false,
-          "direction": "north",
+          "direction": "North",
           "adjacentRoom": "Ruins Hallway"
         },
         {
           "isLocked": false,
-          "direction": "southeast",
-          "adjacentRoom": "Ruins Puzzleroom1"
+          "direction": "SouthEast",
+          "adjacentRoom": "Ruins Puzzle1"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Ruins Save1 Candy",
-      "name": "Ruins Save1 Candy",
+      "id": "Ruins Start Candy",
+      "name": "Ruins Start Candy",
       "description": "A whimsical room filled with colorful candies and treats, tempting you with their sugary allure.",
       "exits": [
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Ruins Save1"
+          "adjacentRoom": "Ruins Start"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Ruins Puzzleroom1",
-      "name": "Ruins Puzzleroom1",
+      "id": "Ruins Puzzle1",
+      "name": "Ruins Puzzle1",
       "description": "You step into a perplexing chamber, its walls adorned with intricate puzzles and enigmatic symbols.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "northwest",
-          "adjacentRoom": "Ruins Save1"
+          "direction": "NorthWest",
+          "adjacentRoom": "Ruins Start"
         },
         {
           "isLocked": false,
           "direction": "east",
           "adjacentRoom": "Ghost Room"
+        }
+      ],
+      "isSave": false
+    },
+    {
+      "rooms": [
+        {
+          "id": "Ghost Room",
+          "name": "Ghost Room",
+          "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": "North",
+              "adjacentRoom": "Ghost Room Candy"
+            },
+            {
+              "isLocked": false,
+              "direction": "West",
+              "adjacentRoom": "Ruins Puzzle1"
+            }
+          ],
+          "isSave": false
+        },
+        {
+          "id": "Ghost Room Candy",
+          "name": "Ghost Room Candy",
+          "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": "East",
+              "adjacentRoom": "Ruins Puzzle2"
+            },
+            {
+              "isLocked": false,
+              "direction": "South",
+              "adjacentRoom": "Ghost Room"
+            }
+          ],
+          "isSave": false
+        },
+        {
+          "id": "Ruins Puzzle2",
+          "name": "Ruins Puzzle2",
+          "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": "West",
+              "adjacentRoom": "Ghost Room Candy"
+            },
+            {
+              "isLocked": false,
+              "direction": "SouthWest",
+              "adjacentRoom": "Ruins Crossroads"
+            }
+          ],
+          "isSave": false
+        },
+        {
+          "id": "Ruins Crossroads",
+          "name": "Ruins Crossroads",
+          "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": " NorthEast",
+              "adjacentRoom": "Ruins Puzzle2"
+            },
+            {
+              "isLocked": false,
+              "direction": "East",
+              "adjacentRoom": "Knife Room"
+            },
+            {
+              "isLocked": true,
+              "direction": "West",
+              "adjacentRoom": "House Entrance"
+            }
+          ],
+          "isSave": false
+        },
+        {
+          "id": "Knife Room",
+          "name": "Knife Room",
+          "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": "West",
+              "adjacentRoom": "Ruins Crossroads"
+            }
+          ],
+          "isSave": false
+        },
+        {
+          "id": "House Entrance",
+          "name": "House Entrance",
+          "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
+          "exits": [
+            {
+              "isLocked": false,
+              "direction": "East",
+              "adjacentRoom": "Ruins Crossroads"
+            },
+            {
+              "isLocked": false,
+              "direction": "North",
+              "adjacentRoom": "Toriel's House"
+            }
+          ],
+          "isSave": false
         }
       ]
     },
@@ -110,9 +228,10 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruins Puzzleroom1"
+          "adjacentRoom": "Ruins Puzzle1"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ghost Room Candy",
@@ -122,18 +241,19 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Ruins Puzzle Room2"
+          "adjacentRoom": "Ruins Puzzle2"
         },
         {
           "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Ghost Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Ruins Puzzle Room2",
-      "name": "Ruins Puzzle Room2",
+      "id": "Ruins Puzzle2",
+      "name": "Ruins Puzzle2",
       "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
       "exits": [
         {
@@ -146,7 +266,8 @@
           "direction": "SouthWest",
           "adjacentRoom": "Ruins Crosspath"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ruins Crosspath",
@@ -156,7 +277,7 @@
         {
           "isLocked": false,
           "direction": " NorthEast",
-          "adjacentRoom": "Ruins Puzzle Room2"
+          "adjacentRoom": "Ruins Puzzle2"
         },
         {
           "isLocked": false,
@@ -166,13 +287,14 @@
         {
           "isLocked": true,
           "direction": "West",
-          "adjacentRoom": "House Entrance Save"
+          "adjacentRoom": "House Entrance"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Knife room",
-      "name": "Knife room",
+      "id": "Knife Room",
+      "name": "Knife Room",
       "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
       "exits": [
         {
@@ -180,11 +302,12 @@
           "direction": "West",
           "adjacentRoom": "Ruins Crosspath"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "House Entrance Save",
-      "name": "House Entrance Save",
+      "id": "House Entrance",
+      "name": "House Entrance",
       "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
       "exits": [
         {
@@ -197,97 +320,8 @@
           "direction": "North",
           "adjacentRoom": "Toriel's House"
         }
-      ]
-    },
-    {
-      "id": "Toriel's House",
-      "name": "Toriel's House",
-      "description": "As you step into Toriel's cozy home, a warm ambiance welcomes you, emanating from the crackling fireplace and butterscotch pie.",
-      "exits": [
-        {
-          "isLocked": true,
-          "direction": "North",
-          "adjacentRoom": "House Downstairs"
-        },
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Chair Room"
-        },
-        {
-          "isLocked": false,
-          "direction": "SouthEast",
-          "adjacentRoom": "Bedrooms"
-        },
-        {
-          "isLocked": false,
-          "direction": "South",
-          "adjacentRoom": "House Entrance Save"
-        }
-      ]
-    },
-    {
-      "id": "Bedrooms",
-      "name": "Bedrooms",
-      "description": "Within the bedrooms, a tranquil aura envelops the air, beckoning weary adventurers to rest their heads and find solace in their dreams.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "NorthWest",
-          "adjacentRoom": "Toriel's House"
-        },
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Toriel's Room"
-        },
-        {
-          "isLocked": false,
-          "direction": "South",
-          "adjacentRoom": "Your Room"
-        }
-      ]
-    },
-    {
-      "id": "Toriel's Room",
-      "name": "Toriel's Room",
-      "description": "Within Toriel's home, a sense of maternal warmth permeates the air, offering a haven of comfort and love.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "South",
-          "adjacentRoom": "Bedrooms"
-        }
-      ]
-    },
-    {
-      "id": "Your Room",
-      "name": "Your Room",
-      "description": "As you enter your own private retreat, the room reflects your own personality and desires, providing a sense of familiarity and belonging.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Bedrooms"
-        }
-      ]
-    },
-    {
-      "id": "Chair Room",
-      "name": "Chair Room",
-      "description": "Step into the Chair Room, where an assortment of comfortable chairs invites you to take a moment and relax amidst their welcoming embrace.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Toriel's House"
-        },
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Kitchen"
-        }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Kitchen",
@@ -304,7 +338,8 @@
           "direction": "North",
           "adjacentRoom": "Kitchen"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "House Downstairs",
@@ -321,7 +356,8 @@
           "direction": "North",
           "adjacentRoom": "Toriel's House"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Downstairs Hallway",
@@ -338,7 +374,8 @@
           "direction": "East",
           "adjacentRoom": "Toriel Encounter"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Toriel Encounter",
@@ -355,7 +392,8 @@
           "direction": "NorthEast",
           "adjacentRoom": "Ruins Exit"
         }
-      ]
+        ],
+      "isSave": false
     },
     {
       "id": "Ruins Exit",
@@ -372,7 +410,8 @@
           "direction": "East",
           "adjacentRoom": "Tundra Hallway"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Tundra Hallway",
@@ -389,7 +428,8 @@
           "direction": "East",
           "adjacentRoom": "Sans Dialogue"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Sans Dialogue",
@@ -406,7 +446,8 @@
           "direction": "East",
           "adjacentRoom": "Lamp Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Lamp Room",
@@ -421,18 +462,19 @@
         {
           "isLocked": true,
           "direction": "NorthEast",
-          "adjacentRoom": "Tundra Save1"
+          "adjacentRoom": "Tundra Crossroads"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Tundra Save1",
-      "name": "Tundra Save1",
+      "id": "Tundra Crossroads",
+      "name": "Tundra Crossroads",
       "description": "Navigate through the icy Tundra, where a bitter cold permeates the air, and make a pivotal decision that may shape the course of your journey.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "southwest",
+          "direction": "SouthWest",
           "adjacentRoom": "Lamp Room"
         },
         {
@@ -445,7 +487,8 @@
           "direction": "North",
           "adjacentRoom": "Fishing Room"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Fishing Room",
@@ -455,9 +498,10 @@
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Tundra Save1"
+          "adjacentRoom": "Tundra Crossroads"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Doggo Encounter",
@@ -467,7 +511,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Tundra Save1"
+          "adjacentRoom": "Tundra Crossroads"
         },
         {
           "isLocked": true,
@@ -479,7 +523,8 @@
           "direction": "East",
           "adjacentRoom": "Tundra Puzzle"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Snowman Room",
@@ -491,7 +536,8 @@
           "direction": "South",
           "adjacentRoom": "Doggo Encounter"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Tundra Puzzle",
@@ -505,19 +551,20 @@
         },
         {
           "isLocked": false,
-          "direction": "northeast",
-          "adjacentRoom": "Tundra Spaghetti Save2"
+          "direction": "NorthEast",
+          "adjacentRoom": "Tundra Spaghetti"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
-      "id": "Tundra Spaghetti Save2",
-      "name": "Tundra Spaghetti Save2",
+      "id": "Tundra Spaghetti",
+      "name": "Tundra Spaghetti",
       "description": "Continue your exploration through the frigid Tundra, encountering new challenges and indulging in a warm plate of spaghetti to restore your determination.",
       "exits": [
         {
           "isLocked": false,
-          "direction": "southwest",
+          "direction": "SouthWest",
           "adjacentRoom": "Tundra Puzzle"
         },
         {
@@ -530,7 +577,8 @@
           "direction": "East",
           "adjacentRoom": "Danger Bridge"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Ice Cream Room",
@@ -540,9 +588,10 @@
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Tundra Spaghetti Save2"
+          "adjacentRoom": "Tundra Spaghetti"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Danger Bridge",
@@ -552,14 +601,15 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Tundra Spaghetti Save2"
+          "adjacentRoom": "Tundra Spaghetti"
         },
         {
           "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Snowdin Town"
         }
-      ]
+      ],
+      "isSave": false
     },
     {
       "id": "Snowdin Town",
@@ -574,7 +624,7 @@
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Grillbys"
+          "adjacentRoom": "Grillby's"
         },
         {
           "isLocked": true,
@@ -589,8 +639,8 @@
       ]
     },
     {
-      "id": "Grillbys",
-      "name": "Grillbys",
+      "id": "Grillby's",
+      "name": "Grillby's",
       "description": "Step into Grillby's, a cozy diner where mouthwatering aromas invite you to take a break and engage in lively conversations with the local monsters.",
       "exits": [
         {
@@ -619,17 +669,17 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "west",
+          "direction": "West",
           "adjacentRoom": "Snowdin Town"
         },
         {
           "isLocked": false,
-          "direction": "north",
+          "direction": "North",
           "adjacentRoom": "Snowed Inn"
         },
         {
           "isLocked": false,
-          "direction": "southeast",
+          "direction": "SouthEast",
           "adjacentRoom": "Snowdin Town3"
         }
       ]
@@ -641,7 +691,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "northwest",
+          "direction": "NorthWest",
           "adjacentRoom": "Snowdin Town2"
         }
       ]
@@ -663,7 +713,7 @@
         },
         {
           "isLocked": false,
-          "direction": "southwest",
+          "direction": "SouthWest",
           "adjacentRoom": "Waterfall Entrance"
         }
       ]
@@ -687,19 +737,19 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "northeast",
+          "direction": "NorthEast",
           "adjacentRoom": "Snowdin Town3"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Waterfall save1"
+          "adjacentRoom": "Waterfall"
         }
       ]
     },
     {
-      "id": "Waterfall Save1",
-      "name": "Waterfall Save1",
+      "id": "Waterfall Start",
+      "name": "Waterfall Start",
       "description": "Find yourself in a tranquil space within the Waterfall, offering respite and a chance to save your progress.",
       "exits": [
         {
@@ -710,19 +760,19 @@
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Waterfall Puzzle1"
+          "adjacentRoom": "Waterfall Puzzle"
         }
       ]
     },
     {
-      "id": "Waterfall Puzzle1",
-      "name": "Waterfall Puzzle1",
+      "id": "Waterfall Puzzle",
+      "name": "Waterfall Puzzle",
       "description": "Engage your wits in a challenging puzzle room that tests your problem-solving skills.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Waterfall Save1"
+          "adjacentRoom": "Waterfall Start"
         },
         {
           "isLocked": false,
@@ -731,7 +781,7 @@
         },
         {
           "isLocked": false,
-          "direction": "southwest",
+          "direction": "SouthWest",
           "adjacentRoom": "Telescope Room"
         }
       ]
@@ -744,7 +794,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Waterfall Puzzle1"
+          "adjacentRoom": "Waterfall Puzzle"
         }
       ]
     },
@@ -761,7 +811,7 @@
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Waterfall Save2"
+          "adjacentRoom": "Waterfall Exit"
         }
       ]
     },
@@ -778,8 +828,8 @@
       ]
     },
     {
-      "id": "Waterfall Save2",
-      "name": "Waterfall Save2",
+      "id": "Waterfall Exit",
+      "name": "Waterfall Exit",
       "description": "Take another opportunity to save your progress in the midst of the Waterfall's captivating ambience.",
       "exits": [
         {
@@ -802,7 +852,7 @@
         {
           "isLocked": false,
           "direction": "NorthEast",
-          "adjacentRoom": "Waterfall Save2"
+          "adjacentRoom": "Waterfall Exit"
         },
         {
           "isLocked": false,
@@ -858,12 +908,12 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Core Puzzle Room1"
+          "adjacentRoom": "Core Puzzle1"
         },
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Core Puzzle Room2"
+          "adjacentRoom": "Core Puzzle2"
         },
         {
           "isLocked": true,
@@ -873,8 +923,8 @@
       ]
     },
     {
-      "id": "Core Puzzle Room1",
-      "name": "Core Puzzle Room1",
+      "id": "Core Puzzle1",
+      "name": "Core Puzzle1",
       "description": "Engage in a challenging puzzle that tests your intelligence and problem-solving abilities.",
       "exits": [
         {
@@ -885,8 +935,8 @@
       ]
     },
     {
-      "id": "Core Puzzle Room2",
-      "name": "Core Puzzle Room2",
+      "id": "Core Puzzle2",
+      "name": "Core Puzzle2",
       "description": "Navigate through a complex labyrinth of puzzles and obstacles, pushing your skills to the limit.",
       "exits": [
         {
