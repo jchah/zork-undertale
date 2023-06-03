@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 
 public class Game {
 
-    public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
+    public static HashMap<String, Room> roomMap = new HashMap<>();
 
     public static Game game = new Game();
     public boolean testMode;
@@ -106,7 +106,7 @@ public class Game {
             room.setRoomName(roomName);
 
             JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
-            ArrayList<Exit> exits = new ArrayList<Exit>();
+            ArrayList<Exit> exits = new ArrayList<>();
             for (Object exitObj : jsonExits) {
                 String direction = (String) ((JSONObject) exitObj).get("direction");
                 String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
@@ -125,6 +125,8 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        Monster froggit = new Monster(30, 4, 4, 2, 1, "froggit");
+        encounter(froggit);
         boolean finished = false;
         while (!finished) {
             Command command;
@@ -204,7 +206,8 @@ public class Game {
         double percent = (double) entity.getHp() / entity.getMaxHp();
         int offset = (int) (bar.length * (1 - percent));
         for (int i = 0; i < offset; i++) {
-            bar[startIndex--] = "\uD83D\uDC94";
+            bar[startIndex] = "\uD83D\uDC94";
+            startIndex--;
         }
         for (String marker: bar) {
             out.print(marker);

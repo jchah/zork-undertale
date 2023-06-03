@@ -2,10 +2,11 @@ package zork;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MiniGame {
-    private final int GAME_TIME;
+    private final int GAME_TIME = 10; // s
     public static AtomicInteger timer = new AtomicInteger(0);
     private PrintStream out;
     private final String[][] area = new String[12][12];
@@ -16,10 +17,10 @@ public class MiniGame {
     private int totalDamage;
     private int hitDamage;
     private String symbol;
+    private int tickCount;
+
 
     public MiniGame() {
-
-        GAME_TIME = 10;
         try {
             out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
         } catch (UnsupportedEncodingException e) {
@@ -72,36 +73,25 @@ public class MiniGame {
             out.println();
     }
 
-    private int getPlayerFile() {
-        for (String[] strings : area) {
-            for (int f = 0; f < area[0].length; f++) {
-                if (strings[f].equals("❤"))
-                    return f;
-            }
-        }
-        return -1;
-    }
-
-    private int getPlayerRank() {
-        for (int r = 0; r < area.length; r++) {
-            for (int f = 0; f < area[0].length; f++) {
-                if (area[r][f].equals("❤"))
-                    return r;
-            }
-        }
-        return -1;
-    }
-
     private void resetArea() {
         for (int i = 0; i < area.length; i++) {
             for (int j = 0; j < area[0].length; j++) {
                 area[i][j] = "-";
             }
         }
+        rank = area.length / 2;
+        file = area[0].length / 2;
         area[rank][file] = data;
     }
 
+
+
     public int play(Monster monster) {
+        // ms
+        int TICK_DELAY = 500;
+        double seconds = TICK_DELAY / 1000.0;
+        int temp = (int) (GAME_TIME / seconds);
+        String[] playerLocationHistory = new String[temp];
         switch (monster.getName().toLowerCase()) {
             case "froggit" -> {
                 symbol = "\uD80C\uDD8F";
@@ -131,21 +121,54 @@ public class MiniGame {
 
         int r;
         int f;
+        double randR;
+        double randF;
+        int lastY;
+        int lastX;
 
         while (true) {
             if (MiniGame.timer.get() >= GAME_TIME) {
                 MiniGame.timer.set(0);
+                tickCount = 0;
                 break;
             }
-            r = (int) (Math.random() * area.length);
-            f = (int) (Math.random() * area[0].length);
-            if (r == getPlayerRank() && f == getPlayerFile()) {
-                totalDamage += 2;
+
+            if (tickCount > 0) {
+                String[] locationParts = playerLocationHistory[tickCount - 1].split("~");
+                lastX = Integer.parseInt(locationParts[1]);
+                lastY = Integer.parseInt(locationParts[0]);
+
+                randR = Math.random();
+                randF = Math.random();
+
+                if (randR < 0.7) {
+                    r = lastY;
+                } else {
+                    r = (int) (Math.random() * area.length);
+                }
+
+                if (randF < 0.7) {
+                    f = lastX;
+                } else {
+                    f = (int) (Math.random() * area[0].length);
+                }
+
+                if (r == rank && f == file) {
+                    totalDamage += 2;
+                } else {
+                    area[r][f] = symbol;
+                }
             }
-            area[r][f] = symbol;
+
+            playerLocationHistory[tickCount] = rank + "~" + file;
+            System.out.println(Arrays.toString(playerLocationHistory));
             printArea();
-            Game.sleep(500);
+
+            Game.sleep(TICK_DELAY);
+            tickCount++;
         }
+
         return totalDamage;
+
     }
 }
