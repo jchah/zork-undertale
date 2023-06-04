@@ -2,7 +2,7 @@ package zork;
 
 public class CommandWords {
   // a constant array that holds all valid command words
-  private static final String[] validCommands = { "go", "quit", "help", "eat"};
+  private static final String[] validCommands = { "go", "quit", "help", "use", "eat", "drop", "inventory", "stats", "search"};
 
   /**
    * Constructor - initialise the command words.
@@ -28,8 +28,10 @@ public class CommandWords {
    * Print all valid commands to System.out.
    */
   public void showAll() {
-    for (String c : validCommands) {
-      System.out.print(c + "  ");
+    for (int i = 0; i < validCommands.length; i++) {
+      System.out.print(validCommands[i]);
+      if (i != validCommands.length - 1)
+        System.out.print(",  ");
     }
     System.out.println();
   }

@@ -129,6 +129,10 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        player.inventory.addItem(ItemList.items.get("MnstrCndy"));
+        player.inventory.addItem(ItemList.items.get("MnstrCndy"));
+        player.inventory.addItem(ItemList.items.get("ToyKnife"));
+
         printText(currentRoom.longDescription());
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
@@ -361,7 +365,7 @@ public class Game {
                 item.use();
                 return;
             } else {
-                printText("No such item " + shortenInvalid(chosenItem) + " in your inventory.");
+                printText("No such item \"" + shortenInvalid(chosenItem) + "\" in your inventory.");
             }
         }
     }
@@ -395,7 +399,7 @@ public class Game {
                     return action.isMercyOption();
                 }
             }
-            printText("No such action " + shortenInvalid(chosenAction) + ".");
+            printText("No such action \"" + shortenInvalid(chosenAction) + "\".");
         }
     }
 
@@ -476,7 +480,7 @@ public class Game {
                 break;
             case "quit":
                 if (command.hasSecondWord())
-                    System.out.println("? -> " + command.getSecondWord());
+                    System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
                 else
                     return true; // signal that we want to quit
                 break;
@@ -490,7 +494,7 @@ public class Game {
                         Food food = (Food) player.inventory.items.get(index);
                         food.use();
                     } else {
-                        System.out.println("No such food " + shortenInvalid(temp) + " in your inventory.");
+                        System.out.println("No such food \"" + shortenInvalid(temp) + "\" in your inventory.");
                     }
                 } else {
                     int index = player.inventory.findItemByName(command.getSecondWord());
@@ -498,10 +502,58 @@ public class Game {
                         Food food = (Food) player.inventory.items.get(index);
                         food.use();
                     } else {
-                        System.out.println("No such item " + shortenInvalid(command.getSecondWord()) + " in your inventory.");
+                        System.out.println("No such item \"" + shortenInvalid(command.getSecondWord()) + "\" in your inventory.");
                     }
                 }
                 break;
+            case "use":
+                if (!command.hasSecondWord()) {
+                    System.out.println("Use what?");
+                    System.out.print("> ");
+                    String temp = in.nextLine();
+                    int index = player.inventory.findItemByName(temp);
+                    if (index > -1) {
+                        player.inventory.items.get(index).use();
+                    } else {
+                        System.out.println("No such item \"" + shortenInvalid(temp) + "\" in your inventory.");
+                    }
+                } else {
+                    int index = player.inventory.findItemByName(command.getSecondWord());
+                    if (index > -1) {
+                        player.inventory.items.get(index).use();
+                    } else {
+                        System.out.println("No such item \"" + shortenInvalid(command.getSecondWord()) + "\" in your inventory.");
+                    }
+                }
+                break;
+            case "drop":
+                if (!command.hasSecondWord()) {
+                    System.out.println("Drop what?");
+                    System.out.print("> ");
+                    String temp = in.nextLine();
+                    int index = player.inventory.findItemByName(temp);
+                    if (index > -1) {
+                        player.inventory.dropItem(temp);
+                    }
+                } else {
+                    int index = player.inventory.findItemByName(command.getSecondWord());
+                    if (index > -1) {
+                        player.inventory.dropItem(command.getSecondWord());
+                    }
+                }
+            case "inventory":
+                if (command.hasSecondWord())
+                    System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
+                else {
+                    player.inventory.showInventory();
+                }
+                break;
+            case "stats":
+                if (command.hasSecondWord())
+                    System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
+                else {
+                    System.out.println(player.check());
+                }
         }
         return false;
     }

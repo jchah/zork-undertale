@@ -35,7 +35,7 @@ public class MonsterList {
         snowdinMonsters.put("greater dog", greaterdog);
         snowdinMonsters.put("snowdrake", snowdrake);
         snowdinMonsters.put("ice cap", icecap);
-        coreMonsters.put("knigh tknight", knightknight);
+        coreMonsters.put("knight knight", knightknight);
         coreMonsters.put("final froggit", finalfroggit);
         monsters.putAll(ruinsMonsters);
         monsters.putAll(waterfallMonsters);

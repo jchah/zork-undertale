@@ -21,6 +21,6 @@ public class Food extends Item {
         Inventory inventory = player.inventory;
         int index = inventory.findItemByName(getName());
         inventory.removeItemByIndex(index);
-        Game.printText("You ate the " + getName() + " and recovered " + (player.getHp() - beforeHealth) + "hp");
+        Game.printText("You ate the " + getName() + " and recovered " + (player.getHp() - beforeHealth) + " hp.");
     }
 }

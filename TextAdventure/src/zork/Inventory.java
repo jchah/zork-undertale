@@ -42,6 +42,7 @@ public class Inventory {
         if (hasSpace()) {
             items.add(item);
             currentSize++;
+            Game.printText("You got the " + item.getName());
         }
         else
             Game.printText("There is no room to add the item.");
@@ -56,7 +57,6 @@ public class Inventory {
                 item = items.get(i).getName();
             System.out.println(i + 1 + ": " + item);
         }
-        System.out.println(gold + " gold");
     }
 
     public int findItemByName(String name) {
@@ -86,5 +86,6 @@ public class Inventory {
                 ((ToggleableItem) item).disuse();
         items.remove(index);
         currentSize--;
+        Game.printText(item.getName() + " dropped.");
     }
 }
