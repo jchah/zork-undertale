@@ -8,6 +8,8 @@ public class Room {
   private String description;
   private ArrayList<Exit> exits;
   private final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
+  private boolean isSave;
+//  private ArrayList<Item> itemArrayList =
 
   public ArrayList<Exit> getExits() {
     return exits;
@@ -117,5 +119,13 @@ public class Room {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public boolean isSave() {
+    return isSave;
+  }
+
+  public void setSave(boolean save) {
+    isSave = save;
   }
 }

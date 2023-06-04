@@ -21,6 +21,7 @@ public class Game {
     public boolean testMode;
     private final Parser parser;
     private Room currentRoom;
+    private Room savedRoom;
     private final Player player;
     private final Scanner in = new Scanner(System.in);
     private static final AttackMeterGame attackMeterGame= new AttackMeterGame();
@@ -43,6 +44,7 @@ public class Game {
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
             currentRoom = roomMap.get("Flower Room");
+            savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,6 +104,8 @@ public class Game {
             String roomName = (String) ((JSONObject) roomObj).get("name");
             String roomId = (String) ((JSONObject) roomObj).get("id");
             String roomDescription = (String) ((JSONObject) roomObj).get("description");
+            boolean isSave = (boolean) ((JSONObject) roomObj).get("isSave");
+            room.setSave(isSave);
             room.setDescription(roomDescription);
             room.setRoomName(roomName);
 
@@ -125,10 +129,12 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        Monster froggit = new Monster(30, 4, 4, 2, 1, "froggit");
-        encounter(froggit);
         boolean finished = false;
         while (!finished) {
+            if (currentRoom.getRoomName().equals("Ruins Hallway")) {
+                Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");
+                encounter(froggit);
+            }
             Command command;
             try {
                 command = parser.getCommand();
@@ -205,7 +211,7 @@ public class Game {
         int startIndex = bar.length - 1;
         double percent = (double) entity.getHp() / entity.getMaxHp();
         int offset = (int) (bar.length * (1 - percent));
-        for (int i = 0; i < offset; i++) {
+        for (int i = 0; i < Math.min(offset, bar.length); i++) {
             bar[startIndex] = "\uD83D\uDC94";
             startIndex--;
         }
@@ -230,7 +236,7 @@ public class Game {
 
             if (player.isDead()) {
                 printText("GAME OVER");
-                printDeathMessage();
+                playerRespawn();
                 return;
             }
             option = giveEncounterOptions();
@@ -257,6 +263,7 @@ public class Game {
                 printText(monsterName + " was defeated.");
                 printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
                 player.addExp(monster.getExpReward());
+                player.updateLv();
                 player.inventory.addGold(gold);
                 return;
             }
@@ -360,6 +367,14 @@ public class Game {
         return option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy");
     }
 
+    public void playerRespawn() {
+        printDeathMessage();
+        currentRoom = savedRoom;
+        System.out.println("You were brought back to " + currentRoom.getRoomName() + ".");
+    }
+
+
+
     public void printDeathMessage() {
         int r = (int) (Math.random() * 3);
         switch (r) {
@@ -376,11 +391,12 @@ public class Game {
             printText("Save?: ");
             temp = in.nextLine();
             if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
+                printText("Game saved.");
                 return true;
-            } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
+            } else if (temp.equalsIgnoreCase("n") || temp.equalsIgnoreCase("no")) {
                 return false;
             } else
-                printText("Invalid response. Please answer (y)es or (n)o");
+                printText("Invalid response. Please answer (y)es or (n)o.");
         }
     }
 
@@ -438,6 +454,10 @@ public class Game {
         if (nextRoom != null) {
             currentRoom = nextRoom;
             Game.printText(currentRoom.longDescription());
+
+            if (currentRoom.isSave())
+                if (savePrompt())
+                    savedRoom = currentRoom;
         }
     }
 }

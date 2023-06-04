@@ -25,7 +25,7 @@
         },
         {
           "isLocked": false,
-          "direction": "east",
+          "direction": "East",
           "adjacentRoom": "Ruins Hallway"
         }
       ],
@@ -52,7 +52,7 @@
     {
       "id": "Ruins Start",
       "name": "Ruins Start",
-      "description": "A small room with a peculiar aura, emanating a sense of safety and respite from the harsh world outside.",
+      "description": "The shadow of the ruins looms above, filling you with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -70,7 +70,7 @@
           "adjacentRoom": "Ruins Puzzle1"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Ruins Start Candy",
@@ -183,7 +183,7 @@
     {
       "id": "Knife Room",
       "name": "Knife Room",
-      "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
+      "description": "Enter a dusty old room that smells of metal.",
       "exits": [
         {
           "isLocked": false,
@@ -196,7 +196,7 @@
     {
       "id": "House Entrance",
       "name": "House Entrance",
-      "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
+      "description": "Seeing such a cute, tidy house in the RUINS gives you determination.",
       "exits": [
         {
           "isLocked": false,
@@ -209,120 +209,30 @@
           "adjacentRoom": "Toriel's House"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
-      "id": "Ghost Room",
-      "name": "Ghost Room",
-      "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
+      "id": "Toriel's House",
+      "name": "Toriel's House",
+      "description": "Welcome to Toriel's house, where the walls whisper ancient tales.",
       "exits": [
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Ghost Room Candy"
-        },
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Ruins Puzzle1"
-        }
-      ],
-      "isSave": false
-    },
-    {
-      "id": "Ghost Room Candy",
-      "name": "Ghost Room Candy",
-      "description": "Within the ghostly room, shelves overflow with enchanting candies and confections, reminiscent of a spectral delight.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Ruins Puzzle2"
+          "adjacentRoom": "Kitchen"
         },
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Ghost Room"
+          "adjacentRoom": "House Downstairs"
         }
       ],
-      "isSave": false
-    },
-    {
-      "id": "Ruins Puzzle2",
-      "name": "Ruins Puzzle2",
-      "description": "Step into an intricate puzzle room, its enigmatic mechanisms inviting you to unravel their secrets once more.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Ghost Room Candy"
-        },
-        {
-          "isLocked": false,
-          "direction": "SouthWest",
-          "adjacentRoom": "Ruins Crosspath"
-        }
-      ],
-      "isSave": false
-    },
-    {
-      "id": "Ruins Crosspath",
-      "name": "Ruins Crosspath",
-      "description": "Find yourself at a crossroads within the ruins, where different paths intertwine, promising divergent journeys.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": " NorthEast",
-          "adjacentRoom": "Ruins Puzzle2"
-        },
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Knife Room"
-        },
-        {
-          "isLocked": true,
-          "direction": "West",
-          "adjacentRoom": "House Entrance"
-        }
-      ],
-      "isSave": false
-    },
-    {
-      "id": "Knife Room",
-      "name": "Knife Room",
-      "description": "Enter a room adorned with gleaming blades and shimmering weapons, a testament to the ancient battles fought within these walls.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "West",
-          "adjacentRoom": "Ruins Crosspath"
-        }
-      ],
-      "isSave": false
-    },
-    {
-      "id": "House Entrance",
-      "name": "House Entrance",
-      "description": "You stand at the entrance of a humble abode, where a warm and inviting atmosphere envelops you, providing solace and safety.",
-      "exits": [
-        {
-          "isLocked": false,
-          "direction": "East",
-          "adjacentRoom": "Ruins Crosspath"
-        },
-        {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Toriel's House"
-        }
-      ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Kitchen",
       "name": "Kitchen",
-      "description": "Embark into the Kitchen, filled with tantalizing aromas and culinary delights, where delectable creations come to life and nourish the soul.",
+      "description": "Embark into the Kitchen, filled with tantalizing aromas and culinary delights.",
       "exits": [
         {
           "isLocked": false,
@@ -331,8 +241,8 @@
         },
         {
           "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Kitchen"
+          "direction": "East",
+          "adjacentRoom": "Toriel's House"
         }
       ],
       "isSave": false
@@ -376,7 +286,7 @@
     {
       "id": "Toriel Encounter",
       "name": "Toriel Encounter",
-      "description": "Find yourself face-to-face with Toriel, a kind-hearted caretaker, whose warm eyes hold both wisdom and concern for your safety.",
+      "description": "The exit stands tall in front of you, but Toriel wishes you would stay.",
       "exits": [
         {
           "isLocked": false,
@@ -412,7 +322,7 @@
     {
       "id": "Tundra Hallway",
       "name": "Tundra Hallway",
-      "description": "Step into the chilling Tundra hallway, where the frigid air bites at your skin and the silence is broken only by the faint echoes of distant howls.",
+      "description": "The cold atmosphere of a new land... it fills you with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -425,7 +335,7 @@
           "adjacentRoom": "Sans Dialogue"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Sans Dialogue",
@@ -556,7 +466,7 @@
     {
       "id": "Tundra Spaghetti",
       "name": "Tundra Spaghetti",
-      "description": "Continue your exploration through the frigid Tundra, encountering new challenges and indulging in a warm plate of spaghetti to restore your determination.",
+      "description": "Knowing the mouse might one day find a way to heat up the spaghetti... It fills you with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -574,7 +484,7 @@
           "adjacentRoom": "Danger Bridge"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Ice Cream Room",
@@ -754,7 +664,7 @@
     {
       "id": "Waterfall Start",
       "name": "Waterfall Start",
-      "description": "Find yourself in a tranquil space within the Waterfall, offering respite and a chance to save your progress.",
+      "description": "The sound of rushing water fills you with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -767,7 +677,7 @@
           "adjacentRoom": "Waterfall Puzzle"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Waterfall Puzzle",
@@ -808,7 +718,7 @@
     {
       "id": "Telescope Room",
       "name": "Telescope Room",
-      "description": "Peer through a powerful telescope and witness the wonders of the cosmos, as well as the breathtaking beauty of the Waterfall.",
+      "description": "You feel a calming tranquility. You're filled with determination...",
       "exits": [
         {
           "isLocked": false,
@@ -821,7 +731,7 @@
           "adjacentRoom": "Waterfall Exit"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Ice Cream Room2",
@@ -849,15 +759,15 @@
         {
           "isLocked": false,
           "direction": "SouthWest",
-          "adjacentRoom": "Undyne Maze"
+          "adjacentRoom": "Muffet Maze"
         }
       ],
       "isSave": false
     },
     {
-      "id": "Undyne Maze",
-      "name": "Undyne Maze",
-      "description": "Embark on a treacherous journey through the perilous Undyne Maze, where danger lurks around every corner.",
+      "id": "Muffet Maze",
+      "name": "Muffet Maze",
+      "description": "You find yourself at the entrance of a maze of webs, where the soft skittering of spiders' delicate steps echoes through the air.",
       "exits": [
         {
           "isLocked": false,
@@ -867,20 +777,20 @@
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Undyne Encounter"
+          "adjacentRoom": "Muffet Encounter"
         }
       ],
       "isSave": false
     },
     {
-      "id": "Undyne Encounter",
-      "name": "Undyne Encounter",
-      "description": "Prepare to face the formidable Undyne in a thrilling encounter that will test your mettle and determination.",
+      "id": "Muffet Encounter",
+      "name": "Muffet Encounter",
+      "description": "Muffet's home.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Undyne Maze"
+          "adjacentRoom": "Muffet Maze"
         },
         {
           "isLocked": false,
@@ -893,12 +803,12 @@
     {
       "id": "Core Entrance",
       "name": "Core Entrance",
-      "description": "Enter the majestic Core, the heart of the Underground, as you embark on the final leg of your journey.",
+      "description": "An ominous structure looms in the distance... You're filled with determination.",
       "exits": [
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Undyne Encounter"
+          "adjacentRoom": "Muffet Encounter"
         },
         {
           "isLocked": false,
@@ -906,12 +816,12 @@
           "adjacentRoom": "Core Lobby"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
-      "id": "Core Lobby",
-      "name": "Core Lobby",
-      "description": "Find yourself in the grandiose Core Lobby, a sprawling area that leads to various chambers and challenges.",
+      "id": "Core Crossroads",
+      "name": "Core Crossroads",
+      "description": "",
       "exits": [
         {
           "isLocked": false,
@@ -931,7 +841,7 @@
         {
           "isLocked": true,
           "direction": "South",
-          "adjacentRoom": "Core Lobby Main"
+          "adjacentRoom": "Core Main"
         }
       ],
       "isSave": false
@@ -944,7 +854,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Core Lobby"
+          "adjacentRoom": "Core Crossroads"
         }
       ],
       "isSave": false
@@ -957,20 +867,20 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Core Lobby"
+          "adjacentRoom": "Core Crossroads"
         }
       ],
       "isSave": false
     },
     {
-      "id": "Core Lobby Main",
-      "name": "Core Lobby Main",
-      "description": "Step into the main area of the Core Lobby, the central hub of the core facilities.",
+      "id": "Core Main",
+      "name": "Core Main",
+      "description": "Step into the main area of the Core, the central hub of the core facilities.",
       "exits": [
         {
           "isLocked": false,
           "direction": "North",
-          "adjacentRoom": "Core Lobby"
+          "adjacentRoom": "Core Crossroads"
         },
         {
           "isLocked": false,
@@ -988,7 +898,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Core Lobby Main"
+          "adjacentRoom": "Core Main"
         },
         {
           "isLocked": false,
@@ -1016,19 +926,19 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Core Bridge Item Room1"
+          "adjacentRoom": "Core Bridge Item1"
         },
         {
           "isLocked": false,
           "direction": "NorthWest",
-          "adjacentRoom": "Core Bridge Item Room2"
+          "adjacentRoom": "Core Bridge Item2"
         }
       ],
       "isSave": false
     },
     {
-      "id": "Core Bridge Item Room1",
-      "name": "Core Bridge Item Room1",
+      "id": "Core Bridge Item1",
+      "name": "Core Bridge Item1",
       "description": "Discover a hidden room on Core Bridge, filled with valuable items and treasures.",
       "exits": [
         {
@@ -1040,8 +950,8 @@
       "isSave": false
     },
     {
-      "id": "Core Bridge Item Room2",
-      "name": "Core Bridge Item Room2",
+      "id": "Core Bridge Item2",
+      "name": "Core Bridge Item2",
       "description": "Uncover another secret room on Core Bridge, containing rare artifacts and useful equipment.",
       "exits": [
         {
@@ -1145,7 +1055,7 @@
     {
       "id": "Core Center Main",
       "name": "Core Center Main",
-      "description": "Enter the heart of the core's operations, the bustling and central area of the Core Center.",
+      "description": "Beyond this room must be the King's castle. You're filled with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -1163,7 +1073,7 @@
     {
       "id": "Core Hallway",
       "name": "Core Hallway",
-      "description": "Proceed through the expansive Core Hallway, a passageway leading to various significant areas.",
+      "description": "Proceed through the expansive Core Hallway, a passageway leading to king Asgore.",
       "exits": [
         {
           "isLocked": false,
@@ -1289,7 +1199,7 @@
     {
       "id": "Flowey Encounter",
       "name": "Flowey Encounter",
-      "description": "Confront Flowey, the mischievous and enigmatic creature who guards the path ahead.",
+      "description": "Finally defeating the king, you're filled with determination.",
       "exits": [
         {
           "isLocked": false,
@@ -1302,7 +1212,7 @@
           "adjacentRoom": "Barrier Break"
         }
       ],
-      "isSave": false
+      "isSave": true
     },
     {
       "id": "Barrier Break",

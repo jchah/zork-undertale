@@ -87,21 +87,14 @@ public class MiniGame {
 
 
     public int play(Monster monster) {
-        // ms
-        int TICK_DELAY = 500;
+        hitDamage = Math.max(1, monster.getAtk() - Game.game.getPlayer().getDef());
+        int TICK_DELAY = 500; //ms
         double seconds = TICK_DELAY / 1000.0;
-        int temp = (int) (GAME_TIME / seconds);
+        int temp = (int) (GAME_TIME / seconds) + 1;
         String[] playerLocationHistory = new String[temp];
         switch (monster.getName().toLowerCase()) {
-            case "froggit" -> {
-                symbol = "\uD80C\uDD8F";
-                hitDamage = 4;
-            }
-            case "whimsum" -> {
-                symbol = "\uD83D\uDC1D";
-                hitDamage = 2;
-
-            }
+            case "froggit" -> symbol = "\uD80C\uDD8F";
+            case "whimsum" -> symbol = "\uD83D\uDC1D";
         }
         totalDamage = 0;
         Thread timer = new Thread(() -> {
@@ -154,14 +147,13 @@ public class MiniGame {
                 }
 
                 if (r == rank && f == file) {
-                    totalDamage += 2;
+                    totalDamage += hitDamage;
                 } else {
                     area[r][f] = symbol;
                 }
             }
 
             playerLocationHistory[tickCount] = rank + "~" + file;
-            System.out.println(Arrays.toString(playerLocationHistory));
             printArea();
 
             Game.sleep(TICK_DELAY);

@@ -1,25 +1,13 @@
 package zork;
 
 public class Monster extends Entity{
-    private int expReward;
-    private int goldMultiplier;
-    // Jad
+    private final int expReward;
+    private final int goldMultiplier;
 
     public Monster(int hp, int atk, int def, int exp, int gold, String name) {
         super(hp, atk, def, name);
         expReward = exp;
         goldMultiplier = gold;
-    }
-
-    /**
-     * @return damage done to player
-     */
-    public int calcDamage(Player player) {
-        return getAtk() - player.getDef();
-    }
-
-    public void takeDamage(int dmg) {
-        setHp(getHp() - dmg);
     }
 
     public String check() {
