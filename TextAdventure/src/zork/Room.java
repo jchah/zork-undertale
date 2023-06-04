@@ -7,7 +7,7 @@ public class Room {
   private String roomName;
   private String description;
   private ArrayList<Exit> exits;
-  private final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
+  private static final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
   private boolean isSave;
 //  private ArrayList<Item> itemArrayList =
 
@@ -34,6 +34,15 @@ public class Room {
     exits = new ArrayList<Exit>();
   }
 
+  public static boolean isValidDirection(String direction) {
+    for (String d:validDirections) {
+      if (direction.equalsIgnoreCase(d)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public void addExit(Exit exit) {
     exits.add(exit);
   }
@@ -51,7 +60,6 @@ public class Room {
    * Exits: north west
    */
   public String longDescription() {
-
     return "Room: " + roomName + "\n\n" + description + "\n" + exitString();
   }
 
