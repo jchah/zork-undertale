@@ -43,7 +43,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Flower Room");
+            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
