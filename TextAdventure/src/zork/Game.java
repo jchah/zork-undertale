@@ -129,8 +129,17 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        
         boolean finished = false;
         while (!finished) {
+            if (currentRoom.getRoomName().equals("Flower Room")) {
+                printAsciiImage("flowey");
+                printText("Howdy! I'm Flowey. Flowey the Flower!");
+                printText("You're new to the underground, aren'tcha?");
+                printText("Someone ought to teach you how things work around here!");
+                printText("I guess little old me will have to do.");
+                printText("Ready? Here we go!");
+            }
             if (currentRoom.getRoomName().equals("Ruins Hallway")) {
                 Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");
                 encounter(froggit);
@@ -143,6 +152,7 @@ public class Game {
                 e.printStackTrace();
             }
         }
+        
         System.out.println("Thank you for playing.  Good bye.");
     }
 
