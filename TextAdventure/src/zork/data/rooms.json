@@ -14,7 +14,7 @@
       "isSave": false,
       "items": [
         {
-
+  
         }
       ]
     },
@@ -37,7 +37,11 @@
       "isSave": false,
       "items": [
         {
-
+      "type": "Food",
+      "name": "Bandage",
+      "hp": 10,
+      "atk": null,
+      "def": null
         }
       ]
     },
@@ -106,7 +110,11 @@
       "isSave": false,
       "items": [
         {
-          
+      "type": "Food",
+      "name": "Monster Candy",
+      "hp": 10,
+      "atk": null,
+      "def": null  
         }
       ]
     },
@@ -175,7 +183,11 @@
       "isSave": false,
       "items": [
         {
-          
+      "type": "Food",
+      "name": "Monster Candy",
+      "hp": 10,
+      "atk": null,
+      "def": null
         }
       ]
     },
@@ -244,7 +256,11 @@
       "isSave": false,
       "items": [
         {
-          
+      "type": "Weapon",
+      "name": "Toy Knife",
+      "hp": null,
+      "atk": 3,
+      "def": null
         }
       ]
     },
