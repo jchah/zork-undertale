@@ -160,7 +160,20 @@
       "isSave": false,
       "items": [
         {
-          
+      "type": "Food",
+      "name": "Spider Donut",
+      "hp": 12,
+      "atk": null,
+      "def": null,
+      "cost": 7
+        }, 
+        {
+      "type": "Food",
+      "name": "Spider Cider",
+      "hp": 24,
+      "atk": null,
+      "def": null,
+      "cost": 18
         }
       ]
     },
