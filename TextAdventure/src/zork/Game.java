@@ -43,7 +43,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Spawn Room");
+            currentRoom = roomMap.get("Spaqn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = false;
+        testMode = true;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
@@ -150,7 +150,7 @@ public class Game {
                 printText("Prove to me you are strong enough to survive.");
 
             }
-            if (currentRoom.getRoomName().equals("Sans Encounter")) {
+            if (currentRoom.getRoomName().equals("Sans Dialogue")) {
                 printAsciiImage("sans");
                 printText("You're a human, right?");
                 printText("That's hilarious.");
@@ -162,10 +162,74 @@ public class Game {
                 printText("He's a human-hunting fanatic");
                 printText("Hey, actually, I think that's him over there.");
                 printText("I have an idea. Go through this gate thingy.");
+                Game.sleep(1000);
                 printAsciiImage("gate");
                 printText("Yeah, go right through. My bro made the bars too wide to stop anyone.");
+                printText("Quick, hide behind that lamp!");
+                Game.sleep(300);
+                printAsciiImage("lamp");
+                Game.sleep(500);
                 printText("sup, bro");
+                Game.sleep(1000);
                 printAsciiImage("papyrus");
+                printText("papyrus: YOU KNOW WHAT. SUP, BROTHER.");
+                printText("IT'S BEEN EIGHT DAYS AND YOU STILL HAVEN'T...");
+                printText("RECALIBRATED. YOUR. PUZZLES.");
+                printText("YOU JUST HANG AROUND YOUR STATION.");
+                printText("WHAT ARE YOU EVEN DOING!?!");
+                Game.sleep(1000);
+                printText("sans: Staring at this lamp. It's really cool. Do you wanna look?");
+                Game.sleep(500);
+                printAsciiImage("lamp");
+                printText("papyrus: NO!! I DON'T HAVE TIME FOR THAT!!!");
+                Game.sleep(500);
+                printAsciiImage("papyrus");
+                printText("WHAT IF A HUMAN COMES THROUGH HERE???");
+                printText("I WANT TO BE READY!!!");
+                printText("I WILL BE THE ONE!! I MUST BE THE ONE!!");
+                printText("I WILL CAPTURE A HUMAN!!!");
+                printText("THEN, I, THE GREAT PAPYRUS");
+                printText("WILL GET ALL THE THINGS I UTTERLY DESERVE");
+                printText("RESPECT... RECOGNITION...");
+                printText("I WILL FINALLY BE ABLE TO JOIN THE ROYAL GUARD!!!");
+                printText("PEOPLE WILL ASK, TO, BE MY, FRIEND!");
+                printText("I WILL BATHE IN A SHOWER OF KISSES EVERY MORNING.");
+                Game.sleep(500);
+                printText("sans: hmm. Maybe this lamp will help you.");
+                printText("papyrus: SANS!! YOU ARE NOT HELPING!! YOU LAZYBONES!!!");
+                printText("ALL YOU DO IS SIT AND BOONDOGGLE");
+                printText("YOU GET LAZIER AND LAZIER EVERY DAY!!!");
+                Game.sleep(500);
+                printText("sans: hey, take it easy. I've gotten a TON of work done today.");
+                printText("a SKELE-TON!");
+                Game.sleep(1300);
+                printText("papyrus: SANS!!!");
+                Game.sleep(300);
+                printText("sans: come on.. you're smiling.");
+                Game.sleep(200);
+                printText("papyrus: I AM AND I HATE IT!!!");
+                Game.sleep(300);
+                printText("SIGH...");
+                printText("WHY DOES SOMEONE AS GREAT AS ME...");
+                printText("HAVE TO DO SO MUCH JUST TO GET SOME RECOGNITION.");
+                Game.sleep(500);
+                printText("sans: wow.. Sounds like you're really working yourself...");
+                printText("down to the bone.. *wink*");
+                Game.sleep(1200);
+                printText("papyrus: UGH.. I'LL ATTEND TO MY WORK. AS FOR YOUR WORK.. PUT A LITTLE MORE..");
+                printText("BACKBONE INTO IT!!!!");
+                printText("NYEHEHEHEHEHEHEHEHEHEHEHEHEHEH!!!");
+                Game.sleep(1000);
+                printText("sans: ok.. you can come out now");
+                printText("You oughta get going. he might come back. and if he does...");
+                printText("you'll have to sit through more of my hilarious jokes.");
+                Game.sleep(1900);
+                printText("What's the holdup? Look. There's nothing to be afraid of.");
+                printText("It's just a dark caven filled with skeletons and monsters. *wink*");
+                Game.sleep(600);
+                printText("Hey, before you go, can you do me a favor?");
+                printText("My brothers been down lately, and seeing a human, it might make his day.");
+                printText("Don't worry, he's not dangerous.");
 
             }
             if (currentRoom.getRoomName().equals("Ruins Hallway")) {
