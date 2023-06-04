@@ -129,7 +129,7 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        
+        printText(currentRoom.longDescription());
         boolean finished = false;
         while (!finished) {
             if (currentRoom.getRoomName().equals("Flower Room")) {

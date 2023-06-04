@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ActOptions {
-    public static HashMap<String, ArrayList<Action>> actOptions = new HashMap<String, ArrayList<Action>>();
+    public static HashMap<String, ArrayList<Action>> actOptions = new HashMap<>();
 
     static {
         Action t;
