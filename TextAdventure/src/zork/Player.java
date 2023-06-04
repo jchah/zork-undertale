@@ -6,7 +6,7 @@ public class Player extends Entity{
     private double attackBoost;
     private int lv = 1;
     // todo adjust these numbers
-    private final int[] expToLv = {0, 10, 20, 40, 50, 80, 100, 200, 300, 400, 500, 800, 1000, 1500, 2000, 3000, 5000, 10000, 25000, 49999};
+    private final int[] expToLv = {0, 10, 20, 40, 50, 80, 100, 150, 215, 270, 350, 450, 550, 700, 900, 1000};
 
     public Player(int hp, int def, int atk, String name) {
         super(hp, atk, def, name);
