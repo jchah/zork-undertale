@@ -95,6 +95,16 @@ public class MiniGame {
         switch (monster.getName().toLowerCase()) {
             case "froggit" -> symbol = "\uD80C\uDD8F";
             case "whimsum" -> symbol = "\uD83D\uDC1D";
+            case "vegetoid" -> symbol = "\uD83E\uDD66";
+            case "loox" -> symbol = "\uD83D\uDC7D";
+            case "moldsmal" -> symbol = "\uD83D\uDCA9";
+            case "aaron" -> symbol = "\uD83D\uDCAA";
+            case "woshua" -> symbol = "\uD83E\uDDFC";
+            case "knightknight" -> symbol = "♞";
+            case "finalfroggit" -> symbol = "✨\uD80C\uDD8F✨";
+            case "greaterdog" -> symbol = "\uD83D\uDC15";
+            case "icecap" -> symbol = "\uD83E\uDDCA";
+            case "snowdrake" -> symbol = "❄";
         }
         totalDamage = 0;
         Thread timer = new Thread(() -> {
