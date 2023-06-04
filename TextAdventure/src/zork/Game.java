@@ -51,7 +51,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = true;
+        testMode = false;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
@@ -139,6 +139,34 @@ public class Game {
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
                 printText("Ready? Here we go!");
+            }
+            if (currentRoom.getRoomName().equals("Toriel Encounter")) {
+                printAsciiImage("toriel");
+                printText("You want to leave so badly?");
+                printText("Hmph.");
+                printText("You are just like the others.");
+                printText("There is only one solution to this.");
+                printText("Prove yourself");
+                printText("Prove to me you are strong enough to survive.");
+
+            }
+            if (currentRoom.getRoomName().equals("Sans Encounter")) {
+                printAsciiImage("sans");
+                printText("You're a human, right?");
+                printText("That's hilarious.");
+                printText("I'm Sans. Sans the skeleton");
+                printText("I'm actually supposed to be on watch for humans");
+                printText("but... y'know...");
+                printText("I don't really care about capturing anybody.");
+                printText("Now my brother, Papyrus...");
+                printText("He's a human-hunting fanatic");
+                printText("Hey, actually, I think that's him over there.");
+                printText("I have an idea. Go through this gate thingy.");
+                printAsciiImage("gate");
+                printText("Yeah, go right through. My bro made the bars too wide to stop anyone.");
+                printText("sup, bro");
+                printAsciiImage("papyrus");
+
             }
             if (currentRoom.getRoomName().equals("Ruins Hallway")) {
                 Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");

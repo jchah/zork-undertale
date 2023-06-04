@@ -410,9 +410,9 @@
       "isSave": false,
       "items": [
         {
-          "type": null,
-          "name": null,
-          "hp": null,
+          "type": "Food",
+          "name": "Butterscotch Pie",
+          "hp": 999,
           "atk": null,
           "def": null,
           "cost": null
