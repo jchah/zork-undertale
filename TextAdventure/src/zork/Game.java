@@ -176,11 +176,6 @@ public class Game {
                 sansEncounterDialogueShown = true;
             }
 
-            if (currentRoom.getRoomName().equals("Ruins Hallway")) {
-                Monster froggit = new Monster(30, 4, 4, 4, 1, "froggit");
-                encounter(froggit);
-            }
-
             Command command;
             try {
                 command = parser.getCommand();
@@ -280,11 +275,12 @@ public class Game {
         System.out.println();
     }
 
-    private void encounter(Monster monster) {
+    private void encounter(String monsterName) {
+        Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
+        monsterName = monsterName.toUpperCase();
         String option;
         boolean keepFighting = true;
         boolean canMercy = false;
-        String monsterName = monster.getName().toUpperCase();
         printAsciiImage(monsterName);
         printText("A wild " + monsterName + " appeared!");
         while (keepFighting) {
@@ -318,6 +314,7 @@ public class Game {
             }
 
             if (monster.isDead()) {
+                monster.resetHp();
                 int gold = monster.calcGoldReward();
                 printText(monsterName + " was defeated.");
                 printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
@@ -326,8 +323,10 @@ public class Game {
                 player.inventory.addGold(gold);
                 return;
             }
-            if (keepFighting)
+            if (keepFighting) {
+                Game.sleep(1000);
                 player.takeDamage(playMiniGame(monster));
+            }
         }
         int gold = monster.calcGoldReward();
         printText("You spared " + monsterName + ".");
@@ -375,7 +374,7 @@ public class Game {
         HashMap<String, ArrayList<Action>> actOptions = ActOptions.actOptions;
         ArrayList<Action> actionList = actOptions.get(monster.getName());
         for (Action action: actionList) {
-            System.out.print(action.getName() + "  |  ");
+            System.out.print(action.getName() + "   ");
         }
         System.out.println();
 
@@ -468,7 +467,7 @@ public class Game {
         }
 
         String commandWord = command.getCommandWord();
-        switch (commandWord) {
+        switch (commandWord.toLowerCase()) {
             case "help":
                 printHelp();
                 break;
