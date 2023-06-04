@@ -32,6 +32,11 @@
           "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Ruins Entrance"
+        },
+        {
+          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "Spawn Room"
         }
       ],
       "isSave": false,
