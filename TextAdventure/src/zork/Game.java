@@ -141,7 +141,14 @@ public class Game {
                 printText("Ready? Here we go!");
             }
             if (currentRoom.getRoomName().equals("Toriel Encounter")) {
-                
+                printAsciiImage("toriel");
+                printText("You want to leave so badly?");
+                printText("Hmph.");
+                printText("You are just like the others.");
+                printText("There is only one solution to this.");
+                printText("Prove yourself");
+                printText("Prove to me you are strong enough to survive.");
+
             }
             if (currentRoom.getRoomName().equals("Ruins Hallway")) {
                 Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");
