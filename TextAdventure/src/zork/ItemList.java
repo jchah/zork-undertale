@@ -26,21 +26,21 @@ public class ItemList {
 
 
 
-        items.put("mnstrcndy", monstercandy);
-        items.put("toyknife", toyknife);
-        items.put("bandage", bandage);
-        items.put("stick", stick);
-        items.put("toughglove", tuffglove);
-        items.put("bandanna", bandanna);
-        items.put("bicecream", nicecream);
-        items.put("cinnabun", cinnabun);
-        items.put("oldtutu", tutu);
-        items.put("balletshoes", balletshoes);
-        items.put("hotdog", hotdog);
-        items.put("hotcat", hotcat);
-        items.put("locket", locket);
-        items.put("spiderdonut", spiderdonut);
-        items.put("spidercider", spidercider);
-        items.put("emptygun", emptygun);
+        items.put("Monster Candy", monstercandy);
+        items.put("Toy Knife", toyknife);
+        items.put("Bandage", bandage);
+        items.put("Stick", stick);
+        items.put("Tough Glove", tuffglove);
+        items.put("Bandanna", bandanna);
+        items.put("Nicecream", nicecream);
+        items.put("Cinnabun", cinnabun);
+        items.put("Old Tutu", tutu);
+        items.put("Balletshoes", balletshoes);
+        items.put("Hotdog", hotdog);
+        items.put("Hotcat", hotcat);
+        items.put("Locket", locket);
+        items.put("Spider Donut", spiderdonut);
+        items.put("Spider Cider", spidercider);
+        items.put("Empty Gun", emptygun);
     }
 }

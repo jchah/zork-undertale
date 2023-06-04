@@ -72,9 +72,9 @@
       "isSave": false,
       "items": [
         {
-          "type": "Food",
-          "name": "Bandage",
-          "hp": 10,
+          "type": null,
+          "name": null,
+          "hp": null,
           "atk": null,
           "def": null,
           "itemDesc": null
@@ -163,7 +163,7 @@
           "hp": 10,
           "atk": null,
           "def": null,
-          "itemDesc": null
+          "itemDesc": "Heals 10 HP. Has a distinct, non-licorice flavor."
         }
       ]
     },
@@ -199,7 +199,7 @@
     {
       "id": "Ghost Room",
       "name": "Ghost Room",
-      "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side.",
+      "description": "As you enter the ghostly chamber, an ethereal mist swirls around you, accompanied by faint whispers from the other side. You see a spider web in the corner of the room.",
       "exits": [
         {
           "isLocked": false,
@@ -221,7 +221,7 @@
           "atk": null,
           "def": null,
           "cost": 7,
-          "itemDesc": null
+          "itemDesc": "Heals 12 HP. A donut made with Spider Cider in the batter."
         }, 
         {
           "type": "Food",
@@ -230,7 +230,7 @@
           "atk": null,
           "def": null,
           "cost": 18,
-          "itemDesc": null
+          "itemDesc": "Heals 24 HP. Made with whole spiders, not just the juice."
         }
       ]
     },
@@ -258,7 +258,7 @@
           "hp": 10,
           "atk": null,
           "def": null,
-          "itemDesc": null
+          "itemDesc": "Heals 10 HP. Has a distinct, non-licorice flavor."
         }
       ]
     },
@@ -344,7 +344,7 @@
           "hp": null,
           "atk": 3,
           "def": null,
-          "itemDesc": null
+          "itemDesc": "Weapon AT 3. Made of plastic. A rarity nowadays."
         }
       ]
     },
@@ -431,7 +431,7 @@
           "atk": null,
           "def": null,
           "cost": null,
-          "itemDesc": null
+          "itemDesc": "Heals All HP. Butterscotch-cinnamon pie, one slice."
         }
       ]
     },
@@ -744,13 +744,13 @@
       "isSave": false,
       "items": [
         {
-          "type": null,
-          "name": null,
-          "hp": null,
+          "type": "Food",
+          "name": "Snowman Piece",
+          "hp": 45,
           "atk": null,
           "def": null,
           "cost": null,
-          "itemDesc": null
+          "itemDesc": "Heals 45 HP Please take this to the ends of the earth."
         }
       ]
     },
