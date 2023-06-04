@@ -83,7 +83,16 @@
           "adjacentRoom": "Ruins Start"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "type": "Food",
+          "name": "Monster Candy",
+          "hp": 10,
+          "atk": null,
+          "def": null
+        }
+      ]
     },
     {
       "id": "Ruins Puzzle1",
