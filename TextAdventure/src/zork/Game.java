@@ -67,27 +67,27 @@ public class Game {
         return player;
     }
 
-    public String namePrompt() {
+    private String namePrompt() {
         String name;
         String temp;
         while (true) {
-            System.out.println("Name the fallen human: ");
+            printText("Name the fallen human: ");
             name = in.nextLine();
             if (name.length() >= 1 && name.length() <= 15) {
                 boolean good = false;
                 while(!good) {
-                    System.out.println("Your name is " + name + ", confirm?");
+                    printText("Your name is " + name + ", confirm?");
                     temp = in.nextLine();
                     if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                         return name;
                     } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
-                        System.out.println("Invalid response. Please answer (y)es or (n)o");
+                        printText("Invalid response. Please answer (y)es or (n)o");
                     } else
                         good = true;
                 }
             }
             else {
-                System.out.println("Name must be within 1 and 15 characters");
+                printText("Name must be within 1 and 15 characters");
             }
         }
     }
@@ -129,24 +129,53 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        
+        printText(currentRoom.longDescription());
         boolean finished = false;
+        boolean flowerRoomDialogueShown = false;
+        boolean torielEncounterDialogueShown = false;
+        boolean sansEncounterDialogueShown = false;
+
         while (!finished) {
-            if (currentRoom.getRoomName().equals("Flower Room")) {
+            if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 printAsciiImage("flowey");
                 printText("Howdy! I'm Flowey. Flowey the Flower!");
                 printText("You're new to the underground, aren'tcha?");
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
                 printText("Ready? Here we go!");
+                flowerRoomDialogueShown = true;
             }
-            if (currentRoom.getRoomName().equals("Toriel Encounter")) {
-                
+
+            if (currentRoom.getRoomName().equals("Toriel Encounter") && !torielEncounterDialogueShown) {
+                printAsciiImage("toriel");
+                printText("You want to leave so badly?");
+                printText("Hmph.");
+                printText("You are just like the others.");
+                printText("There is only one solution to this.");
+                printText("Prove yourself");
+                printText("Prove to me you are strong enough to survive.");
+                torielEncounterDialogueShown = true;
             }
-            if (currentRoom.getRoomName().equals("Ruins Hallway")) {
-                Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");
-                encounter(froggit);
+
+            if (currentRoom.getRoomName().equals("Sans Encounter") && !sansEncounterDialogueShown) {
+                printAsciiImage("sans");
+                printText("You're a human, right?");
+                printText("That's hilarious.");
+                printText("I'm Sans. Sans the skeleton");
+                printText("I'm actually supposed to be on watch for humans");
+                printText("but... y'know...");
+                printText("I don't really care about capturing anybody.");
+                printText("Now my brother, Papyrus...");
+                printText("He's a human-hunting fanatic");
+                printText("Hey, actually, I think that's him over there.");
+                printText("I have an idea. Go through this gate thingy.");
+                printAsciiImage("gate");
+                printText("Yeah, go right through. My bro made the bars too wide to stop anyone.");
+                printText("sup, bro");
+                printAsciiImage("papyrus");
+                sansEncounterDialogueShown = true;
             }
+
             Command command;
             try {
                 command = parser.getCommand();
@@ -155,8 +184,18 @@ public class Game {
                 e.printStackTrace();
             }
         }
-        
-        System.out.println("Thank you for playing.  Good bye.");
+
+        rollCredits();
+    }
+
+    private void rollCredits() {
+        printTextCustomDelay("UNDERTALE TEXT ADVENTURE", 100);
+        printTextCustomDelay("A GAME BY...", 100);
+        printTextCustomDelay("JAD C.", 50);
+        printTextCustomDelay("RYAN K.", 50);
+        printTextCustomDelay("KAI S.", 50);
+        printTextCustomDelay("AND SAVVA P.",50);
+        printTextCustomDelay("THANK YOU FOR PLAYING! :)", 100);
     }
 
     /**
@@ -168,8 +207,10 @@ public class Game {
     }
 
     private static void printAsciiImage(String name) {
+        // allow readers to read text before image
+        Game.sleep(1000);
         try {
-            File ascii = new File("TextAdventure\\src\\zork\\data\\" + name.toLowerCase() + ".txt");
+            File ascii = new File("TextAdventure\\src\\zork\\data\\ascii_art\\" + name.toLowerCase() + ".txt");
             Scanner reader = new Scanner(ascii);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
@@ -218,7 +259,7 @@ public class Game {
         return data;
     }
 
-    public void showHealthBar(Entity entity) {
+    private void showHealthBar(Entity entity) {
         String data = encodeToString("❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤");
         String[] bar = data.split("");
         int startIndex = bar.length - 1;
@@ -234,11 +275,12 @@ public class Game {
         System.out.println();
     }
 
-    private void encounter(Monster monster) {
+    private void encounter(String monsterName) {
+        Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
+        monsterName = monsterName.toUpperCase();
         String option;
         boolean keepFighting = true;
         boolean canMercy = false;
-        String monsterName = monster.getName().toUpperCase();
         printAsciiImage(monsterName);
         printText("A wild " + monsterName + " appeared!");
         while (keepFighting) {
@@ -272,6 +314,7 @@ public class Game {
             }
 
             if (monster.isDead()) {
+                monster.resetHp();
                 int gold = monster.calcGoldReward();
                 printText(monsterName + " was defeated.");
                 printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
@@ -280,8 +323,10 @@ public class Game {
                 player.inventory.addGold(gold);
                 return;
             }
-            if (keepFighting)
+            if (keepFighting) {
+                Game.sleep(1000);
                 player.takeDamage(playMiniGame(monster));
+            }
         }
         int gold = monster.calcGoldReward();
         printText("You spared " + monsterName + ".");
@@ -316,7 +361,7 @@ public class Game {
                 item.use();
                 return;
             } else {
-                printText("No such item " + chosenItem + ".");
+                printText("No such item " + shortenInvalid(chosenItem) + " in your inventory.");
             }
         }
     }
@@ -350,7 +395,7 @@ public class Game {
                     return action.isMercyOption();
                 }
             }
-            printText("No such action " + chosenAction + ".");
+            printText("No such action " + shortenInvalid(chosenAction) + ".");
         }
     }
 
@@ -376,11 +421,11 @@ public class Game {
         }
     }
 
-    public static boolean isValidOption(String option) {
+    private static boolean isValidOption(String option) {
         return option.equals("fight") || option.equals("act") || option.equals("item") || option.equals("mercy");
     }
 
-    public void playerRespawn() {
+    private void playerRespawn() {
         printDeathMessage();
         currentRoom = savedRoom;
         System.out.println("You were brought back to " + currentRoom.getRoomName() + ".");
@@ -388,7 +433,7 @@ public class Game {
 
 
 
-    public void printDeathMessage() {
+    private void printDeathMessage() {
         int r = (int) (Math.random() * 3);
         switch (r) {
             case 0 -> printText("You cannot give up just yet...");
@@ -398,7 +443,7 @@ public class Game {
         printText(player.getName() + "! Stay determined!");
     }
 
-    public boolean savePrompt() {
+    private boolean savePrompt() {
         String temp;
         while (true) {
             printText("Save?: ");
@@ -413,6 +458,8 @@ public class Game {
         }
     }
 
+
+
     private boolean processCommand(Command command) {
         if (command.isUnknown()) {
             System.out.println("I don't know what you mean...");
@@ -420,7 +467,7 @@ public class Game {
         }
 
         String commandWord = command.getCommandWord();
-        switch (commandWord) {
+        switch (commandWord.toLowerCase()) {
             case "help":
                 printHelp();
                 break;
@@ -429,15 +476,41 @@ public class Game {
                 break;
             case "quit":
                 if (command.hasSecondWord())
-                    System.out.println("Quit what?");
+                    System.out.println("? -> " + command.getSecondWord());
                 else
                     return true; // signal that we want to quit
                 break;
             case "eat":
-                System.out.println("Do you really think you should be eating at a time like this?");
+                if (!command.hasSecondWord()) {
+                    System.out.println("Eat what?");
+                    System.out.print("> ");
+                    String temp = in.nextLine();
+                    int index = player.inventory.findItemByName(temp);
+                    if (index > -1) {
+                        Food food = (Food) player.inventory.items.get(index);
+                        food.use();
+                    } else {
+                        System.out.println("No such food " + shortenInvalid(temp) + " in your inventory.");
+                    }
+                } else {
+                    int index = player.inventory.findItemByName(command.getSecondWord());
+                    if (index > -1) {
+                        Food food = (Food) player.inventory.items.get(index);
+                        food.use();
+                    } else {
+                        System.out.println("No such item " + shortenInvalid(command.getSecondWord()) + " in your inventory.");
+                    }
+                }
                 break;
         }
         return false;
+    }
+
+    private String shortenInvalid(String string) {
+        if (string.length() > 20) {
+            return string.substring(0, 17) + "...";
+        }
+        return string;
     }
 
     /**
@@ -453,13 +526,22 @@ public class Game {
      * otherwise print an error message.
      */
     private void goRoom(Command command) {
-        if (!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
-            return;
+        String direction;
+        if (command.hasSecondWord()) {
+            direction = command.getSecondWord();
         }
-
-        String direction = command.getSecondWord();
+        else {
+            System.out.println("Go where?");
+            System.out.print("> ");
+            String temp = in.nextLine();
+            if (Room.isValidDirection(temp)) {
+                direction = temp;
+            }
+            else {
+                printText(shortenInvalid(temp) + " is not a valid direction");
+                return;
+            }
+        }
 
         // Try to leave current room.
         Room nextRoom = currentRoom.nextRoom(direction);
