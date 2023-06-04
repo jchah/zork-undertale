@@ -14,7 +14,12 @@
       "isSave": false,
       "items": [
         {
-  
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -37,11 +42,11 @@
       "isSave": false,
       "items": [
         {
-      "type": "Food",
-      "name": "Bandage",
-      "hp": 10,
-      "atk": null,
-      "def": null
+          "type": "Food",
+          "name": "Bandage",
+          "hp": 10,
+          "atk": null,
+          "def": null
         }
       ]
     },
@@ -64,7 +69,12 @@
       "isSave": false,
       "items": [
         {
-
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -92,7 +102,12 @@
       "isSave": true,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -110,11 +125,11 @@
       "isSave": false,
       "items": [
         {
-      "type": "Food",
-      "name": "Monster Candy",
-      "hp": 10,
-      "atk": null,
-      "def": null  
+          "type": "Food",
+          "name": "Monster Candy",
+          "hp": 10,
+          "atk": null,
+          "def": null  
         }
       ]
     },
@@ -137,7 +152,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -160,20 +180,20 @@
       "isSave": false,
       "items": [
         {
-      "type": "Food",
-      "name": "Spider Donut",
-      "hp": 12,
-      "atk": null,
-      "def": null,
-      "cost": 7
+          "type": "Food",
+          "name": "Spider Donut",
+          "hp": 12,
+          "atk": null,
+          "def": null,
+          "cost": 7
         }, 
         {
-      "type": "Food",
-      "name": "Spider Cider",
-      "hp": 24,
-      "atk": null,
-      "def": null,
-      "cost": 18
+          "type": "Food",
+          "name": "Spider Cider",
+          "hp": 24,
+          "atk": null,
+          "def": null,
+          "cost": 18
         }
       ]
     },
@@ -196,11 +216,11 @@
       "isSave": false,
       "items": [
         {
-      "type": "Food",
-      "name": "Monster Candy",
-      "hp": 10,
-      "atk": null,
-      "def": null
+          "type": "Food",
+          "name": "Monster Candy",
+          "hp": 10,
+          "atk": null,
+          "def": null
         }
       ]
     },
@@ -223,7 +243,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -251,7 +276,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -269,11 +299,11 @@
       "isSave": false,
       "items": [
         {
-      "type": "Weapon",
-      "name": "Toy Knife",
-      "hp": null,
-      "atk": 3,
-      "def": null
+          "type": "Weapon",
+          "name": "Toy Knife",
+          "hp": null,
+          "atk": 3,
+          "def": null
         }
       ]
     },
@@ -296,7 +326,12 @@
       "isSave": true,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -319,7 +354,12 @@
       "isSave": true,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -342,7 +382,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -365,7 +410,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -388,7 +438,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -411,7 +466,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -434,7 +494,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -457,7 +522,12 @@
       "isSave": true,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -480,7 +550,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
@@ -503,7 +578,12 @@
       "isSave": false,
       "items": [
         {
-          
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
         }
       ]
     },
