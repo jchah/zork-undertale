@@ -140,6 +140,9 @@ public class Game {
                 printText("I guess little old me will have to do.");
                 printText("Ready? Here we go!");
             }
+            if (currentRoom.getRoomName().equals("Toriel Encounter")) {
+                
+            }
             if (currentRoom.getRoomName().equals("Ruins Hallway")) {
                 Monster froggit = new Monster(30, 4, 4, 4, 4, "froggit");
                 encounter(froggit);
