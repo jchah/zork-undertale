@@ -1,6 +1,29 @@
 {
   "rooms": [
     {
+      "id": "Spawn Room",
+      "name": "Spawn Room",
+      "description": "Welcome to undertale.",
+      "exits": [
+        {
+          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "Flower Room"
+        }
+      ],
+      "isSave": false,
+      "items": [
+        {
+          "type": null,
+          "name": null,
+          "hp": null,
+          "atk": null,
+          "def": null,
+          "cost": null
+        }
+      ]
+    },
+    {
       "id": "Flower Room",
       "name": "Flower Room",
       "description": "A serene chamber adorned with vibrant flowers, casting a gentle fragrance in the air.",
