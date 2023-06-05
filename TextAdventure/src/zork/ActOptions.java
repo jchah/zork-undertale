@@ -41,7 +41,7 @@ public class ActOptions {
         t = new Action("CHECK", "This monster is too sensitive to fight... WHUMSUN: \"I'm sorry...\"");
         actions.add(t);
         t = new Action("CONSOLE",
-                "halfway through your first word, whimsun busrts into tears. WHIMSUN: \"*sniff, sniff\"", true);
+                "Halfway through your first word, whimsun bursts into tears. WHIMSUN: \"*sniff, sniff\"", true);
         actions.add(t);
         t = new Action("TERRIROIZE",
                 "You raise your arms and wiggle your fingers. Whimsun freaks out!. WHIMSUN: \"I can't handle this...\"");
@@ -69,7 +69,7 @@ public class ActOptions {
         t = new Action("IGNORE", "Greater dog inches closer");
         actions.add(t);
         t = new Action("PET",
-                "Greater dog curls up in your lap as it is pet by you. It gets so comforatble it falls asleep... zzzzzz THen it wakes up! It's so excited!",
+                "Greater dog curls up in your lap as it is pet by you. It gets so comfortable it falls asleep... zzzzzz THen it wakes up! It's so excited!",
                 true);
         actions.add(t);
         t = new Action("PLAY",
