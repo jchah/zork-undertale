@@ -17,7 +17,7 @@ public class PlayMusic {
             if (musicPath.exists()) {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
                 clip.open(audioInput);
-                clip.start();
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
             } else {
                 System.out.println("File not found");
             }

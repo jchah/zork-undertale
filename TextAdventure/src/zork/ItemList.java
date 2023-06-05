@@ -23,6 +23,7 @@ public class ItemList {
         Weapon emptygun = new Weapon(12, "EmptyGun");
         Food monstercandy = new Food(10, "MnstrCndy");
         Food butterscotchpie = new Food(9999, "BScotchPie");
+        Food quiche = new Food(15, "AbandonedQuiche");
 
 
 
@@ -33,7 +34,7 @@ public class ItemList {
         items.put("Stick", stick);
         items.put("Tough Glove", tuffglove);
         items.put("Bandanna", bandanna);
-        items.put("Nicecream", nicecream);
+        items.put("Nice Cream", nicecream);
         items.put("Cinnabun", cinnabun);
         items.put("Old Tutu", tutu);
         items.put("Balletshoes", balletshoes);
@@ -44,5 +45,6 @@ public class ItemList {
         items.put("Spider Cider", spidercider);
         items.put("Empty Gun", emptygun);
         items.put("Butterscotch Pie", butterscotchpie);
+        items.put("Abandoned Quiche", quiche);
     }
 }

@@ -499,6 +499,7 @@ public class Game {
     }
 
     private void encounter(String monsterName) {
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Enemy.wav");
         Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
         monsterName = monsterName.toUpperCase();
         String option;
@@ -539,6 +540,7 @@ public class Game {
             if (monster.isDead()) {
                 monster.resetHp();
                 int gold = monster.calcGoldReward();
+                PlayMusic.stop();
                 printText(monsterName + " was defeated.");
                 printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
                 player.addExp(monster.getExpReward());
@@ -551,6 +553,7 @@ public class Game {
                 player.takeDamage(playMiniGame(monster));
             }
         }
+        PlayMusic.stop();
         int gold = monster.calcGoldReward();
         printText("You spared " + monsterName + ".");
         printText("You earned 0 exp and " + gold + " gold.");

@@ -563,7 +563,14 @@
           "adjacentRoom": "Tundra Spaghetti"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Nice Cream",
+          "itemDesc": "Heals 15 HP Instead of a joke, the wrapper says something nice.",
+          "cost": 20
+        }
+      ]
     },
     {
       "id": "Danger Bridge",
