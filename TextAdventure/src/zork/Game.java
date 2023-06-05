@@ -170,6 +170,9 @@ public class Game {
         boolean torielEncounterDialogueShown = false;
         boolean sansEncounterDialogueShown = false;
         boolean muffetEncounterDialogueShown = false;
+        boolean finalSansEncounterDialogueShown = false;
+        boolean asgoreEncounterDialogueShown = false;
+        boolean floweyEncounterDialogueShown = false;
         boolean bj = false;
         boolean connect4 = false;
         boolean hangman = false;
@@ -376,11 +379,73 @@ public class Game {
                     printText("I heard that they like to rip their legs off...");
                     PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
                     printAsciiImage("muffet");
+                    encounter("muffet");
                     
                     muffetEncounterDialogueShown = true;
                     PlayMusic.stop();
                 }
 
+            }
+            if (currentRoom.getRoomName().equals("Castle Hall") && !finalSansEncounterDialogueShown) {
+                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Waterfall-Music.wav);
+                printAsciiImage("sans");
+                printText("In a few moments, you will meet the king.");
+                printText("Together... You will determine the future of this world");
+                printText("As for now.. You will be judged");
+                printText("You will be judged for your every action.")
+                printText("You will be judged for every EXP you've earned");
+                printText("What's EXP?");
+                printText("It's an acronym.")
+                printText("It stands for \"Execution Points\".");
+                printText("A way of quantifying the pain you have inflicted on others.");
+                printText("If you refuse to fight...");
+                printText("Asgore will take your soul and destroy humanity.");
+                printText("But if you kill Asgore and go home...");
+                printText("Monsters will remain trapped underground.");
+                printText("I believe you can do the right thing.");
+                printText("We're all counting on you, kid.")
+                PlayMusic.stop();
+                finalSansEncounterDialogueShown = true;
+            }
+            if (currentRoom.getRoomName().equals("Asgore Encounter") && !asgoreEncounterDialogueShown) {
+                playMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav);
+                printAsciiImage("asgore");
+                printText("Howdy! How can I...");
+                Game.sleep(1000);
+                printText("Oh.");
+                Game.sleep(1000);
+                printText("I so badly want to say, \"Would you like a cup of tea?\".");
+                printText("But... You know how it is.");
+                printText("Nice day today, huh?");
+                printText("Perfect weather for a game of catch.");
+                printText("... You know what we must do.");
+                encounter("asgore");
+                PlayMusic.stop();
+                asgoreEncounterDialogueShown = true;
+            }
+            if (currentRoom.getRoomName().equals("Flowey Encounter") && !floweyEncounterDialogueShown) {
+                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-OmegaFlowey.wav);
+                printAsciiImage("evil flowey");
+                printText("Howdy!");
+                printText("I owe you a huge thanks!");
+                printText("Without you, I would've never gotten past him!");
+                printText("But now, with YOUR help..");
+                printText("He's dead.");
+                printText("And I've got the human SOULS!");
+                printText("It feels great to have a soul inside me now!");
+                printText("I feel them wriggling");
+                printText("But after all...");
+                printText("I only have six souls.");
+                printText("I still need one more...");
+                printText("Before I become GOD.");
+                printText("And then, with my newfound powers...");
+                printText("Monster. Humans. Everyone. I'll show them ALL the real meaning of this world.");
+                printText("KILL OR BE KILLED.");
+                Game.sleep(1000);
+                printAsciiImage("scary face");
+                encounter("flowey");
+                PlayMusic.stop();
+                floweyEncounterDialogueShown = true;
             }
 
             if (currentRoom.getRoomName().equals("Sans Encounter") && !sansEncounterDialogueShown) {
