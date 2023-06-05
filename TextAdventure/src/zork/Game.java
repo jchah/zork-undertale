@@ -252,6 +252,25 @@ public class Game {
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
                 printText("Ready? Here we go!");
+                Game.sleep(200);
+                printAsciiImage("evil flowey");
+                player.takeDamage(19);
+                player.showHealthBar();
+                player.heal(19);
+                printText("You idiot");
+                printText("In this world, it's KILL OR BE KILLED.");
+                printText("Why would ANYBODY pass up an opportunity like this!?!");
+                printText("Die.");
+                printText("AHAHAHAAHAHAHAHAHAHA");
+                Game.sleep(600);
+                printAsciiImage("toriel");
+                printText("toriel: What a terrible creature. Torturing such a poor, innocent youth.");
+                printText("Ah, do not be afraid, my child.");
+                printText("I am TORIEL. Caretaker of the RUINS.");
+                printText("I pass through this place every day to see if anyone has fallen down.");
+                printText("You are the first human to come here in a long time.");
+                printText("Come, I will guide you through the catacombs.");
+                printText("Come this way.")
                 flowerRoomDialogueShown = true;
             }
             if(currentRoom.getRoomName().equals("Snowdin Town")) {
@@ -306,9 +325,27 @@ public class Game {
                 printText("You want to leave so badly?");
                 printText("Hmph.");
                 printText("You are just like the others.");
-                printText("There is only one solution to this.");
-                printText("Prove yourself");
-                printText("Prove to me you are strong enough to survive.");
+                printText("What are you proving this way?");
+                printText("Fight me or leave!");
+                printText("Stop looking at me that way.");
+                Game.sleep(500);
+                printText("I know you want to go home but...");
+                Game.sleep(400);
+                printText("But please go upstairs.");
+                Game.sleep(200);
+                printText("I promise I'll take good care of you here.");
+                printText("I know we don't have much but...");
+                Game.sleep(300);
+                printText("You can have a good life here..");
+                printText("Why are you making this so difficult");
+                printText("Pathetic, is it not? I could not save a single child.");
+                printText("No, I understand. You would just be unhappy trapped in here.");
+                printText("The ruins are very small once you get used to them.");
+                printText("It would not be right for you to grow up in a place like this");
+                printText("If you truly wish to leave ruins... I will not stop you.");
+                printText("However... when you leave");
+                printText("Please do not come back.");
+                printText("I hope you understand.");
                 torielEncounterDialogueShown = true;
             }
 
