@@ -150,7 +150,7 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Dogsong.wav");
+//        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Dogsong.wav");
         System.out.println("IMPORTANT DISCLAIMER:");
         System.out.println("To ensure proper character encoding, please follow these instructions before continuing:");
         System.out.println("1. Stop the game and close any running instances.");
@@ -163,6 +163,8 @@ public class Game {
         printText(currentRoom.longDescription());
         player.inventory.addItem(ItemList.items.get("Bandage"));
         player.inventory.addItem(ItemList.items.get("Stick"));
+        player.inventory.items.get(player.inventory.findItemByName("Bandage")).use();
+        player.inventory.items.get(player.inventory.findItemByName("Stick")).use();
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
@@ -658,7 +660,7 @@ public class Game {
     private boolean savePrompt() {
         String temp;
         while (true) {
-            printText("Save?: ");
+            printText("Save?:");
             temp = in.nextLine();
             if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                 printText("Game saved.");
@@ -780,10 +782,11 @@ public class Game {
                     if (costs.get(i) == 0) {
                         printText("Take " + item.getName() + " ?");
                         while (true) {
-                            String temp = in.nextLine();
                             System.out.print("> ");
+                            String temp = in.nextLine();
                             if (temp.equalsIgnoreCase("yes") || temp.equalsIgnoreCase("y")) {
                                 player.inventory.addItem(item);
+                                itemList.remove(i);
                                 break;
                             }
                             else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
