@@ -1,6 +1,7 @@
 package zork;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Room {
 
@@ -9,7 +10,9 @@ public class Room {
   private ArrayList<Exit> exits;
   private static final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
   private boolean isSave;
-//  private ArrayList<Item> itemArrayList =
+  private ArrayList<Item> itemArrayList;
+  private ArrayList<Integer> costArrayList;
+  private ArrayList<String> descArrayList;
 
   public ArrayList<Exit> getExits() {
     return exits;
@@ -106,13 +109,30 @@ public class Room {
     return null;
   }
 
-  /*
-   * private int getDirectionIndex(String direction) { int dirIndex = 0; for
-   * (String dir : directions) { if (dir.equals(direction)) return dirIndex; else
-   * dirIndex++; }
-   * 
-   * throw new IllegalArgumentException("Invalid Direction"); }
-   */
+  public ArrayList<Item> getItemArrayList() {
+    return itemArrayList;
+  }
+
+  public ArrayList<Integer> getCostArrayList() {
+    return costArrayList;
+  }
+
+  public ArrayList<String> getDescArrayList() {
+    return descArrayList;
+  }
+
+  public void addToItemList(Item item) {
+    itemArrayList.add(item);
+  }
+
+  public void addToCostList(int cost) {
+    costArrayList.add(cost);
+  }
+
+  public void addToDescList(String description) {
+    descArrayList.add(description);
+  }
+
   public String getRoomName() {
     return roomName;
   }

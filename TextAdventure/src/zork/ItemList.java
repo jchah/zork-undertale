@@ -22,6 +22,7 @@ public class ItemList {
         Food spidercider = new Food(24, "SpiderCider");
         Weapon emptygun = new Weapon(12, "EmptyGun");
         Food monstercandy = new Food(10, "MnstrCndy");
+        Food butterscotchpie = new Food(9999, "BScotchPie");
 
 
 
@@ -42,5 +43,6 @@ public class ItemList {
         items.put("Spider Donut", spiderdonut);
         items.put("Spider Cider", spidercider);
         items.put("Empty Gun", emptygun);
+        items.put("Butterscotch Pie", butterscotchpie);
     }
 }

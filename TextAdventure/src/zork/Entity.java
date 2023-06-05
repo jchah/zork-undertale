@@ -64,4 +64,8 @@ public abstract class Entity {
     public String getName() {
         return name;
     }
+
+    public void resetHp() {
+        setHp(getMaxHp());
+    }
 }

@@ -8,13 +8,13 @@ public class Exit extends OpenableObject {
   private String adjacentRoom;
 
   public Exit(String direction, String adjacentRoom, boolean isLocked, String keyId) {
-    super(isLocked, keyId);
+    super(isLocked);
     this.direction = direction;
     this.adjacentRoom = adjacentRoom;
   }
 
-  public Exit(String direction, String adjacentRoom, boolean isLocked, String keyId, Boolean isOpen) {
-    super(isLocked, keyId, isOpen);
+  public Exit(String direction, String adjacentRoom, boolean isLocked) {
+    super(isLocked);
     this.direction = direction;
     this.adjacentRoom = adjacentRoom;
   }

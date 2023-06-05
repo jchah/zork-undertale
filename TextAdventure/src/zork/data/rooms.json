@@ -3,7 +3,7 @@
     {
       "id": "Spawn Room",
       "name": "Spawn Room",
-      "description": "Welcome to undertale.",
+      "description": "Welcome to UNDERTALE!.",
       "exits": [
         {
           "isLocked": false,
@@ -11,18 +11,7 @@
           "adjacentRoom": "Flower Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Flower Room",
@@ -40,18 +29,7 @@
           "adjacentRoom": "Spawn Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ruins Entrance",
@@ -69,17 +47,7 @@
           "adjacentRoom": "Ruins Hallway"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ruins Hallway",
@@ -97,18 +65,7 @@
           "adjacentRoom": "Ruins Start"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ruins Start",
@@ -131,18 +88,7 @@
           "adjacentRoom": "Ruins Puzzle1"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Ruins Start Candy",
@@ -183,18 +129,7 @@
           "adjacentRoom": "Ghost Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ghost Room",
@@ -278,18 +213,7 @@
           "adjacentRoom": "Ruins Crossroads"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ruins Crossroads",
@@ -312,18 +236,7 @@
           "adjacentRoom": "House Entrance"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Knife Room",
@@ -339,12 +252,9 @@
       "isSave": false,
       "items": [
         {
-          "type": "Weapon",
           "name": "Toy Knife",
-          "hp": null,
-          "atk": 3,
-          "def": null,
-          "itemDesc": "Weapon AT 3. Made of plastic. A rarity nowadays."
+          "itemDesc": "Weapon AT 3. Made of plastic. A rarity nowadays.",
+          "cost": 0
         }
       ]
     },
@@ -364,18 +274,7 @@
           "adjacentRoom": "Toriel's House"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Toriel's House",
@@ -393,18 +292,7 @@
           "adjacentRoom": "House Downstairs"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Kitchen",
@@ -425,13 +313,9 @@
       "isSave": false,
       "items": [
         {
-          "type": "Food",
           "name": "Butterscotch Pie",
-          "hp": 999,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": "Heals All HP. Butterscotch-cinnamon pie, one slice."
+          "itemDesc": "Heals All HP. Butterscotch-cinnamon pie, one slice.",
+          "cost": 0
         }
       ]
     },
@@ -451,18 +335,7 @@
           "adjacentRoom": "Toriel's House"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Downstairs Hallway",
@@ -480,18 +353,7 @@
           "adjacentRoom": "Toriel Encounter"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Toriel Encounter",
@@ -509,18 +371,7 @@
           "adjacentRoom": "Ruins Exit"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Ruins Exit",
@@ -538,18 +389,7 @@
           "adjacentRoom": "Tundra Hallway"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Tundra Hallway",
@@ -567,18 +407,7 @@
           "adjacentRoom": "Sans Dialogue"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Sans Dialogue",
@@ -596,18 +425,7 @@
           "adjacentRoom": "Lamp Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Lamp Room",
@@ -625,18 +443,7 @@
           "adjacentRoom": "Tundra Crossroads"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Tundra Crossroads",
@@ -659,18 +466,7 @@
           "adjacentRoom": "Fishing Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Fishing Room",
@@ -683,18 +479,7 @@
           "adjacentRoom": "Tundra Crossroads"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Doggo Encounter",
@@ -717,23 +502,12 @@
           "adjacentRoom": "Tundra Puzzle"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Snowman Room",
       "name": "Snowman Room",
-      "description": "Enter a room where a jovial snowman stands, his infectious laughter and heartwarming tales providing a brief respite from the cold and challenges ahead.",
+      "description": "Enter a room where a jovial snowman stands.",
       "exits": [
         {
           "isLocked": false,
@@ -744,13 +518,9 @@
       "isSave": false,
       "items": [
         {
-          "type": "Food",
-          "name": "Snowman Piece",
-          "hp": 45,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": "Heals 45 HP Please take this to the ends of the earth."
+          "name": "Nice Cream",
+          "itemDesc": "Heals 15 HP Instead of a joke, the wrapper says something nice.",
+          "cost": 0
         }
       ]
     },
@@ -770,18 +540,7 @@
           "adjacentRoom": "Tundra Spaghetti"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Tundra Spaghetti",
@@ -804,18 +563,7 @@
           "adjacentRoom": "Danger Bridge"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Ice Cream Room",
@@ -828,18 +576,7 @@
           "adjacentRoom": "Tundra Spaghetti"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Danger Bridge",
@@ -857,18 +594,7 @@
           "adjacentRoom": "Snowdin Town"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Snowdin Town",
@@ -896,18 +622,7 @@
           "adjacentRoom": "Snowdin Town2"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Grillby's",
@@ -920,18 +635,7 @@
           "adjacentRoom": "Snowdin Town"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Papyrus House",
@@ -944,18 +648,7 @@
           "adjacentRoom": "Snowdin Town"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Snowdin Town2",
@@ -978,18 +671,7 @@
           "adjacentRoom": "Snowdin Town3"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Snowed Inn",
@@ -1002,18 +684,7 @@
           "adjacentRoom": "Snowdin Town2"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Snowdin Town3",
@@ -1036,18 +707,7 @@
           "adjacentRoom": "Waterfall Entrance"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Library",
@@ -1060,18 +720,7 @@
           "adjacentRoom": "Snowdin Town3"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Waterfall Entrance",
@@ -1089,18 +738,7 @@
           "adjacentRoom": "Waterfall"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Waterfall Start",
@@ -1118,18 +756,7 @@
           "adjacentRoom": "Waterfall Puzzle"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Waterfall Puzzle",
@@ -1152,18 +779,7 @@
           "adjacentRoom": "Telescope Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Quiche Room",
@@ -1176,18 +792,7 @@
           "adjacentRoom": "Waterfall Puzzle"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Telescope Room",
@@ -1205,18 +810,7 @@
           "adjacentRoom": "Waterfall Exit"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Ice Cream Room2",
@@ -1229,18 +823,7 @@
           "adjacentRoom": "Telescope Room2"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Waterfall Exit",
@@ -1258,18 +841,7 @@
           "adjacentRoom": "Muffet Maze"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Muffet Maze",
@@ -1287,18 +859,7 @@
           "adjacentRoom": "Muffet Encounter"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Muffet Encounter",
@@ -1316,18 +877,7 @@
           "adjacentRoom": "Core Entrance"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Entrance",
@@ -1345,18 +895,7 @@
           "adjacentRoom": "Core Lobby"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Core Crossroads",
@@ -1384,18 +923,7 @@
           "adjacentRoom": "Core Main"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Puzzle1",
@@ -1408,18 +936,7 @@
           "adjacentRoom": "Core Crossroads"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Puzzle2",
@@ -1432,18 +949,7 @@
           "adjacentRoom": "Core Crossroads"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Main",
@@ -1461,18 +967,7 @@
           "adjacentRoom": "Core Bridge"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge",
@@ -1495,18 +990,7 @@
           "adjacentRoom": "Core Bridge2"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge1",
@@ -1529,18 +1013,7 @@
           "adjacentRoom": "Core Bridge Item2"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge Item1",
@@ -1553,18 +1026,7 @@
           "adjacentRoom": "Core Bridge1"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge Item2",
@@ -1577,18 +1039,7 @@
           "adjacentRoom": "Core Bridge1"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge2",
@@ -1606,18 +1057,7 @@
           "adjacentRoom": "Core Maze"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Maze",
@@ -1635,18 +1075,7 @@
           "adjacentRoom": "Core Bridge Main"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Bridge Main",
@@ -1674,18 +1103,7 @@
           "adjacentRoom": "Core Center Main"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Center Puzzle",
@@ -1698,18 +1116,7 @@
           "adjacentRoom": "Core Bridge Main"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Item Room",
@@ -1722,18 +1129,7 @@
           "adjacentRoom": "Core Bridge Main"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Center Main",
@@ -1751,18 +1147,7 @@
           "adjacentRoom": "Core Hallway"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Hallway",
@@ -1780,18 +1165,7 @@
           "adjacentRoom": "Asgore's Castle"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Asgore's Castle",
@@ -1819,18 +1193,7 @@
           "adjacentRoom": "Secret Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Tea Room",
@@ -1848,18 +1211,7 @@
           "adjacentRoom": "Throne"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Throne",
@@ -1872,18 +1224,7 @@
           "adjacentRoom": "Tea Room"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Secret Room",
@@ -1896,18 +1237,7 @@
           "adjacentRoom": "Asgore's Castle"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Castle Hall",
@@ -1925,18 +1255,7 @@
           "adjacentRoom": "Asgore Encounter"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Asgore Encounter",
@@ -1954,18 +1273,7 @@
           "adjacentRoom": "Flowey Encounter"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Flowey Encounter",
@@ -1983,18 +1291,7 @@
           "adjacentRoom": "Barrier Break"
         }
       ],
-      "isSave": true,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": true
     },
     {
       "id": "Barrier Break",
@@ -2012,18 +1309,7 @@
           "adjacentRoom": "Core Elevator"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Core Elevator",
@@ -2041,18 +1327,7 @@
           "adjacentRoom": "Underground Exit"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     },
     {
       "id": "Underground Exit",
@@ -2065,18 +1340,7 @@
           "adjacentRoom": "Core Elevator"
         }
       ],
-      "isSave": false,
-      "items": [
-        {
-          "type": null,
-          "name": null,
-          "hp": null,
-          "atk": null,
-          "def": null,
-          "cost": null,
-          "itemDesc": null
-        }
-      ]
+      "isSave": false
     }
   ]
 }

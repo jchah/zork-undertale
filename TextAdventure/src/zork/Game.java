@@ -114,14 +114,27 @@ public class Game {
             for (Object exitObj : jsonExits) {
                 String direction = (String) ((JSONObject) exitObj).get("direction");
                 String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
-                String keyId = (String) ((JSONObject) exitObj).get("keyId");
                 Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-                Boolean isOpen = (Boolean) ((JSONObject) exitObj).get("isOpen");
-                Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
+                Exit exit = new Exit(direction, adjacentRoom, isLocked);
                 exits.add(exit);
             }
             room.setExits(exits);
-            roomMap.put(roomId, room);
+
+            JSONArray roomItems = (JSONArray) ((JSONObject) roomObj).get("items");
+
+            if (roomItems != null) {
+                for (Object itemObj : roomItems) {
+                    String name = (String) ((JSONObject) itemObj).get("name");
+                    String itemDesc = (String) ((JSONObject) itemObj).get("itemDesc");
+                    int cost = (int) ((JSONObject) itemObj).get("cost");
+                    Item item = ItemList.items.get(name);
+                    room.addToItemList(item);
+                    room.addToDescList(itemDesc);
+                    room.addToCostList(cost);
+                }
+                room.setExits(exits);
+                roomMap.put(roomId, room);
+            }
         }
     }
 
@@ -611,6 +624,38 @@ public class Game {
                 else {
                     System.out.println(player.check());
                 }
+            case "search":
+                ArrayList<Item> itemList = currentRoom.getItemArrayList();
+                ArrayList<String> descriptions = currentRoom.getDescArrayList();
+                ArrayList<Integer> costs = currentRoom.getCostArrayList();
+                if (itemList.size() == 0) {
+                    printText("You searched the room but found nothing");
+                }
+                for (int i = 0; i < itemList.size(); i++) {
+                    Item item = itemList.get(i);
+                    printText(item.getName());
+                    printText(descriptions.get(i));
+
+                    if (costs.get(i) == 0) {
+                        printText("Take " + item.getName() + " ?");
+                        while (true) {
+                            String temp = in.nextLine();
+                            System.out.print("> ");
+                            if (temp.equalsIgnoreCase("yes") || temp.equalsIgnoreCase("y")) {
+                                player.inventory.addItem(item);
+                                break;
+                            }
+                            else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
+                                printText("You left the " + item.getName());
+                                break;
+                            }
+                            else {
+                                printText("Invalid response. Please answer (y)es or (n)o.");
+                            }
+                        }
+                    }
+                }
+                break;
         }
         return false;
     }

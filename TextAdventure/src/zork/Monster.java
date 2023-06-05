@@ -22,7 +22,4 @@ public class Monster extends Entity{
         int r = (int) (1 + Math.random() * 3);
         return goldMultiplier * r;
     }
-    public void resetHp() {
-        setHp(getMaxHp());
-    }
 }
