@@ -32,6 +32,14 @@ public class Game {
      * Create the game and initialise its internal map.
      */
     public Game() {
+        System.out.println("IMPORTANT DISCLAIMER:");
+        System.out.println("To ensure proper character encoding, please follow these instructions before continuing:");
+        System.out.println("1. Stop the game and close any running instances.");
+        System.out.println("2. Open the terminal or command prompt.");
+        System.out.println("3. Type 'chcp 65001' and press Enter.");
+        System.out.println("4. Restart the game and continue playing.");
+        System.out.println("Press Enter if you wish to continue.");
+        in.nextLine();
         Charset utf8Charset = StandardCharsets.UTF_8;
         // charset is windows-1252
 
@@ -44,6 +52,7 @@ public class Game {
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
             currentRoom = roomMap.get("Spawn Room");
+            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +60,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = true;
+        testMode = false;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
@@ -68,6 +77,7 @@ public class Game {
     }
 
     private String namePrompt() {
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale Start Menu.wav");
         String name;
         String temp;
         while (true) {
@@ -79,6 +89,7 @@ public class Game {
                     printText("Your name is " + name + ", confirm?");
                     temp = in.nextLine();
                     if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
+                        PlayMusic.stop();
                         return name;
                     } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
                         printText("Invalid response. Please answer (y)es or (n)o");
@@ -93,7 +104,8 @@ public class Game {
     }
 
 
-    private void initRooms(String fileName) throws Exception {
+    private void initRooms(String fileName) {
+        try {
         Path path = Path.of(fileName);
         String jsonString = Files.readString(path);
         JSONParser parser = new JSONParser();
@@ -105,7 +117,10 @@ public class Game {
             String roomId = (String) ((JSONObject) roomObj).get("id");
             String roomDescription = (String) ((JSONObject) roomObj).get("description");
             boolean isSave = (boolean) ((JSONObject) roomObj).get("isSave");
+            JSONObject object = (JSONObject) roomObj;
+            boolean lcoked = object.containsKey("isLocked") && (boolean) ((JSONObject) roomObj).get("isLocked");
             room.setSave(isSave);
+            room.setLocked(lcoked);
             room.setDescription(roomDescription);
             room.setRoomName(roomName);
 
@@ -126,32 +141,110 @@ public class Game {
                 for (Object itemObj : roomItems) {
                     String name = (String) ((JSONObject) itemObj).get("name");
                     String itemDesc = (String) ((JSONObject) itemObj).get("itemDesc");
-                    int cost = (int) ((JSONObject) itemObj).get("cost");
+                    int cost = ((Long) ((JSONObject) itemObj).get("cost")).intValue();
                     Item item = ItemList.items.get(name);
                     room.addToItemList(item);
                     room.addToDescList(itemDesc);
                     room.addToCostList(cost);
                 }
-                room.setExits(exits);
-                roomMap.put(roomId, room);
             }
+            room.setExits(exits);
+            roomMap.put(roomId, room);
         }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    }
+
 
     /**
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        printText(currentRoom.longDescription());
         player.inventory.addItem(ItemList.items.get("Bandage"));
         player.inventory.addItem(ItemList.items.get("Stick"));
-
-        printText(currentRoom.longDescription());
+        player.inventory.items.get(player.inventory.findItemByName("Bandage")).use();
+        player.inventory.items.get(player.inventory.findItemByName("Stick")).use();
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
         boolean sansEncounterDialogueShown = false;
+        boolean bj = false;
+        boolean connect4 = false;
+        boolean hangman = false;
+        boolean math = false;
+        boolean numbers = false;
+        boolean playRockPaperScissors = false;
+        boolean tictactoe = false;
+        ArrayList<String> alreadyDoneRooms = new ArrayList<>();
 
         while (!finished) {
+                if(currentRoom.getRoomName().toLowerCase().contains("puzzle") && !alreadyDoneRooms.contains(currentRoom.getRoomName())) {
+                    if(!bj) {
+                        if(Puzzles.playBlackjack()) {
+                            Room ghost = roomMap.get("Ghost Room");
+                            ghost.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            bj = true;
+                        }
+                        continue;
+                    }
+                    if(!connect4) {
+                        if (Puzzles.playConnectFour()) {
+                            Room crossroads = roomMap.get("Ruins Crossroads");
+                            crossroads.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            connect4 = true;
+                        }
+                        continue;
+                    }
+                    if(!hangman) {
+                        if (Puzzles.playHangman()) {
+                            Room spaghetti = roomMap.get("Tundra Spaghetti");
+                            spaghetti.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            hangman = true;
+                        }
+                        continue;
+                    }
+                    if(!math) {
+                        if (Puzzles.playMathGame(10, 20)) {
+                            Room telescope = roomMap.get("Telescope Room");
+                            telescope.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            math = true;
+                        }
+                        continue;
+                    }
+                    if(!numbers) {
+                        if (Puzzles.playNumberGuessingGame()) {
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            numbers = true;
+                        }
+                        continue;
+                    }
+                    if(!playRockPaperScissors) {
+                        if (Puzzles.playRockPaperScissors()) {
+                            Room coreMain = roomMap.get("Core Main");
+                            coreMain.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            playRockPaperScissors = true;
+                        }
+                        continue;
+                    }
+                    if(!tictactoe) {
+                        if (Puzzles.playTicTacToe()) {
+                            Room centerMain = roomMap.get("Core Center Main");
+                            centerMain.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            tictactoe = true;
+                        }
+                        continue;
+                    }
+                }
+
+            
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 printAsciiImage("flowey");
                 printText("Howdy! I'm Flowey. Flowey the Flower!");
@@ -199,6 +292,13 @@ public class Game {
                             }
                         }
                     }
+                    else if (temp.equalsIgnoreCase("n") || temp.equalsIgnoreCase("no")) {
+                        snowdinShop = false;
+                    }
+
+                    else {
+                        printText("Invalid response. Please answer (y)es or (n)o.");
+                    }
                 }
             }
             if (currentRoom.getRoomName().equals("Toriel Encounter") && !torielEncounterDialogueShown) {
@@ -209,6 +309,7 @@ public class Game {
                 printText("There is only one solution to this.");
                 printText("Prove yourself");
                 printText("Prove to me you are strong enough to survive.");
+
                 torielEncounterDialogueShown = true;
             }
 
@@ -316,8 +417,17 @@ public class Game {
      * Print out the opening message for the player.
      */
     private static void printIntro() {
-        // play Once Upon a Time
-        printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n", 50);
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Once-Upon-A-Time-Music.wav");
+        printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("One day, war broke out between the two races.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("After a long battle, the humans were victorious.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("They sealed the monsters underground with a magic spell.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("Legends say that those who climb the mountain never return.", 50);
+        PlayMusic.stop();
     }
 
     private static void printAsciiImage(String name) {
@@ -560,7 +670,7 @@ public class Game {
     private boolean savePrompt() {
         String temp;
         while (true) {
-            printText("Save?: ");
+            printText("Save?:");
             temp = in.nextLine();
             if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                 printText("Game saved.");
@@ -588,6 +698,11 @@ public class Game {
             case "go":
             goRoom(command)
             break;
+                goRoom(command);
+                break;
+            case "exits":
+                currentRoom.getExits().forEach((r) -> System.out.println(r.getDirection() + ": " + r.getAdjacentRoom()));
+                break;
             case "quit":
                 if (command.hasSecondWord())
                     System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
@@ -669,7 +784,7 @@ public class Game {
                 ArrayList<String> descriptions = currentRoom.getDescArrayList();
                 ArrayList<Integer> costs = currentRoom.getCostArrayList();
                 if (itemList.size() == 0) {
-                    printText("You searched the room but found nothing");
+                    printText("You searched the room but found nothing.");
                 }
                 for (int i = 0; i < itemList.size(); i++) {
                     Item item = itemList.get(i);
@@ -679,10 +794,11 @@ public class Game {
                     if (costs.get(i) == 0) {
                         printText("Take " + item.getName() + " ?");
                         while (true) {
-                            String temp = in.nextLine();
                             System.out.print("> ");
+                            String temp = in.nextLine();
                             if (temp.equalsIgnoreCase("yes") || temp.equalsIgnoreCase("y")) {
                                 player.inventory.addItem(item);
+                                itemList.remove(i);
                                 break;
                             }
                             else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
