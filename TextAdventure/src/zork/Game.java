@@ -169,6 +169,7 @@ public class Game {
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
         boolean sansEncounterDialogueShown = false;
+        boolean muffetEncounterDialogueShown = false;
         boolean bj = false;
         boolean connect4 = false;
         boolean hangman = false;
@@ -246,13 +247,15 @@ public class Game {
             
             player.inventory.addGold(100000000);
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
+                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Flowey.wav);
                 printAsciiImage("flowey");
                 printText("Howdy! I'm Flowey. Flowey the Flower!");
                 printText("You're new to the underground, aren'tcha?");
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
                 printText("Ready? Here we go!");
-                Game.sleep(200);
+                Game.sleep(500);
+                PlayMusic.stop();
                 printAsciiImage("evil flowey");
                 player.takeDamage(19);
                 player.showHealthBar();
@@ -321,6 +324,7 @@ public class Game {
                 }
             }
             if (currentRoom.getRoomName().equals("Toriel Encounter") && !torielEncounterDialogueShown) {
+                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav);
                 printAsciiImage("toriel");
                 printText("You want to leave so badly?");
                 printText("Hmph.");
@@ -346,10 +350,41 @@ public class Game {
                 printText("However... when you leave");
                 printText("Please do not come back.");
                 printText("I hope you understand.");
+                PlayMusic.stop();
                 torielEncounterDialogueShown = true;
+            }
+            if (currentRoom.getRoomName().equals("Muffet Encounter") && !muffetEncounterDialogueShown) {
+                if (player.inventory.findItemByName("Spider Cider")>-1 || player.inventory.findItemByName("Spider Donut")) {
+                    PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
+                    printAsciiImage("muffet");
+                    printText("Huh?");
+                    printText("Where did you get that spider food?");
+                    printText("Did you steal it?");
+                    printText("It's time for me to show you what we do with thieves...");
+                    printText("What? a telegram from the spiders in the ruins?");
+                    printText("They're telling me that... You helped donate to their cause!");
+                    printText("Oh my- this has all been a big misunderstanding..");
+                    printText("I thought you were someone that hated spiders-");
+                    printText("Sorry for all the trouble-");
+                    PlayMusic.stop();
+                    muffetEncounterDialogueShown = true;
+                }
+                else {
+                    printText("They said a human with a striped shirt would come through...");
+                    printText("I heard that they hate spiders...");
+                    printText("I heard that they love to stomp on them...");
+                    printText("I heard that they like to rip their legs off...");
+                    PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
+                    printAsciiImage("muffet");
+                    
+                    muffetEncounterDialogueShown = true;
+                    PlayMusic.stop();
+                }
+
             }
 
             if (currentRoom.getRoomName().equals("Sans Encounter") && !sansEncounterDialogueShown) {
+                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Papyrus.wav);
                 printAsciiImage("sans");
                 printText("You're a human, right?");
                 printText("That's hilarious.");
@@ -424,6 +459,7 @@ public class Game {
                 printText("My brothers been down lately, and seeing a human, it might make his day.");
                 printText("Don't worry, he's not dangerous.");
                 sansEncounterDialogueShown = true;
+                PlayMusic.stop();
             }
 
             Command command;
