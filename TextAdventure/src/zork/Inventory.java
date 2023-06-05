@@ -49,7 +49,7 @@ public class Inventory {
         if (hasSpace()) {
             items.add(item);
             currentSize++;
-            Game.printText("You got the " + item.getName());
+            Game.printText("You got the " + item.getName() + ".");
         }
         else
             Game.printText("There is no room to add the item.");

@@ -27,6 +27,14 @@ public class Game {
     private static final AttackMeterGame attackMeterGame= new AttackMeterGame();
     private static final Charset defaultCharset = Charset.defaultCharset();
     private PrintStream out = null;
+    boolean blackJack = false;
+    boolean connect4 = false;
+    boolean hangman = false;
+    boolean math = false;
+    boolean numbers = false;
+    boolean rockPaperScissors = false;
+    boolean ticTacToe = false;
+    ArrayList<String> alreadyDoneRooms = new ArrayList<>();
 
     /**
      * Create the game and initialise its internal map.
@@ -51,7 +59,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Spawn Room");
+            currentRoom = roomMap.get("Ruins Hallway");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,7 +67,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = false;
+        testMode = true;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
@@ -173,84 +181,10 @@ public class Game {
         boolean finalSansEncounterDialogueShown = false;
         boolean asgoreEncounterDialogueShown = false;
         boolean floweyEncounterDialogueShown = false;
-        boolean bj = false;
-        boolean connect4 = false;
-        boolean hangman = false;
-        boolean math = false;
-        boolean numbers = false;
-        boolean playRockPaperScissors = false;
-        boolean tictactoe = false;
-        ArrayList<String> alreadyDoneRooms = new ArrayList<>();
 
         while (!finished) {
-                if(currentRoom.getRoomName().toLowerCase().contains("puzzle") && !alreadyDoneRooms.contains(currentRoom.getRoomName())) {
-                    if(!bj) {
-                        if(Puzzles.playBlackjack()) {
-                            Room ghost = roomMap.get("Ghost Room");
-                            ghost.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            bj = true;
-                        }
-                        continue;
-                    }
-                    if(!connect4) {
-                        if (Puzzles.playConnectFour()) {
-                            Room crossroads = roomMap.get("Ruins Crossroads");
-                            crossroads.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            connect4 = true;
-                        }
-                        continue;
-                    }
-                    if(!hangman) {
-                        if (Puzzles.playHangman()) {
-                            Room spaghetti = roomMap.get("Tundra Spaghetti");
-                            spaghetti.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            hangman = true;
-                        }
-                        continue;
-                    }
-                    if(!math) {
-                        if (Puzzles.playMathGame(10, 20)) {
-                            Room telescope = roomMap.get("Telescope Room");
-                            telescope.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            math = true;
-                        }
-                        continue;
-                    }
-                    if(!numbers) {
-                        if (Puzzles.playNumberGuessingGame()) {
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            numbers = true;
-                        }
-                        continue;
-                    }
-                    if(!playRockPaperScissors) {
-                        if (Puzzles.playRockPaperScissors()) {
-                            Room coreMain = roomMap.get("Core Main");
-                            coreMain.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            playRockPaperScissors = true;
-                        }
-                        continue;
-                    }
-                    if(!tictactoe) {
-                        if (Puzzles.playTicTacToe()) {
-                            Room centerMain = roomMap.get("Core Center Main");
-                            centerMain.setLocked(false);
-                            alreadyDoneRooms.add(currentRoom.getRoomName());
-                            tictactoe = true;
-                        }
-                        continue;
-                    }
-                }
-
-            
-            player.inventory.addGold(100000000);
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
-                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Flowey.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Flowey.wav");
                 printAsciiImage("flowey");
                 printText("Howdy! I'm Flowey. Flowey the Flower!");
                 printText("You're new to the underground, aren'tcha?");
@@ -261,7 +195,7 @@ public class Game {
                 PlayMusic.stop();
                 printAsciiImage("evil flowey");
                 player.takeDamage(19);
-                player.showHealthBar();
+                showHealthBar(player);
                 player.heal(19);
                 printText("You idiot");
                 printText("In this world, it's KILL OR BE KILLED.");
@@ -276,7 +210,7 @@ public class Game {
                 printText("I pass through this place every day to see if anyone has fallen down.");
                 printText("You are the first human to come here in a long time.");
                 printText("Come, I will guide you through the catacombs.");
-                printText("Come this way.")
+                printText("Come this way.");
                 flowerRoomDialogueShown = true;
             }
             if(currentRoom.getRoomName().equals("Snowdin Town")) {
@@ -327,7 +261,7 @@ public class Game {
                 }
             }
             if (currentRoom.getRoomName().equals("Toriel Encounter") && !torielEncounterDialogueShown) {
-                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav");
                 printAsciiImage("toriel");
                 printText("You want to leave so badly?");
                 printText("Hmph.");
@@ -358,7 +292,7 @@ public class Game {
             }
             if (currentRoom.getRoomName().equals("Muffet Encounter") && !muffetEncounterDialogueShown) {
                 if (player.inventory.findItemByName("Spider Cider")>-1 || player.inventory.findItemByName("Spider Donut")>-1) {
-                    PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
+                    PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav");
                     printAsciiImage("muffet");
                     printText("Huh?");
                     printText("Where did you get that spider food?");
@@ -377,7 +311,7 @@ public class Game {
                     printText("I heard that they hate spiders...");
                     printText("I heard that they love to stomp on them...");
                     printText("I heard that they like to rip their legs off...");
-                    PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
+                    PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav");
                     printAsciiImage("muffet");
                     encounter("muffet");
                     
@@ -387,15 +321,15 @@ public class Game {
 
             }
             if (currentRoom.getRoomName().equals("Castle Hall") && !finalSansEncounterDialogueShown) {
-                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Waterfall-Music.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Waterfall-Music.wav");
                 printAsciiImage("sans");
                 printText("In a few moments, you will meet the king.");
                 printText("Together... You will determine the future of this world");
                 printText("As for now.. You will be judged");
-                printText("You will be judged for your every action.")
+                printText("You will be judged for your every action.");
                 printText("You will be judged for every EXP you've earned");
                 printText("What's EXP?");
-                printText("It's an acronym.")
+                printText("It's an acronym.");
                 printText("It stands for \"Execution Points\".");
                 printText("A way of quantifying the pain you have inflicted on others.");
                 printText("If you refuse to fight...");
@@ -403,12 +337,12 @@ public class Game {
                 printText("But if you kill Asgore and go home...");
                 printText("Monsters will remain trapped underground.");
                 printText("I believe you can do the right thing.");
-                printText("We're all counting on you, kid.")
+                printText("We're all counting on you, kid.");
                 PlayMusic.stop();
                 finalSansEncounterDialogueShown = true;
             }
             if (currentRoom.getRoomName().equals("Asgore Encounter") && !asgoreEncounterDialogueShown) {
-                playMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav");
                 printAsciiImage("asgore");
                 printText("Howdy! How can I...");
                 Game.sleep(1000);
@@ -424,7 +358,7 @@ public class Game {
                 asgoreEncounterDialogueShown = true;
             }
             if (currentRoom.getRoomName().equals("Flowey Encounter") && !floweyEncounterDialogueShown) {
-                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-OmegaFlowey.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-OmegaFlowey.wav");
                 printAsciiImage("evil flowey");
                 printText("Howdy!");
                 printText("I owe you a huge thanks!");
@@ -449,7 +383,7 @@ public class Game {
             }
 
             if (currentRoom.getRoomName().equals("Sans Encounter") && !sansEncounterDialogueShown) {
-                PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Papyrus.wav);
+                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Papyrus.wav");
                 printAsciiImage("sans");
                 printText("You're a human, right?");
                 printText("That's hilarious.");
@@ -535,7 +469,6 @@ public class Game {
                 e.printStackTrace();
             }
         }
-
         rollCredits();
     }
     
@@ -805,10 +738,10 @@ public class Game {
     }
 
     private boolean savePrompt() {
-        String temp;
         while (true) {
             printText("Save?:");
-            temp = in.nextLine();
+            out.print("> ");
+            String temp = in.nextLine();
             if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                 printText("Game saved.");
                 return true;
@@ -918,16 +851,17 @@ public class Game {
                 ArrayList<Item> itemList = currentRoom.getItemArrayList();
                 ArrayList<String> descriptions = currentRoom.getDescArrayList();
                 ArrayList<Integer> costs = currentRoom.getCostArrayList();
-                if (itemList.size() == 0) {
+                if (itemList.size() == 0 && !currentRoom.getRoomName().toLowerCase().contains("puzzle")) {
                     printText("You searched the room but found nothing.");
+                    break;
                 }
                 for (int i = 0; i < itemList.size(); i++) {
                     Item item = itemList.get(i);
-                    printText(item.getName());
+                    printText("You found " + item.getName());
                     printText(descriptions.get(i));
 
                     if (costs.get(i) == 0) {
-                        printText("Take " + item.getName() + " ?");
+                        printText("Take " + item.getName() + "?");
                         while (true) {
                             System.out.print("> ");
                             String temp = in.nextLine();
@@ -935,18 +869,87 @@ public class Game {
                                 player.inventory.addItem(item);
                                 itemList.remove(i);
                                 break;
-                            }
-                            else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
-                                printText("You left the " + item.getName());
+                            } else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
+                                printText("You left the " + item.getName() + ".");
                                 break;
-                            }
-                            else {
+                            } else {
                                 printText("Invalid response. Please answer (y)es or (n)o.");
                             }
                         }
                     }
                 }
-                break;
+
+                if (currentRoom.getRoomName().toLowerCase().contains("puzzle")) {
+                    if (!alreadyDoneRooms.contains(currentRoom.getRoomName())) {
+                        while (true) {
+                            printText("You found a puzzle, do you want to play? (y/n)");
+                            out.print("> ");
+                            String response;
+                            response = in.nextLine();
+                            if (response.equalsIgnoreCase("y") || response.equalsIgnoreCase("yes")) {
+                                if (!blackJack) {
+                                    if (Puzzles.playBlackjack()) {
+                                        Room ghost = roomMap.get("Ghost Room");
+                                        ghost.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        blackJack = true;
+                                    }
+                                } else if (!connect4) {
+                                    if (Puzzles.playConnectFour()) {
+                                        Room crossroads = roomMap.get("Ruins Crossroads");
+                                        crossroads.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        connect4 = true;
+                                    }
+                                } else if (!hangman) {
+                                    if (Puzzles.playHangman()) {
+                                        Room spaghetti = roomMap.get("Tundra Spaghetti");
+                                        spaghetti.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        hangman = true;
+                                    }
+                                } else if (!math) {
+                                    if (Puzzles.playMathGame(10, 20)) {
+                                        Room telescope = roomMap.get("Telescope Room");
+                                        telescope.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        math = true;
+                                    }
+                                } else if (!numbers) {
+                                    if (Puzzles.playNumberGuessingGame()) {
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        numbers = true;
+                                    }
+                                } else if (!rockPaperScissors) {
+                                    if (Puzzles.playRockPaperScissors()) {
+                                        Room coreMain = roomMap.get("Core Main");
+                                        coreMain.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        rockPaperScissors = true;
+                                    }
+                                } else if (!ticTacToe) {
+                                    if (Puzzles.playTicTacToe()) {
+                                        Room centerMain = roomMap.get("Core Center Main");
+                                        centerMain.setLocked(false);
+                                        alreadyDoneRooms.add(currentRoom.getRoomName());
+                                        ticTacToe = true;
+                                    }
+                                }
+                                break;
+                            }
+                            else if (response.equalsIgnoreCase("n") || response.equalsIgnoreCase("no")) {
+                                printText("You skipped the puzzle.");
+                                break;
+                            }
+                            else {
+                                printText("Invalid response. Please respond with (y)es or (n)o.");
+                            }
+                        }
+                    }else {
+                        printText("You found a puzzle but it's already been solved.");
+                    }
+                    break;
+                }
         }
         return false;
     }
@@ -996,8 +999,9 @@ public class Game {
             Game.printText(currentRoom.longDescription());
 
             if (currentRoom.isSave())
-                if (savePrompt())
-                    savedRoom = currentRoom;
+                if (!currentRoom.equals(savedRoom))
+                    if (savePrompt())
+                        savedRoom = currentRoom;
         }
     }
 }
