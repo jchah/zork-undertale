@@ -31,6 +31,9 @@ public class Inventory {
     }
 
     public void spendGold(int gold) {
+        if(Game.game.getPlayer().inventory.gold<gold)
+        Game.printText("You do not have enough gold.");
+        else
         this.gold -= gold;
     }
 

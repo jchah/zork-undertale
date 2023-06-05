@@ -241,7 +241,7 @@
     {
       "id": "Knife Room",
       "name": "Knife Room",
-      "description": "Enter a dusty old room that smells of metal.",
+      "description": "Enter a dusty old room that smells of metal. You see a toy knife on the table",
       "exits": [
         {
           "isLocked": false,
