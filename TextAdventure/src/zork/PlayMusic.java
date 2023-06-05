@@ -8,12 +8,7 @@ import javax.sound.sampled.Clip;
 
 public class PlayMusic {
 
-    public static void main(String[] args) {
-        
-      play(null);
-       
-    }
-
+    
     public static void play(String location) {
         try {
             File musicPath = new File(location);
