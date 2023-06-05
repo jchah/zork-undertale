@@ -357,7 +357,7 @@ public class Game {
                 torielEncounterDialogueShown = true;
             }
             if (currentRoom.getRoomName().equals("Muffet Encounter") && !muffetEncounterDialogueShown) {
-                if (player.inventory.findItemByName("Spider Cider")>-1 || player.inventory.findItemByName("Spider Donut")) {
+                if (player.inventory.findItemByName("Spider Cider")>-1 || player.inventory.findItemByName("Spider Donut")>-1) {
                     PlayMusic.playMusic(TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav)
                     printAsciiImage("muffet");
                     printText("Huh?");
