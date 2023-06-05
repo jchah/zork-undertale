@@ -9,7 +9,7 @@ public class Inventory {
     private int gold;
 
     public Inventory(int maxCapacity) {
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<>();
         this.maxCapacity = maxCapacity;
         this.currentSize = 0;
     }
@@ -30,11 +30,15 @@ public class Inventory {
         this.gold += gold;
     }
 
-    public void spendGold(int gold) {
-        if(Game.game.getPlayer().inventory.gold<gold)
-        Game.printText("You do not have enough gold.");
-        else
-        this.gold -= gold;
+    public boolean spendGold(int gold) {
+        if(Game.game.getPlayer().inventory.gold<gold) {
+            Game.printText("You need at least " + gold + " gold");
+            return false;
+        }
+        else {
+            this.gold -= gold;
+            return true;
+        }
     }
 
     public boolean hasSpace() {

@@ -164,96 +164,43 @@ public class Game {
             }
             if(currentRoom.getRoomName().equals("Snowdin Town")) {
                 boolean snowdinShop = true;
-                while(snowdinShop){
-                printText("Would you like to enter the Snowdin Shop?");
-                System.out.print(">");
-                String temp = in.nextLine();
-                if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
-                    printAsciiImage("shopkeeper");
-                    printText("Tough Glove: ATK 5. A worn pink leather glove. For five-fingered folk. Costs 50 gold.");
-                    printText("Manly Bandanna: DEF 7. It has seen some wear. It has abs drawn on it. Costs 50 gold.");
-                    printText("Cinnabun: Heals 22 HP. A cinnamon roll in the shape of a bunny. Costs 25 gold.");
-                    printText("What would you like to purchase?");
-                    boolean snowdinShopPurchase = true;
-                    while(snowdinShopPurchase){
-                        String snowdinPurchase = in.nextLine();
-                        if (snowdinPurchase.equalsIgnoreCase("cancel"))
-                        snowdinShopPurchase = false;
-                        else if (snowdinPurchase.equalsIgnoreCase("tough glove")){
-                            player.inventory.spendGold(50);
-                            player.inventory.addItem(ItemList.items.get("Tough Glove"));
-                            boolean kendrickLamar = true;
-                            while(kendrickLamar){
-                            printText("Would you like to make another purchase?");
-                            System.out.print(">");
-                            String nextPurchase = in.nextLine();
-                            if (nextPurchase.equalsIgnoreCase("n") || nextPurchase.equalsIgnoreCase("no")) {
-                                snowdinShopPurchase = false;
-                                kendrickLamar = false;
-                            }
-                            else if (nextPurchase.equalsIgnoreCase("y") || nextPurchase.equalsIgnoreCase("yes")) {
-                                printText("What would you like to purchase?");
-                                kendrickLamar = false;
-                            }
-                            else {
-                                printText("Invalid input. Options are: \"n\", \"no\", \"y\", \"yes\"");
-                            }
-                        }
-                    }
-                        else if(snowdinPurchase.equalsIgnoreCase("manly bandanna")){
-                            player.inventory.spendGold(50);
-                            player.inventory.addItem(ItemList.items.get("Bandanna"));
-                            boolean kendrickLamar = true;
-                            while(kendrickLamar){
-                            printText("Would you like to make another purchase?");
-                            System.out.print(">");
-                            String nextPurchase = in.nextLine();
-                            if (nextPurchase.equalsIgnoreCase("n") || nextPurchase.equalsIgnoreCase("no")) {
-                                snowdinShopPurchase = false;
-                                kendrickLamar = false;
-                            }
-                            else if (nextPurchase.equalsIgnoreCase("y") || nextPurchase.equalsIgnoreCase("yes")) {
-                                printText("What would you like to purchase?");
-                                kendrickLamar = false;
-                            }
-                            else {
-                                printText("Invalid input. Options are: \"n\", \"no\", \"y\", \"yes\"");
-                        }
-                    }
-                }
-                        else if(snowdinPurchase.equalsIgnoreCase("cinnabun")){
-                            player.inventory.spendGold(25);
-                            player.inventory.addItem(ItemList.items.get("Cinnabun"));
-                            boolean kendrickLamar = true;
-                            while(kendrickLamar){
-                            printText("Would you like to make another purchase?");
-                            System.out.print(">");
-                            String nextPurchase = in.nextLine();
-                            if (nextPurchase.equalsIgnoreCase("n") || nextPurchase.equalsIgnoreCase("no")) {
-                                snowdinShopPurchase = false;
-                                kendrickLamar = false;
-                            }
-                            else if (nextPurchase.equalsIgnoreCase("y") || nextPurchase.equalsIgnoreCase("yes")) {
-                                printText("What would you like to purchase?");
-                                kendrickLamar = false;
-                            }
-                            else {
-                                printText("Invalid input. Options are: \"n\", \"no\", \"y\", \"yes\"");
-                            }
-                        }
-                    }
-                        else{
-                            printText("Invalid input. Options are: \"tough glove\", \"manly bandanna\", \"cinnabun\", \"cancel\"");
-                        }
+                while (snowdinShop) {
+                    printText("Would you like to enter the Snowdin Shop?");
+                    System.out.print(">");
+                    String temp = in.nextLine();
+                    if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
+                        printAsciiImage("shopkeeper");
+                        printText("Tough Glove: ATK 5. A worn pink leather glove. For five-fingered folk. Costs 50 gold.");
+                        printText("Bandanna: DEF 7. It has seen some wear. It has abs drawn on it. Costs 50 gold.");
+                        printText("Cinnabun: Heals 22 HP. A cinnamon roll in the shape of a bunny. Costs 25 gold.");
+                        boolean stillPurchasing = true;
+                        while (stillPurchasing) {
+                            printText("What would you like to purchase? (\"leave\" to leave)");
+                            System.out.print("> ");
+                            String purchase = in.nextLine();
 
-                    
+                            if (purchase.equalsIgnoreCase("leave"))
+                                stillPurchasing = false;
+
+                            else if (purchase.equalsIgnoreCase("tough glove")) {
+                                if (player.inventory.spendGold(50)) {
+                                    player.inventory.addItem(ItemList.items.get("Tough Glove"));
+                                }
+                            }
+                            else if (purchase.equalsIgnoreCase("bandanna")) {
+                                if (player.inventory.spendGold(50)) {
+                                    player.inventory.addItem(ItemList.items.get("Bandanna"));
+                                }
+                            }
+
+                            else if (purchase.equalsIgnoreCase("Cinnabun")) {
+                                if (player.inventory.spendGold(25)) {
+                                    player.inventory.addItem(ItemList.items.get("Cinnabun"));
+                                }
+                            }
+                        }
                     }
-                    snowdinShop = false;
-                } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
-                    printText("Invalid response. Please answer (y)es or (n)o");      
                 }
-                else snowdinShop = false;
-            }
             }
             if (currentRoom.getRoomName().equals("Toriel Encounter") && !torielEncounterDialogueShown) {
                 printAsciiImage("toriel");
