@@ -9,12 +9,21 @@ public class Room {
   private ArrayList<Exit> exits;
   private static final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
   private boolean isSave;
+  private boolean isLocked = false;
   private ArrayList<Item> itemArrayList = new ArrayList<>();
   private ArrayList<Integer> costArrayList = new ArrayList<>();
   private ArrayList<String> descArrayList = new ArrayList<>();
 
   public ArrayList<Exit> getExits() {
     return exits;
+  }
+
+  public boolean isLocked() {
+    return this.isLocked;
+  }
+
+  public void setLocked(boolean l) {
+    this.isLocked = l;
   }
 
   public void setExits(ArrayList<Exit> exits) {
@@ -88,7 +97,11 @@ public class Room {
       for (Exit exit : exits) {
         if (exit.getDirection().equalsIgnoreCase(direction)) {
           String adjacentRoom = exit.getAdjacentRoom();
-
+          Room r = Game.roomMap.get(adjacentRoom);
+          if(r.isLocked()) {
+            System.out.println("Area is locked.");
+            return null;
+          }
           return Game.roomMap.get(adjacentRoom);
         }
 

@@ -121,7 +121,7 @@
           "adjacentRoom": "Ruins Start"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "east",
           "adjacentRoom": "Ghost Room"
         }
@@ -131,6 +131,7 @@
     {
       "id": "Ghost Room",
       "name": "Ghost Room",
+      "isLocked": true,
       "description": "An ethereal mist swirls around you, accompanied by faint whispers.",
       "exits": [
         {
@@ -186,7 +187,7 @@
     {
       "id": "Ruins Puzzle2",
       "name": "Ruins Puzzle2",
-      "description": "Another puzzle...",
+      "description": "Another ruins puzzle stands in the way.",
       "exits": [
         {
           "isLocked": false,
@@ -194,7 +195,7 @@
           "adjacentRoom": "Ghost Room Candy"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "SouthWest",
           "adjacentRoom": "Ruins Crossroads"
         }
@@ -521,7 +522,7 @@
           "adjacentRoom": "Doggo Encounter"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "NorthEast",
           "adjacentRoom": "Tundra Spaghetti"
         }
@@ -760,7 +761,7 @@
           "adjacentRoom": "Quiche Room"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "SouthWest",
           "adjacentRoom": "Telescope Room"
         }
@@ -1048,7 +1049,7 @@
           "adjacentRoom": "Core Item Room"
         },
         {
-          "isLocked": false,
+          "isLocked": true,
           "direction": "SouthWest",
           "adjacentRoom": "Core Center Main"
         }

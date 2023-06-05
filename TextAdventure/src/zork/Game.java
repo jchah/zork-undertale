@@ -43,8 +43,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            System.out.println(roomMap.toString());
-            currentRoom = roomMap.get("Snowdin Town");
+            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,7 +93,8 @@ public class Game {
     }
 
 
-    private void initRooms(String fileName) throws Exception {
+    private void initRooms(String fileName) {
+        try {
         Path path = Path.of(fileName);
         String jsonString = Files.readString(path);
         JSONParser parser = new JSONParser();
@@ -106,7 +106,10 @@ public class Game {
             String roomId = (String) ((JSONObject) roomObj).get("id");
             String roomDescription = (String) ((JSONObject) roomObj).get("description");
             boolean isSave = (boolean) ((JSONObject) roomObj).get("isSave");
+            JSONObject object = (JSONObject) roomObj;
+            boolean lcoked = object.containsKey("isLocked") && (boolean) ((JSONObject) roomObj).get("isLocked");
             room.setSave(isSave);
+            room.setLocked(lcoked);
             room.setDescription(roomDescription);
             room.setRoomName(roomName);
 
@@ -133,11 +136,15 @@ public class Game {
                     room.addToDescList(itemDesc);
                     room.addToCostList(cost);
                 }
-                room.setExits(exits);
-                roomMap.put(roomId, room);
             }
+            room.setExits(exits);
+            roomMap.put(roomId, room);
         }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    }
+
 
     /**
      * Main play routine. Loops until end of play.
@@ -151,8 +158,81 @@ public class Game {
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
         boolean sansEncounterDialogueShown = false;
+        boolean bj = false;
+        boolean connect4 = false;
+        boolean hangman = false;
+        boolean math = false;
+        boolean numbers = false;
+        boolean playRockPaperScissors = false;
+        boolean tictactoe = false;
+        ArrayList<String> alreadyDoneRooms = new ArrayList<>();
 
         while (!finished) {
+                if(currentRoom.getRoomName().toLowerCase().contains("puzzle") && !alreadyDoneRooms.contains(currentRoom.getRoomName())) {
+                    if(!bj) {
+                        if(Puzzles.playBlackjack()) {
+                            Room ghost = roomMap.get("Ghost Room");
+                            ghost.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            bj = true;
+                        }
+                        continue;
+                    }
+                    if(!connect4) {
+                        if (Puzzles.playConnectFour()) {
+                            Room crossroads = roomMap.get("Ruins Crossroads");
+                            crossroads.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            connect4 = true;
+                        }
+                        continue;
+                    }
+                    if(!hangman) {
+                        if (Puzzles.playHangman()) {
+                            Room spaghetti = roomMap.get("Tundra Spaghetti");
+                            spaghetti.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            hangman = true;
+                        }
+                        continue;
+                    }
+                    if(!math) {
+                        if (Puzzles.playMathGame(10, 20)) {
+                            Room telescope = roomMap.get("Telescope Room");
+                            telescope.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            math = true;
+                        }
+                        continue;
+                    }
+                    if(!numbers) {
+                        if (Puzzles.playNumberGuessingGame()) {
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            numbers = true;
+                        }
+                        continue;
+                    }
+                    if(!playRockPaperScissors) {
+                        if (Puzzles.playRockPaperScissors()) {
+                            Room coreMain = roomMap.get("Core Main");
+                            coreMain.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            playRockPaperScissors = true;
+                        }
+                        continue;
+                    }
+                    if(!tictactoe) {
+                        if (Puzzles.playTicTacToe()) {
+                            Room centerMain = roomMap.get("Core Center Main");
+                            centerMain.setLocked(false);
+                            alreadyDoneRooms.add(currentRoom.getRoomName());
+                            tictactoe = true;
+                        }
+                        continue;
+                    }
+                }
+
+            
             player.inventory.addGold(100000000);
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 printAsciiImage("flowey");
@@ -200,6 +280,13 @@ public class Game {
                                 }
                             }
                         }
+                    }
+                    else if (temp.equalsIgnoreCase("n") || temp.equalsIgnoreCase("no")) {
+                        snowdinShop = false;
+                    }
+
+                    else {
+                        printText("Invalid response. Please answer (y)es or (n)o.");
                     }
                 }
             }
@@ -590,6 +677,9 @@ public class Game {
             case "go":
                 goRoom(command);
                 break;
+            case "exits":
+                currentRoom.getExits().forEach((r) -> System.out.println(r.getDirection() + ": " + r.getAdjacentRoom()));
+                break;
             case "quit":
                 if (command.hasSecondWord())
                     System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
@@ -671,7 +761,7 @@ public class Game {
                 ArrayList<String> descriptions = currentRoom.getDescArrayList();
                 ArrayList<Integer> costs = currentRoom.getCostArrayList();
                 if (itemList.size() == 0) {
-                    printText("You searched the room but found nothing");
+                    printText("You searched the room but found nothing.");
                 }
                 for (int i = 0; i < itemList.size(); i++) {
                     Item item = itemList.get(i);
