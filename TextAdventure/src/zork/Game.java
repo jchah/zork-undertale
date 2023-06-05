@@ -150,10 +150,18 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-        player.inventory.addItem(ItemList.items.get("Bandage"));
-        player.inventory.addItem(ItemList.items.get("Stick"));
+        System.out.println("IMPORTANT DISCLAIMER:");
+        System.out.println("To ensure proper character encoding, please follow these instructions before continuing:");
+        System.out.println("1. Stop the game and close any running instances.");
+        System.out.println("2. Open the terminal or command prompt.");
+        System.out.println("3. Type 'chcp 65001' and press Enter.");
+        System.out.println("4. Restart the game and continue playing.");
+        System.out.println("Press Enter if you wish to continue...");
+        in.nextLine();
 
         printText(currentRoom.longDescription());
+        player.inventory.addItem(ItemList.items.get("Bandage"));
+        player.inventory.addItem(ItemList.items.get("Stick"));
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
