@@ -105,6 +105,8 @@ public class MiniGame {
             case "greater dog" -> symbol = "\uD83D\uDC15";
             case "ice cap" -> symbol = "\uD83E\uDDCA";
             case "snowdrake" -> symbol = "❄";
+            case "flowey" -> symbol = "🌻";
+
         }
         totalDamage = 0;
         Thread timer = new Thread(() -> {
