@@ -52,7 +52,6 @@ public class Game {
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
             currentRoom = roomMap.get("Spawn Room");
-            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -245,6 +244,7 @@ public class Game {
                 }
 
             
+            player.inventory.addGold(100000000);
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 printAsciiImage("flowey");
                 printText("Howdy! I'm Flowey. Flowey the Flower!");
@@ -309,7 +309,6 @@ public class Game {
                 printText("There is only one solution to this.");
                 printText("Prove yourself");
                 printText("Prove to me you are strong enough to survive.");
-
                 torielEncounterDialogueShown = true;
             }
 
@@ -500,7 +499,6 @@ public class Game {
     }
 
     private void encounter(String monsterName) {
-        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Enemy.wav");
         Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
         monsterName = monsterName.toUpperCase();
         String option;
@@ -541,7 +539,6 @@ public class Game {
             if (monster.isDead()) {
                 monster.resetHp();
                 int gold = monster.calcGoldReward();
-                PlayMusic.stop();
                 printText(monsterName + " was defeated.");
                 printText("You earned " + monster.getExpReward() + " exp and " + gold + " gold.");
                 player.addExp(monster.getExpReward());
@@ -554,7 +551,6 @@ public class Game {
                 player.takeDamage(playMiniGame(monster));
             }
         }
-        PlayMusic.stop();
         int gold = monster.calcGoldReward();
         printText("You spared " + monsterName + ".");
         printText("You earned 0 exp and " + gold + " gold.");
@@ -699,8 +695,6 @@ public class Game {
                 printHelp();
                 break;
             case "go":
-            goRoom(command)
-            break;
                 goRoom(command);
                 break;
             case "exits":
@@ -857,10 +851,6 @@ public class Game {
         }
 
         // Try to leave current room.
-        if(nextRoom.isLocked){
-            printText("The room seems to be locked..");
-        }
-        else
         Room nextRoom = currentRoom.nextRoom(direction);
 
         if (nextRoom != null) {
