@@ -1,7 +1,6 @@
 package zork;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Room {
 
@@ -10,9 +9,9 @@ public class Room {
   private ArrayList<Exit> exits;
   private static final String[] validDirections = {"north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest"};
   private boolean isSave;
-  private ArrayList<Item> itemArrayList;
-  private ArrayList<Integer> costArrayList;
-  private ArrayList<String> descArrayList;
+  private ArrayList<Item> itemArrayList = new ArrayList<>();
+  private ArrayList<Integer> costArrayList = new ArrayList<>();
+  private ArrayList<String> descArrayList = new ArrayList<>();
 
   public ArrayList<Exit> getExits() {
     return exits;

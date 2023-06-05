@@ -43,6 +43,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
+            System.out.println(roomMap.toString());
             currentRoom = roomMap.get("Snowdin Town");
             savedRoom = currentRoom;
         } catch (Exception e) {
@@ -126,7 +127,7 @@ public class Game {
                 for (Object itemObj : roomItems) {
                     String name = (String) ((JSONObject) itemObj).get("name");
                     String itemDesc = (String) ((JSONObject) itemObj).get("itemDesc");
-                    int cost = (int) ((JSONObject) itemObj).get("cost");
+                    int cost = ((Long) ((JSONObject) itemObj).get("cost")).intValue();
                     Item item = ItemList.items.get(name);
                     room.addToItemList(item);
                     room.addToDescList(itemDesc);
