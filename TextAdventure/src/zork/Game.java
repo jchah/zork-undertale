@@ -32,6 +32,14 @@ public class Game {
      * Create the game and initialise its internal map.
      */
     public Game() {
+        System.out.println("IMPORTANT DISCLAIMER:");
+        System.out.println("To ensure proper character encoding, please follow these instructions before continuing:");
+        System.out.println("1. Stop the game and close any running instances.");
+        System.out.println("2. Open the terminal or command prompt.");
+        System.out.println("3. Type 'chcp 65001' and press Enter.");
+        System.out.println("4. Restart the game and continue playing.");
+        System.out.println("Press Enter if you wish to continue.");
+        in.nextLine();
         Charset utf8Charset = StandardCharsets.UTF_8;
         // charset is windows-1252
 
@@ -51,7 +59,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = true;
+        testMode = false;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
@@ -68,6 +76,7 @@ public class Game {
     }
 
     private String namePrompt() {
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale Start Menu.wav");
         String name;
         String temp;
         while (true) {
@@ -79,6 +88,7 @@ public class Game {
                     printText("Your name is " + name + ", confirm?");
                     temp = in.nextLine();
                     if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
+                        PlayMusic.stop();
                         return name;
                     } else if (!temp.equalsIgnoreCase("n") && !temp.equalsIgnoreCase("no")) {
                         printText("Invalid response. Please answer (y)es or (n)o");
@@ -150,16 +160,6 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
-//        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Dogsong.wav");
-        System.out.println("IMPORTANT DISCLAIMER:");
-        System.out.println("To ensure proper character encoding, please follow these instructions before continuing:");
-        System.out.println("1. Stop the game and close any running instances.");
-        System.out.println("2. Open the terminal or command prompt.");
-        System.out.println("3. Type 'chcp 65001' and press Enter.");
-        System.out.println("4. Restart the game and continue playing.");
-        System.out.println("Press Enter if you wish to continue.");
-        in.nextLine();
-
         printText(currentRoom.longDescription());
         player.inventory.addItem(ItemList.items.get("Bandage"));
         player.inventory.addItem(ItemList.items.get("Stick"));
@@ -416,8 +416,17 @@ public class Game {
      * Print out the opening message for the player.
      */
     private static void printIntro() {
-        // play Once Upon a Time
-        printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.\nOne day, war broke out between the two races.\nAfter a long battle, the humans were victorious.\nThey sealed the monsters underground with a magic spell.\nMany years later...\nMT.Ebott.\n201X\nLegends say that those who climb the mountain never return.\n", 50);
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Once-Upon-A-Time-Music.wav");
+        printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("One day, war broke out between the two races.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("After a long battle, the humans were victorious.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("They sealed the monsters underground with a magic spell.", 50);
+        Game.sleep(500);
+        printTextCustomDelay("Legends say that those who climb the mountain never return.", 50);
+        PlayMusic.stop();
     }
 
     private static void printAsciiImage(String name) {
