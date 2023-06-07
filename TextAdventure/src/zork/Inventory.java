@@ -32,7 +32,7 @@ public class Inventory {
 
     public boolean spendGold(int gold) {
         if(Game.game.getPlayer().inventory.gold<gold) {
-            Game.printText("You need at least " + gold + " gold");
+            Game.printText("You need at least " + gold + " gold" + ".");
             return false;
         }
         else {

@@ -45,7 +45,7 @@ public class Player extends Entity{
      * @return damage done to monster
      */
     public int calcDamage(Monster monster, int b) {
-        int r = (int) Math.max(1, Math.random()*3);
+        int r = (int) Math.max(1, Math.random()*5);
         return (int) Math.round(((getAtk() - monster.getDef() + r * b)) * attackBoost);
     }
 }

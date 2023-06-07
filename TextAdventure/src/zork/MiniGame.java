@@ -105,7 +105,10 @@ public class MiniGame {
             case "greater dog" -> symbol = "\uD83D\uDC15";
             case "ice cap" -> symbol = "\uD83E\uDDCA";
             case "snowdrake" -> symbol = "❄";
-            case "flowey" -> symbol = "🌻";
+            case "flowey" -> {
+                symbol = "🌻";
+                hitDamage = 0;
+            }
 
         }
         totalDamage = 0;

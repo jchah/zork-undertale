@@ -36,6 +36,12 @@ public class Game {
     boolean ticTacToe = false;
     ArrayList<String> alreadyDoneRooms = new ArrayList<>();
 
+    ArrayList<Room> ruins = new ArrayList<>();
+    ArrayList<Room> snowdin = new ArrayList<>();
+    ArrayList<Room> waterfall = new ArrayList<>();
+    ArrayList<Room> core = new ArrayList<>();
+
+
     /**
      * Create the game and initialise its internal map.
      */
@@ -59,7 +65,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Ruins Hallway");
+            currentRoom = roomMap.get("Ruins Start");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,11 +77,11 @@ public class Game {
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
-            player = new Player(20, 0, 0, "Frisk");
+            player = new Player(40, 0, 0, "Frisk");
         }
         else {
             printIntro();
-            player = new Player(20, 0, 0, namePrompt());
+            player = new Player(40, 0, 0, namePrompt());
         }
     }
 
@@ -113,51 +119,62 @@ public class Game {
 
     private void initRooms(String fileName) {
         try {
-        Path path = Path.of(fileName);
-        String jsonString = Files.readString(path);
-        JSONParser parser = new JSONParser();
-        JSONObject json = (JSONObject) parser.parse(jsonString);
-        JSONArray jsonRooms = (JSONArray) json.get("rooms");
-        for (Object roomObj : jsonRooms) {
-            Room room = new Room();
-            String roomName = (String) ((JSONObject) roomObj).get("name");
-            String roomId = (String) ((JSONObject) roomObj).get("id");
-            String roomDescription = (String) ((JSONObject) roomObj).get("description");
-            boolean isSave = (boolean) ((JSONObject) roomObj).get("isSave");
-            JSONObject object = (JSONObject) roomObj;
-            boolean lcoked = object.containsKey("isLocked") && (boolean) ((JSONObject) roomObj).get("isLocked");
-            room.setSave(isSave);
-            room.setLocked(lcoked);
-            room.setDescription(roomDescription);
-            room.setRoomName(roomName);
+            ArrayList<Room> currentArea = ruins;
+            Path path = Path.of(fileName);
+            String jsonString = Files.readString(path);
+            JSONParser parser = new JSONParser();
+            JSONObject json = (JSONObject) parser.parse(jsonString);
+            JSONArray jsonRooms = (JSONArray) json.get("rooms");
+            for (Object roomObj : jsonRooms) {
+                Room room = new Room();
+                String roomName = (String) ((JSONObject) roomObj).get("name");
+                String roomId = (String) ((JSONObject) roomObj).get("id");
+                String roomDescription = (String) ((JSONObject) roomObj).get("description");
+                boolean isSave = (boolean) ((JSONObject) roomObj).get("isSave");
+                JSONObject object = (JSONObject) roomObj;
+                boolean lcoked = object.containsKey("isLocked") && (boolean) ((JSONObject) roomObj).get("isLocked");
+                room.setSave(isSave);
+                room.setLocked(lcoked);
+                room.setDescription(roomDescription);
+                room.setRoomName(roomName);
 
-            JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
-            ArrayList<Exit> exits = new ArrayList<>();
-            for (Object exitObj : jsonExits) {
-                String direction = (String) ((JSONObject) exitObj).get("direction");
-                String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
-                Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-                Exit exit = new Exit(direction, adjacentRoom, isLocked);
-                exits.add(exit);
-            }
-            room.setExits(exits);
-
-            JSONArray roomItems = (JSONArray) ((JSONObject) roomObj).get("items");
-
-            if (roomItems != null) {
-                for (Object itemObj : roomItems) {
-                    String name = (String) ((JSONObject) itemObj).get("name");
-                    String itemDesc = (String) ((JSONObject) itemObj).get("itemDesc");
-                    int cost = ((Long) ((JSONObject) itemObj).get("cost")).intValue();
-                    Item item = ItemList.items.get(name);
-                    room.addToItemList(item);
-                    room.addToDescList(itemDesc);
-                    room.addToCostList(cost);
+                JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
+                ArrayList<Exit> exits = new ArrayList<>();
+                for (Object exitObj : jsonExits) {
+                    String direction = (String) ((JSONObject) exitObj).get("direction");
+                    String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
+                    Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
+                    Exit exit = new Exit(direction, adjacentRoom, isLocked);
+                    exits.add(exit);
                 }
+                room.setExits(exits);
+
+                JSONArray roomItems = (JSONArray) ((JSONObject) roomObj).get("items");
+
+                if (roomItems != null) {
+                    for (Object itemObj : roomItems) {
+                        String name = (String) ((JSONObject) itemObj).get("name");
+                        String itemDesc = (String) ((JSONObject) itemObj).get("itemDesc");
+                        int cost = ((Long) ((JSONObject) itemObj).get("cost")).intValue();
+                        Item item = ItemList.items.get(name);
+                        room.addToItemList(item);
+                        room.addToDescList(itemDesc);
+                        room.addToCostList(cost);
+                    }
+                }
+                room.setExits(exits);
+                roomMap.put(roomId, room);
+                String name = room.getRoomName();
+                if (name.equals("Tundra Hallway"))
+                    currentArea = snowdin;
+                else if (name.equals("Waterfall Entrance"))
+                    currentArea = waterfall;
+                else if (name.equals("Core Entrance")) {
+                    currentArea = core;
+                }
+
+                currentArea.add(room);
             }
-            room.setExits(exits);
-            roomMap.put(roomId, room);
-        }
     } catch (Exception e) {
         e.printStackTrace();
     }
@@ -169,10 +186,6 @@ public class Game {
      */
     public void play() {
         printText(currentRoom.longDescription());
-        player.inventory.addItem(ItemList.items.get("Bandage"));
-        player.inventory.addItem(ItemList.items.get("Stick"));
-        player.inventory.items.get(player.inventory.findItemByName("Bandage")).use();
-        player.inventory.items.get(player.inventory.findItemByName("Stick")).use();
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
@@ -183,6 +196,10 @@ public class Game {
         boolean floweyEncounterDialogueShown = false;
 
         while (!finished) {
+            if (currentRoom.getRoomName().equals("Underground Exit")) {
+                rollCredits();
+                finished = true;
+            }
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Flowey.wav");
                 printAsciiImage("flowey");
@@ -190,21 +207,30 @@ public class Game {
                 printText("You're new to the underground, aren'tcha?");
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
+                printText("In this world, you have a SOUL.");
+                Game.sleep(500);
+                printText("When you encounter a monster, you can move your soul around to dodge their attacks!");
+                printText("Let's play a game, try and get as many of the \"friendliness pellets\" as you can!");
+                Game.sleep(500);
                 printText("Ready? Here we go!");
+                Game.sleep(500);
+                Monster flowey = new Monster(999, 0,0, 0, 0, "flowey");
+                playMiniGame(flowey);
                 Game.sleep(500);
                 PlayMusic.stop();
                 printAsciiImage("evil flowey");
-                player.takeDamage(19);
+                player.takeDamage(39);
+                System.out.print(player.getName() + " health:");
                 showHealthBar(player);
-                player.heal(19);
-                printText("You idiot");
+                player.heal(39);
+                printText("You idiot!");
                 printText("In this world, it's KILL OR BE KILLED.");
                 printText("Why would ANYBODY pass up an opportunity like this!?!");
                 printText("Die.");
                 printText("AHAHAHAAHAHAHAHAHAHA");
                 Game.sleep(600);
                 printAsciiImage("toriel");
-                printText("toriel: What a terrible creature. Torturing such a poor, innocent youth.");
+                printText("Toriel: What a terrible creature. Torturing such a poor, innocent youth.");
                 printText("Ah, do not be afraid, my child.");
                 printText("I am TORIEL. Caretaker of the RUINS.");
                 printText("I pass through this place every day to see if anyone has fallen down.");
@@ -469,7 +495,6 @@ public class Game {
                 e.printStackTrace();
             }
         }
-        rollCredits();
     }
     
 
@@ -584,6 +609,7 @@ public class Game {
             showHealthBar(monster);
 
             if (player.isDead()) {
+                monster.resetHp();
                 printText("GAME OVER");
                 playerRespawn();
                 return;
@@ -626,6 +652,7 @@ public class Game {
         printText("You spared " + monsterName + ".");
         printText("You earned 0 exp and " + gold + " gold.");
         player.inventory.addGold(gold);
+        monster.resetHp();
     }
 
     private int playMiniGame(Monster monster) {
@@ -666,6 +693,8 @@ public class Game {
      */
     private boolean giveActOptions(Monster monster) {
         HashMap<String, ArrayList<Action>> actOptions = ActOptions.actOptions;
+
+
         ArrayList<Action> actionList = actOptions.get(monster.getName());
         for (Action action: actionList) {
             System.out.print(action.getName() + "   ");
@@ -720,6 +749,7 @@ public class Game {
     }
 
     private void playerRespawn() {
+        player.resetHp();
         printDeathMessage();
         currentRoom = savedRoom;
         System.out.println("You were brought back to " + currentRoom.getRoomName() + ".");
@@ -756,11 +786,11 @@ public class Game {
 
     private boolean processCommand(Command command) {
         if (command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
+            System.out.println("Invalid command. use \"help\" for help.");
             return false;
         }
 
-        String commandWord = command.getCommandWord();
+        String commandWord = command.getCommandWord().strip();
         switch (commandWord.toLowerCase()) {
             case "help":
                 printHelp();
@@ -834,6 +864,7 @@ public class Game {
                         player.inventory.dropItem(command.getSecondWord());
                     }
                 }
+                break;
             case "inventory":
                 if (command.hasSecondWord())
                     System.out.println("? -> " + shortenInvalid(command.getSecondWord()));
@@ -847,6 +878,7 @@ public class Game {
                 else {
                     System.out.println(player.check());
                 }
+                break;
             case "search":
                 ArrayList<Item> itemList = currentRoom.getItemArrayList();
                 ArrayList<String> descriptions = currentRoom.getDescArrayList();
@@ -877,6 +909,25 @@ public class Game {
                             }
                         }
                     }
+                    else {
+                        printText("Buy " + item.getName()+ " for " + costs.get(i) + " gold?");
+                        while (true) {
+                            System.out.print("> ");
+                            String temp = in.nextLine();
+                            if (temp.equalsIgnoreCase("yes") || temp.equalsIgnoreCase("y")) {
+                                if (player.inventory.spendGold(costs.get(i))) {
+                                    player.inventory.addItem(item);
+                                }
+                                itemList.remove(i);
+                                break;
+                            } else if (temp.equalsIgnoreCase("no") || temp.equalsIgnoreCase("n")) {
+                                printText("You didn't buy the " + item.getName() + ".");
+                                break;
+                            } else {
+                                printText("Invalid response. Please answer (y)es or (n)o.");
+                            }
+                        }
+                    }
                 }
 
                 if (currentRoom.getRoomName().toLowerCase().contains("puzzle")) {
@@ -893,6 +944,7 @@ public class Game {
                                         ghost.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         blackJack = true;
+                                        printText("Area unlocked.");
                                     }
                                 } else if (!connect4) {
                                     if (Puzzles.playConnectFour()) {
@@ -900,6 +952,7 @@ public class Game {
                                         crossroads.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         connect4 = true;
+                                        printText("Area unlocked.");
                                     }
                                 } else if (!hangman) {
                                     if (Puzzles.playHangman()) {
@@ -907,6 +960,7 @@ public class Game {
                                         spaghetti.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         hangman = true;
+                                        printText("Area unlocked.");
                                     }
                                 } else if (!math) {
                                     if (Puzzles.playMathGame(10, 20)) {
@@ -914,6 +968,7 @@ public class Game {
                                         telescope.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         math = true;
+                                        printText("Area unlocked.");
                                     }
                                 } else if (!numbers) {
                                     if (Puzzles.playNumberGuessingGame()) {
@@ -926,6 +981,7 @@ public class Game {
                                         coreMain.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         rockPaperScissors = true;
+                                        printText("Area unlocked.");
                                     }
                                 } else if (!ticTacToe) {
                                     if (Puzzles.playTicTacToe()) {
@@ -933,6 +989,7 @@ public class Game {
                                         centerMain.setLocked(false);
                                         alreadyDoneRooms.add(currentRoom.getRoomName());
                                         ticTacToe = true;
+                                        printText("Area unlocked.");
                                     }
                                 }
                                 break;
@@ -997,6 +1054,30 @@ public class Game {
         if (nextRoom != null) {
             currentRoom = nextRoom;
             Game.printText(currentRoom.longDescription());
+
+            double r = Math.random();
+
+            if (r < 0.8) {
+                if (ruins.contains(currentRoom)) {
+                    int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
+                    encounter(MonsterList.ruinsMonstersList.get(index).getName());
+                }
+
+                else if (snowdin.contains(currentRoom)) {
+                    int index = (int) (Math.random() * MonsterList.snowdinMonstersList.size());
+                    encounter(MonsterList.snowdinMonstersList.get(index).getName());
+                }
+
+                else if (waterfall.contains(currentRoom)) {
+                    int index = (int) (Math.random() * MonsterList.waterfallMonstersList.size());
+                    encounter(MonsterList.waterfallMonstersList.get(index).getName());
+                }
+
+                else if (core.contains(currentRoom)) {
+                    int index = (int) (Math.random() * MonsterList.coreMonstersList.size());
+                    encounter(MonsterList.coreMonstersList.get(index).getName());
+                }
+            }
 
             if (currentRoom.isSave())
                 if (!currentRoom.equals(savedRoom))

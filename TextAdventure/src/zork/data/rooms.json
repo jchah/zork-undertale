@@ -3,7 +3,7 @@
     {
       "id": "Spawn Room",
       "name": "Spawn Room",
-      "description": "Welcome to UNDERTALE!.",
+      "description": "Welcome to UNDERTALE!",
       "exits": [
         {
           "isLocked": false,
@@ -88,7 +88,19 @@
           "adjacentRoom": "Ruins Puzzle1"
         }
       ],
-      "isSave": true
+      "isSave": true,
+      "items": [
+        {
+          "name": "Bandage",
+          "itemDesc": "It has already been used several times.",
+          "cost": 0
+        },
+        {
+          "name": "Stick",
+          "itemDesc": "Its bark is worse than its bite.",
+          "cost": 0
+        }
+      ]
     },
     {
       "id": "Ruins Start Candy",
@@ -505,9 +517,9 @@
       "isSave": false,
       "items": [
         {
-          "name": "Nice Cream",
-          "itemDesc": "Heals 15 HP Instead of a joke, the wrapper says something nice.",
-          "cost": 0
+          "name": "Snowman Piece",
+          "itemDesc": "A Snow Man is offering to sell you a piece of himself.",
+          "cost": 40
         }
       ]
     },
@@ -629,7 +641,14 @@
           "adjacentRoom": "Snowdin Town"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Hot Dog",
+          "cost": 10,
+          "itemDesc": "Heals 20 HP The \"meat\" is made of something called a \"water sausage."
+        }
+      ]
     },
     {
       "id": "Papyrus' House",
@@ -786,7 +805,14 @@
           "adjacentRoom": "Waterfall Puzzle"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Abandoned Quiche",
+          "cost": 0,
+          "itemDesc": "Heals 34 HP A psychologically damaged spinach egg pie."
+        }
+      ]
     },
     {
       "id": "Telescope Room",
@@ -817,7 +843,14 @@
           "adjacentRoom": "Telescope Room2"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Nice Cream",
+          "cost": 10,
+          "itemDesc": "Heals 15 HP Instead of a joke, the wrapper says something nice."
+        }
+      ]
     },
     {
       "id": "Waterfall Exit",
@@ -1020,7 +1053,14 @@
           "adjacentRoom": "Core Bridge1"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+      {
+        "name": "Ballet Shoes",
+        "cost": 0,
+        "itemDesc": "Wpn AT 7 These used shoes make you feel incredibly dangerous."
+      }
+    ]
     },
     {
       "id": "Core Bridge Item2",
@@ -1033,7 +1073,14 @@
           "adjacentRoom": "Core Bridge1"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Old Tutu",
+          "cost": 0,
+          "itemDesc": "Armor DF 10 Finally, a protective piece of armor."
+        }
+      ]
     },
     {
       "id": "Core Bridge Main",
@@ -1087,7 +1134,14 @@
           "adjacentRoom": "Core Bridge Main"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+        "name": "Hot Cat",
+        "cost": 0,
+        "itemDesc": "Heals 21 HP Like a hot dog, but with little cat ears on the end."
+        }
+      ]
     },
     {
       "id": "Core Center Main",
@@ -1195,7 +1249,14 @@
           "adjacentRoom": "Asgore's Castle"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Heart Locket",
+          "itemDesc": "Armor DF 15 It says \"Best Friends Forever.\"",
+          "cost": 0
+        }
+      ]
     },
     {
       "id": "Castle Hall",
@@ -1213,7 +1274,14 @@
           "adjacentRoom": "Asgore Encounter"
         }
       ],
-      "isSave": false
+      "isSave": false,
+      "items": [
+        {
+          "name": "Empty Gun",
+          "itemDesc": "Weapon AT 12 An antique revolver. It has no ammo. Must be used precisely, or damage will be low. POW POW POW.",
+          "cost": 0
+        }
+      ]
     },
     {
       "id": "Asgore Encounter",

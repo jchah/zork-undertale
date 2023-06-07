@@ -92,6 +92,7 @@ public class Room {
    * "direction". If there is no room in that direction, return null.
    */
   public Room nextRoom(String direction) {
+
     direction = direction.toLowerCase();
     try {
       for (Exit exit : exits) {
