@@ -109,6 +109,9 @@ public class MiniGame {
                 symbol = "🌻";
                 hitDamage = 0;
             }
+            case "muffet" -> symbol = "\uD83D\uDD77";
+            case "papyrus" -> symbol = "\uD83E\uDDB4";
+            case "asgore" -> symbol = "⚔";
 
         }
         totalDamage = 0;

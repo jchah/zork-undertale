@@ -185,6 +185,7 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        encounter("muffet");
         printText(currentRoom.longDescription());
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
@@ -337,12 +338,10 @@ public class Game {
                     printText("I heard that they hate spiders...");
                     printText("I heard that they love to stomp on them...");
                     printText("I heard that they like to rip their legs off...");
-                    PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav");
                     printAsciiImage("muffet");
                     encounter("muffet");
                     
                     muffetEncounterDialogueShown = true;
-                    PlayMusic.stop();
                 }
 
             }
@@ -595,6 +594,12 @@ public class Game {
     }
 
     private void encounter(String monsterName) {
+        if (monsterName.equals("muffet")) {
+            PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav");
+        }
+        else {
+            PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Enemy.wav");
+        }
         Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
         monsterName = monsterName.toUpperCase();
         String option;
@@ -610,6 +615,7 @@ public class Game {
 
             if (player.isDead()) {
                 monster.resetHp();
+                PlayMusic.stop();
                 printText("GAME OVER");
                 playerRespawn();
                 return;
@@ -641,6 +647,7 @@ public class Game {
                 player.addExp(monster.getExpReward());
                 player.updateLv();
                 player.inventory.addGold(gold);
+                PlayMusic.stop();
                 return;
             }
             if (keepFighting) {
@@ -653,6 +660,7 @@ public class Game {
         printText("You earned 0 exp and " + gold + " gold.");
         player.inventory.addGold(gold);
         monster.resetHp();
+        PlayMusic.stop();
     }
 
     private int playMiniGame(Monster monster) {

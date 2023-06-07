@@ -71,6 +71,9 @@ public class MonsterList {
         monsters.putAll(waterfallMonsters);
         monsters.putAll(snowdinMonsters);
         monsters.putAll(coreMonsters);
+        monsters.put("muffet", muffet);
+        monsters.put("papyrus", papyrus);
+        monsters.put("asgore", asgore);
     }
         
 }
