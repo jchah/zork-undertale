@@ -1057,7 +1057,7 @@ public class Game {
 
             double r = Math.random();
 
-            if (r < 0.8) {
+            if (r < 0.4) {
                 if (ruins.contains(currentRoom)) {
                     int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
                     encounter(MonsterList.ruinsMonstersList.get(index).getName());
