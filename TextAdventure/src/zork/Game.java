@@ -230,7 +230,7 @@ public class Game {
                 printText("ACT: Choose one of the monsters ACT options. In most cases, one of them let's you spare.");
                 printText("SPARE: If you've chosen the right options, you should be able to spare the monster.");
                 printText("ITEM: If you need to heal by eating or switch your armor or weapon.");
-                printText("When the monster attacks, use the grid to move around and dodge their attacks using WASD.");
+                printText("When you're attacked, use the grid to move around and dodge their attacks using WASD. Move fast!");
 
                 System.out.println("Press ENTER to continue.");
                 in.nextLine();
