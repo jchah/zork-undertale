@@ -22,7 +22,7 @@ public class Game {
     private final Parser parser;
     private Room currentRoom;
     private Room savedRoom;
-    private final Player player;
+    private Player player;
     private final Scanner in = new Scanner(System.in);
     private static final AttackMeterGame attackMeterGame= new AttackMeterGame();
     private static final Charset defaultCharset = Charset.defaultCharset();
@@ -70,7 +70,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Snowdin Town3");
+            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,15 +79,6 @@ public class Game {
         parser = new Parser();
 
         testMode = false;
-
-        if (testMode) {
-            System.out.println("GAME IN TEST MODE");
-            player = new Player(40, 0, 999, "Frisk");
-        }
-        else {
-            printIntro();
-            player = new Player(40, 0, 0, namePrompt());
-        }
     }
 
     public Player getPlayer() {
@@ -189,6 +180,14 @@ public class Game {
      * Main play routine. Loops until end of play.
      */
     public void play() {
+        if (testMode) {
+            System.out.println("GAME IN TEST MODE");
+            player = new Player(40, 0, 999, "Frisk");
+        }
+        else {
+            printIntro();
+            player = new Player(40, 0, 0, namePrompt());
+        }
         printText(currentRoom.longDescription());
         boolean finished = false;
         boolean flowerRoomDialogueShown = false;
@@ -547,7 +546,6 @@ public class Game {
         printTextCustomDelay("Legends say that those who climb the mountain never return.", 50);
 
         PlayMusic.stop();
-        PlayMusic.play(Game.currentSong, true);
     }
 
     private static void printAsciiImage(String name) {
