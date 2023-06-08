@@ -70,7 +70,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Asgore Encounter");
+            currentRoom = roomMap.get("Spawn Room");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = true;
+        testMode = false;
     }
 
     public Player getPlayer() {
