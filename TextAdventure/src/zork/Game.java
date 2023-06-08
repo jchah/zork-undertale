@@ -70,7 +70,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Spawn Room");
+            currentRoom = roomMap.get("Core Elevator");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = false;
+        testMode = true;
     }
 
     public Player getPlayer() {
@@ -205,7 +205,7 @@ public class Game {
         while (!finished) {
             if (currentRoom.getRoomName().equals("Underground Exit")) {
                 rollCredits();
-                finished = true;
+                return;
             }
             if (currentRoom.getRoomName().equals("Flower Room") && !flowerRoomDialogueShown) {
                 PlayMusic.clip.stop();
@@ -521,6 +521,8 @@ public class Game {
     
 
     private void rollCredits() {
+        PlayMusic.clip.stop();
+        PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Last Goodbye.wav", true);
         printTextCustomDelay("UNDERTALE TEXT ADVENTURE", 100);
         printTextCustomDelay("A GAME BY...", 100);
         printTextCustomDelay("JAD C.", 50);
@@ -528,6 +530,11 @@ public class Game {
         printTextCustomDelay("KAI S.", 50);
         printTextCustomDelay("AND SAVVA P.",50);
         printTextCustomDelay("THANK YOU FOR PLAYING! :)", 100);
+        int minutes = (int) PlayMusic.clip.getMicrosecondLength() / 1000 / 1000 / 60;
+        int seconds = (int) PlayMusic.clip.getMicrosecondLength() / 1000 / 1000 % 60;
+        System.out.println("Song length: " + minutes + ":" + seconds);
+        Game.sleep((int) PlayMusic.clip.getMicrosecondLength() / 1000);
+        PlayMusic.clip.stop();
     }
 
     /**
@@ -1180,7 +1187,7 @@ public class Game {
 
             double r = Math.random();
 
-            if (r < 0.25) {
+            if (r < 0.33) {
                 if (ruins.contains(currentRoom)) {
                     int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
                     encounter(MonsterList.ruinsMonstersList.get(index).getName());
