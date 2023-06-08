@@ -547,7 +547,6 @@
       "id": "Tundra Puzzle",
       "name": "Tundra Puzzle",
       "description": "A puzzle covered in snow lies in the icy tundra.",
-      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
@@ -566,6 +565,7 @@
       "id": "Tundra Spaghetti",
       "name": "Tundra Spaghetti",
       "description": "Knowing you might one day find a way to heat up the spaghetti... It fills you with determination.",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
