@@ -477,7 +477,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Doggo Encounter"
+          "adjacentRoom": "Doggo Station"
         },
         {
           "isLocked": false,
@@ -501,8 +501,8 @@
       "isSave": false
     },
     {
-      "id": "Doggo Encounter",
-      "name": "Doggo Encounter",
+      "id": "Doggo Station",
+      "name": "Doggo Station",
       "description": "Doggo's station lies up ahead, you see he's been smoking dog treats",
       "exits": [
         {
@@ -531,7 +531,7 @@
         {
           "isLocked": false,
           "direction": "South",
-          "adjacentRoom": "Doggo Encounter"
+          "adjacentRoom": "Doggo Station"
         }
       ],
       "isSave": false,
@@ -539,7 +539,7 @@
         {
           "name": "Snowman Piece",
           "itemDesc": "A Snow Man is offering to sell you a piece of himself.",
-          "cost": 40
+          "cost": 10
         }
       ]
     },
@@ -552,7 +552,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Doggo Encounter"
+          "adjacentRoom": "Doggo Station"
         },
         {
           "isLocked": true,
