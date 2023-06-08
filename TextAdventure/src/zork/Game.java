@@ -226,7 +226,7 @@ public class Game {
                 playMiniGame(flowey);
                 Game.sleep(500);
                 PlayMusic.stop();
-                printAsciiImage("omega flowey");
+                printAsciiImage("evil flowey");
                 player.takeDamage(39);
                 System.out.print(player.getName() + " health:");
                 showHealthBar(player);
@@ -1183,26 +1183,21 @@ public class Game {
             Game.printText(currentRoom.longDescription());
 
             double r = Math.random();
-
-            if (r < 0.99) { //0.33
-                if (ruins.contains(currentRoom)) {
-                    int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
-                    encounter(MonsterList.ruinsMonstersList.get(index).getName());
-                }
-
-                else if (snowdin.contains(currentRoom)) {
-                    int index = (int) (Math.random() * MonsterList.snowdinMonstersList.size());
-                    encounter(MonsterList.snowdinMonstersList.get(index).getName());
-                }
-
-                else if (waterfall.contains(currentRoom)) {
-                    int index = (int) (Math.random() * MonsterList.waterfallMonstersList.size());
-                    encounter(MonsterList.waterfallMonstersList.get(index).getName());
-                }
-
-                else if (core.contains(currentRoom)) {
-                    int index = (int) (Math.random() * MonsterList.coreMonstersList.size());
-                    encounter(MonsterList.coreMonstersList.get(index).getName());
+            if (!currentRoom.getRoomName().equals("Spawn Room")) {
+                if (r < 0.33) {
+                    if (ruins.contains(currentRoom)) {
+                        int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
+                        encounter(MonsterList.ruinsMonstersList.get(index).getName());
+                    } else if (snowdin.contains(currentRoom)) {
+                        int index = (int) (Math.random() * MonsterList.snowdinMonstersList.size());
+                        encounter(MonsterList.snowdinMonstersList.get(index).getName());
+                    } else if (waterfall.contains(currentRoom)) {
+                        int index = (int) (Math.random() * MonsterList.waterfallMonstersList.size());
+                        encounter(MonsterList.waterfallMonstersList.get(index).getName());
+                    } else if (core.contains(currentRoom)) {
+                        int index = (int) (Math.random() * MonsterList.coreMonstersList.size());
+                        encounter(MonsterList.coreMonstersList.get(index).getName());
+                    }
                 }
             }
 
