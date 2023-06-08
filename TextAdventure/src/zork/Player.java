@@ -5,7 +5,7 @@ public class Player extends Entity{
     private int exp;
     private double attackBoost;
     private int lv = 1;
-    private final int[] expToLv = {0, 10, 20, 40, 50, 80, 100, 150, 215, 270, 350, 450, 550, 700, 900, 1000};
+    private final int[] expToLv = {0, 5, 10, 25, 40, 60, 90, 120, 160, 200, 250, 310, 400, 500, 650, 800};
 
     public Player(int hp, int def, int atk, String name) {
         super(hp, atk, def, name);
@@ -34,7 +34,7 @@ public class Player extends Entity{
         while (exp >= expToLv[lv]) {
             exp -= expToLv[lv];
             lv++;
-            Game.printText("Your LOVE increased.");
+            Game.printText("Your LV increased.");
             setMaxHp(getMaxHp() + 4);
             attackBoost += 0.2;
         }

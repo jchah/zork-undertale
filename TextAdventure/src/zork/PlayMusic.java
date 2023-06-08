@@ -7,9 +7,12 @@ import javax.sound.sampled.Clip;
 
 public class PlayMusic {
 
-    private static Clip clip;
+    public static Clip clip;
 
-    public static void play(String location) {
+    public static synchronized void play(String location, boolean newSong) {
+        if (!Game.game.switchingAreas() && !newSong)
+            return;
+        stop();
         try {
             clip = AudioSystem.getClip();
             File musicPath = new File(location);

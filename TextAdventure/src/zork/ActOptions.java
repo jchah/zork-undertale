@@ -28,7 +28,7 @@ public class ActOptions {
         actions1.add(t);
         t = new Action("TALK", "Plants can't talk dummy. VEGETOID: \"Plants can't talk dummy!\"");
         actions1.add(t);
-        t = new Action("DINNER", "You at your stomach. Vegatoid offers a healthy meal. VEGETOID: \"Eat Your Greens\"",
+        t = new Action("DINNER", "You pat your stomach. Vegatoid offers a healthy meal. VEGETOID: \"Eat Your Greens\"",
                 true);
         actions1.add(t);
         t = new Action("DEVOUR", "You took a bite out of Vegatoid. You recovered 5 HP. ");

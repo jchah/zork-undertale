@@ -218,6 +218,7 @@
       "id": "Ruins Crossroads",
       "name": "Ruins Crossroads",
       "description": "Different paths intertwine, which way?",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
@@ -233,6 +234,13 @@
           "isLocked": true,
           "direction": "West",
           "adjacentRoom": "House Entrance"
+        }
+      ],
+      "items": [
+        {
+          "name": "Cowboy Hat",
+          "itemDesc": "It has already been used several times.",
+          "cost": 0
         }
       ],
       "isSave": false
@@ -347,7 +355,7 @@
           "adjacentRoom": "House Downstairs"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Toriel Encounter"
         }
@@ -365,7 +373,7 @@
           "adjacentRoom": "Downstairs Hallway"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "NorthEast",
           "adjacentRoom": "Ruins Exit"
         }
@@ -383,7 +391,7 @@
           "adjacentRoom": "Toriel Encounter"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Tundra Hallway"
         }
@@ -401,9 +409,16 @@
           "adjacentRoom": "Ruins Exit"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Sans Dialogue"
+        }
+      ],
+      "items": [
+        {
+          "name": "Crab Apple",
+          "itemDesc": "Heals 10 HP An aquatic fruit that resembles a crustacean, lying in the snow.",
+          "cost": 0
         }
       ],
       "isSave": true
@@ -419,7 +434,7 @@
           "adjacentRoom": "Tundra Hallway"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Lamp Room"
         }
@@ -437,7 +452,7 @@
           "adjacentRoom": "Sans Dialogue"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "NorthEast",
           "adjacentRoom": "Tundra Crossroads"
         }
@@ -455,12 +470,12 @@
           "adjacentRoom": "Lamp Room"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Doggo Encounter"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Fishing Room"
         }
@@ -491,12 +506,12 @@
           "adjacentRoom": "Tundra Crossroads"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "North",
           "adjacentRoom": "Snowman Room"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "East",
           "adjacentRoom": "Tundra Puzzle"
         }
@@ -527,6 +542,7 @@
       "id": "Tundra Puzzle",
       "name": "Tundra Puzzle",
       "description": "A puzzle covered in snow lies in the icy tundra.",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
@@ -618,7 +634,7 @@
           "adjacentRoom": "Grillby's"
         },
         {
-          "isLocked": true,
+          "isLocked": false,
           "direction": "South",
           "adjacentRoom": "Papyrus House"
         },
@@ -818,6 +834,7 @@
       "id": "Telescope Room",
       "name": "Telescope Room",
       "description": "The monsters haven't seen the sky in a very long time... fake stars are hung up on the walls.",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
@@ -919,7 +936,7 @@
         {
           "isLocked": false,
           "direction": "SouthWest",
-          "adjacentRoom": "Core Lobby"
+          "adjacentRoom": "Core Crossroads"
         }
       ],
       "isSave": true
@@ -982,6 +999,7 @@
       "id": "Core Main",
       "name": "Core Main",
       "description": "Step into the main area of the Core, the central hub of the core facilities.",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,
@@ -1147,6 +1165,7 @@
       "id": "Core Center Main",
       "name": "Core Center Main",
       "description": "Beyond this room must be the King's castle. You're filled with determination.",
+      "isLocked": true,
       "exits": [
         {
           "isLocked": false,

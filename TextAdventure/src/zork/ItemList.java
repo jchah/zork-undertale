@@ -25,9 +25,11 @@ public class ItemList {
         Food butterscotchpie = new Food(9999, "BScotchPie");
         Food quiche = new Food(34, "AbandonedQuiche");
         Food snowmanpiece = new Food(5, "SnowmanPiece");
+        Armor cowboyhat = new Armor(5, "CowboyHat");
+        Food crabapple = new Food(10, "CrabApple");
 
-
-
+        items.put("Crab Apple", cowboyhat);
+        items.put("Cowboy Hat", cowboyhat);
         items.put("Snowman Piece", snowmanpiece);
         items.put("Monster Candy", monstercandy);
         items.put("Toy Knife", toyknife);
