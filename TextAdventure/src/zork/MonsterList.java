@@ -17,7 +17,7 @@ public class MonsterList {
     public static ArrayList<Monster>  coreMonstersList = new ArrayList<>();
 
     static {
-        Monster froggit = new Monster(30, 4, 4, 2, 1, "froggit");
+        Monster froggit = new Monster(30, 4, 2, 2, 1, "froggit");
         Monster vegtoid = new Monster(72, 5, 0, 6, 1, "vegetoid");
         Monster whimsun = new Monster(10, 4, 0, 2, 2, "whimsun");
         Monster loox = new Monster(50, 5, 4, 7, 5, "loox");
