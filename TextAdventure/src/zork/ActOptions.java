@@ -31,7 +31,7 @@ public class ActOptions {
         t = new Action("DINNER", "You pat your stomach. Vegatoid offers a healthy meal. VEGETOID: \"Eat Your Greens\"",
                 true);
         actions1.add(t);
-        t = new Action("DEVOUR", "You took a bite out of Vegatoid. You recovered 5 HP. ");
+        t = new Action("DEVOUR", "You took a bite out of Vegatoid.");
         actions1.add(t);
 
         actOptions.put("vegetoid", actions1);
