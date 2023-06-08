@@ -78,7 +78,7 @@ public class Game {
 
         parser = new Parser();
 
-        testMode = true;
+        testMode = false;
 
         if (testMode) {
             System.out.println("GAME IN TEST MODE");
