@@ -98,7 +98,9 @@ public class Room {
       for (Exit exit : exits) {
         if (exit.getDirection().equalsIgnoreCase(direction)) {
           String adjacentRoom = exit.getAdjacentRoom();
+
           Room r = Game.roomMap.get(adjacentRoom);
+
           if(r.isLocked()) {
             System.out.println("Area is locked.");
             return null;

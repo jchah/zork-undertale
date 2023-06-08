@@ -296,10 +296,15 @@
         {
           "isLocked": false,
           "direction": "South",
+          "adjacentRoom": "House Entrance"
+        },
+        {
+          "isLocked": false,
+          "direction": "SouthEast",
           "adjacentRoom": "House Downstairs"
         }
       ],
-      "isSave": true
+      "isSave": false
     },
     {
       "id": "Kitchen",
@@ -333,12 +338,12 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "East",
+          "direction": "South",
           "adjacentRoom": "Downstairs Hallway"
         },
         {
           "isLocked": false,
-          "direction": "North",
+          "direction": "NorthWest",
           "adjacentRoom": "Toriel's House"
         }
       ],
@@ -351,7 +356,7 @@
       "exits": [
         {
           "isLocked": false,
-          "direction": "West",
+          "direction": "North",
           "adjacentRoom": "House Downstairs"
         },
         {
