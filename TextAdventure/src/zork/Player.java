@@ -39,6 +39,7 @@ public class Player extends Entity{
             resetHp();
             Game.printText("Health restored.");
             attackBoost += 0.2;
+            Game.printText("+20% attack boost.");
         }
 
     }
