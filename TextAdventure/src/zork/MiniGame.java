@@ -92,7 +92,7 @@ public class MiniGame {
         int temp = (int) (GAME_TIME / seconds) + 1;
         String[] playerLocationHistory = new String[temp];
         switch (monster.getName().toLowerCase()) {
-            case "froggit" -> symbol = "\uD80C\uDD8F";
+            case "froggit" -> symbol = "\uD83D\uDC38";
             case "whimsun" -> symbol = "\uD83D\uDC1D";
             case "vegetoid" -> symbol = "\uD83E\uDD66";
             case "loox" -> symbol = "\uD83D\uDC7D";
