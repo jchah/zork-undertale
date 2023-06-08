@@ -70,7 +70,7 @@ public class Game {
 
         try {
             initRooms("TextAdventure\\src\\zork\\data\\rooms.json");
-            currentRoom = roomMap.get("Core Elevator");
+            currentRoom = roomMap.get("Asgore Encounter");
             savedRoom = currentRoom;
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,12 +90,14 @@ public class Game {
         String name;
         String temp;
         while (true) {
-            printText("Name the fallen human: ");
+            printText("Name the fallen human:");
+            System.out.print("> ");
             name = in.nextLine();
             if (name.length() >= 1 && name.length() <= 15) {
                 boolean good = false;
                 while(!good) {
                     printText("Your name is " + name + ", confirm?");
+                    System.out.print("> ");
                     temp = in.nextLine();
                     if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                         return name;
@@ -160,12 +162,10 @@ public class Game {
                 room.setExits(exits);
                 roomMap.put(roomId, room);
                 String name = room.getRoomName();
-                if (name.equals("Tundra Hallway"))
-                    currentArea = snowdin;
-                else if (name.equals("Waterfall Entrance"))
-                    currentArea = waterfall;
-                else if (name.equals("Core Entrance")) {
-                    currentArea = core;
+                switch (name) {
+                    case "Tundra Hallway" -> currentArea = snowdin;
+                    case "Waterfall Entrance" -> currentArea = waterfall;
+                    case "Core Entrance" -> currentArea = core;
                 }
 
                 currentArea.add(room);
@@ -193,10 +193,10 @@ public class Game {
         boolean flowerRoomDialogueShown = false;
         boolean torielEncounterDialogueShown = false;
         boolean sansEncounterDialogueShown = false;
-        boolean muffetEncounterDialogueShown = false;
         boolean finalSansEncounterDialogueShown = false;
-        boolean asgoreEncounterDialogueShown = false;
-        boolean floweyEncounterDialogueShown = false;
+        boolean floweyDefeated = false;
+        boolean asgoreDefeated = false;
+        boolean muffetDefeated = false;
 
 
 
@@ -226,7 +226,7 @@ public class Game {
                 playMiniGame(flowey);
                 Game.sleep(500);
                 PlayMusic.stop();
-                printAsciiImage("evil flowey");
+                printAsciiImage("omega flowey");
                 player.takeDamage(39);
                 System.out.print(player.getName() + " health:");
                 showHealthBar(player);
@@ -327,7 +327,7 @@ public class Game {
                 torielEncounterDialogueShown = true;
                 PlayMusic.play(Game.currentSong, true);
             }
-            if (currentRoom.getRoomName().equals("Muffet Encounter") && !muffetEncounterDialogueShown) {
+            if (currentRoom.getRoomName().equals("Muffet Encounter") && !muffetDefeated) {
                 if (player.inventory.findItemByName("Spider Cider")>-1 || player.inventory.findItemByName("Spider Donut")>-1) {
                     PlayMusic.clip.stop();
                     PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav", true);
@@ -341,6 +341,7 @@ public class Game {
                     printText("Oh my- this has all been a big misunderstanding..");
                     printText("I thought you were someone that hated spiders-");
                     printText("Sorry for all the trouble-");
+                    muffetDefeated = false;
                     PlayMusic.stop();
                     PlayMusic.play(Game.currentSong, true);
                 }
@@ -350,11 +351,8 @@ public class Game {
                     printText("I heard that they love to stomp on them...");
                     printText("I heard that they like to rip their legs off...");
                     printAsciiImage("muffet");
-                    encounter("muffet");
-
+                    muffetDefeated = encounter("muffet");
                 }
-                muffetEncounterDialogueShown = true;
-
             }
             if (currentRoom.getRoomName().equals("Castle Hall") && !finalSansEncounterDialogueShown) {
                 PlayMusic.clip.stop();
@@ -379,9 +377,7 @@ public class Game {
                 finalSansEncounterDialogueShown = true;
                 PlayMusic.play(Game.currentSong, true);
             }
-            if (currentRoom.getRoomName().equals("Asgore Encounter") && !asgoreEncounterDialogueShown) {
-                PlayMusic.clip.stop();
-                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav", true);
+            if (currentRoom.getRoomName().equals("Asgore Encounter") && !asgoreDefeated) {
                 printAsciiImage("asgore");
                 printText("Howdy! How can I...");
                 Game.sleep(1000);
@@ -392,15 +388,10 @@ public class Game {
                 printText("Nice day today, huh?");
                 printText("Perfect weather for a game of catch.");
                 printText("... You know what we must do.");
-                encounter("asgore");
-                PlayMusic.stop();
-                asgoreEncounterDialogueShown = true;
-                PlayMusic.play(Game.currentSong, true);
+                asgoreDefeated = encounter("asgore");
             }
-            if (currentRoom.getRoomName().equals("Flowey Encounter") && !floweyEncounterDialogueShown) {
-                PlayMusic.clip.stop();
-                PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-OmegaFlowey.wav", true);
-                printAsciiImage("evil flowey");
+            if (currentRoom.getRoomName().equals("Flowey Encounter") && !floweyDefeated) {
+                printAsciiImage("omega flowey");
                 printText("Howdy!");
                 printText("I owe you a huge thanks!");
                 printText("Without you, I would've never gotten past him!");
@@ -417,11 +408,7 @@ public class Game {
                 printText("Monster. Humans. Everyone. I'll show them ALL the real meaning of this world.");
                 printText("KILL OR BE KILLED.");
                 Game.sleep(1000);
-                printAsciiImage("scary face");
-                encounter("flowey");
-                PlayMusic.stop();
-                floweyEncounterDialogueShown = true;
-                PlayMusic.play(Game.currentSong, true);
+                floweyDefeated = encounter("omega flowey");
             }
 
             if (currentRoom.getRoomName().equals("Sans Dialogue") && !sansEncounterDialogueShown) {
@@ -542,6 +529,13 @@ public class Game {
      */
     private static void printIntro() {
         PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Once-Upon-A-Time-Music.wav", true);
+        printTextCustomDelay(" ___  ___      ________       ________      _______       ________      _________    ________      ___           _______      \n" +
+                "|\\  \\|\\  \\    |\\   ___  \\    |\\   ___ \\    |\\  ___ \\     |\\   __  \\    |\\___   ___\\ |\\   __  \\    |\\  \\         |\\  ___ \\     \n" +
+                "\\ \\  \\\\\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\_|\\ \\   \\ \\   __/|    \\ \\  \\|\\  \\   \\|___ \\  \\_| \\ \\  \\|\\  \\   \\ \\  \\        \\ \\   __/|    \n" +
+                " \\ \\  \\\\\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\ \\\\ \\   \\ \\  \\_|/__   \\ \\   _  _\\       \\ \\  \\   \\ \\   __  \\   \\ \\  \\        \\ \\  \\_|/__  \n" +
+                "  \\ \\  \\\\\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\_\\\\ \\   \\ \\  \\_|\\ \\   \\ \\  \\\\  \\|       \\ \\  \\   \\ \\  \\ \\  \\   \\ \\  \\____    \\ \\  \\_|\\ \\ \n" +
+                "   \\ \\_______\\   \\ \\__\\\\ \\__\\   \\ \\_______\\   \\ \\_______\\   \\ \\__\\\\ _\\        \\ \\__\\   \\ \\__\\ \\__\\   \\ \\_______\\   \\ \\_______\\\n" +
+                "    \\|_______|    \\|__| \\|__|    \\|_______|    \\|_______|    \\|__|\\|__|        \\|__|    \\|__|\\|__|    \\|_______|    \\|_______|\n", 1);
         printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.", 50);
         Game.sleep(500);
         printTextCustomDelay("One day, war broke out between the two races.", 50);
@@ -624,12 +618,12 @@ public class Game {
         System.out.println();
     }
 
-    private void encounter(String monsterName) {
-        if (monsterName.equals("muffet")) {
-            PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav", true);
-        }
-        else {
-            PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Enemy.wav", true);
+    private boolean encounter(String monsterName) {
+        switch (monsterName) {
+            case "muffet" -> PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Muffet-Theme.wav", true);
+            case "flowey", "evil flowey" -> PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-OmegaFlowey.wav", true);
+            case "asgore" -> PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Toriel-Theme.wav", true);
+            default -> PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Enemy.wav", true);
         }
         Monster monster = MonsterList.monsters.get(monsterName.toLowerCase());
         monsterName = monsterName.toUpperCase();
@@ -650,7 +644,7 @@ public class Game {
                 PlayMusic.play(Game.currentSong, true);
                 printText("GAME OVER");
                 playerRespawn();
-                return;
+                return false;
             }
             option = giveEncounterOptions();
             switch (option) {
@@ -681,7 +675,7 @@ public class Game {
                 player.inventory.addGold(gold);
                 PlayMusic.stop();
                 PlayMusic.play(Game.currentSong, true);
-                return;
+                return true;
             }
             if (keepFighting) {
                 Game.sleep(1000);
@@ -695,6 +689,7 @@ public class Game {
         monster.resetHp();
         PlayMusic.stop();
         PlayMusic.play(Game.currentSong, true);
+        return true;
     }
 
     private int playMiniGame(Monster monster) {
@@ -815,6 +810,8 @@ public class Game {
             String temp = in.nextLine();
             if (temp.equalsIgnoreCase("y") || temp.equalsIgnoreCase("yes")) {
                 printText("Game saved.");
+                printText("Health restored.");
+                player.resetHp();
                 return true;
             } else if (temp.equalsIgnoreCase("n") || temp.equalsIgnoreCase("no")) {
                 return false;
@@ -1187,7 +1184,7 @@ public class Game {
 
             double r = Math.random();
 
-            if (r < 0.33) {
+            if (r < 0.99) { //0.33
                 if (ruins.contains(currentRoom)) {
                     int index = (int) (Math.random() * MonsterList.ruinsMonstersList.size());
                     encounter(MonsterList.ruinsMonstersList.get(index).getName());

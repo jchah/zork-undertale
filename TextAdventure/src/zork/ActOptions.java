@@ -198,5 +198,12 @@ public class ActOptions {
 
         actOptions.put("papyrus", actions13);
 
+        ArrayList<Action> actions14 = new ArrayList<>();
+
+        t = new Action("CHECK", "");
+
+        actions14.add(t);
+
+        actOptions.put("asgore", actions14);
     }
 }

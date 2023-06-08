@@ -32,6 +32,7 @@ public class MonsterList {
         Monster asgore = new Monster(350, 10, 4, 1000, 0, "asgore");
         Monster muffet = new Monster(300, 8, 0 , 300, 35, "muffet");
         Monster papyrus = new Monster(300, 8, 2, 0, 0, "papyrus");
+        Monster flowey = new Monster(100, 20, 0, 2000, 0, "omega flowey");
 
 
         ruinsMonstersList.add(froggit);
@@ -74,6 +75,7 @@ public class MonsterList {
         monsters.put("muffet", muffet);
         monsters.put("papyrus", papyrus);
         monsters.put("asgore", asgore);
+        monsters.put("omega flowey", flowey);
     }
         
 }

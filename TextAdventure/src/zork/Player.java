@@ -14,7 +14,7 @@ public class Player extends Entity{
     }
 
     public String check() {
-        return getName() + "- " + "ATK: " + getAtk() + ", DEF: " + getDef() + ",\nGOLD: " + inventory.getGold() + ", EXP: " +getExp() + ", LV: " + getLv();
+        return getName() + "- " + "ATK: " + getAtk() + ", DEF: " + getDef() + ", HP: " + getHp() + ",\nGOLD: " + inventory.getGold() + ", EXP: " +getExp() + ", LV: " + getLv();
     }
 
     public void addExp(int exp) {
@@ -36,6 +36,8 @@ public class Player extends Entity{
             lv++;
             Game.printText("Your LV increased to " + lv + ".");
             setMaxHp(getMaxHp() + 4);
+            resetHp();
+            Game.printText("Health restored.");
             attackBoost += 0.2;
         }
 

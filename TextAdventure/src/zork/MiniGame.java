@@ -19,7 +19,6 @@ public class MiniGame {
     private String symbol;
     private int tickCount;
 
-
     public MiniGame() {
         try {
             out = new PrintStream(System.out, true, StandardCharsets.UTF_8.name());
@@ -119,8 +118,7 @@ public class MiniGame {
             while (true) {
                 Game.sleep(1000);
                 MiniGame.timer.incrementAndGet();
-                // This fixes the timer for some reason
-                Game.sleep(1);
+                out.println(MiniGame.timer.get());
                 if (MiniGame.timer.get() == GAME_TIME) {
                     return;
                 }
@@ -140,7 +138,6 @@ public class MiniGame {
         while (true) {
             if (MiniGame.timer.get() >= GAME_TIME) {
                 MiniGame.timer.set(0);
-                tickCount = 0;
                 break;
             }
 
@@ -177,8 +174,7 @@ public class MiniGame {
             Game.sleep(TICK_DELAY);
             tickCount++;
         }
-
+        tickCount = 0;
         return totalDamage;
-
     }
 }

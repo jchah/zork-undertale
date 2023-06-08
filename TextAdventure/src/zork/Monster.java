@@ -11,7 +11,7 @@ public class Monster extends Entity{
     }
 
     public String check() {
-        return getName() + "- " + "ATK: " + getAtk() + ", DEF: " + getDef();
+        return getName() + "- " + "ATK: " + getAtk() + ", DEF: " + getDef() + ", HP: " + getHp();
     }
 
     public int getExpReward() {
