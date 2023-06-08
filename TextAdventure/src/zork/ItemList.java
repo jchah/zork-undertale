@@ -28,7 +28,7 @@ public class ItemList {
         Armor cowboyhat = new Armor(5, "CowboyHat");
         Food crabapple = new Food(10, "CrabApple");
 
-        items.put("Crab Apple", cowboyhat);
+        items.put("Crab Apple", crabapple);
         items.put("Cowboy Hat", cowboyhat);
         items.put("Snowman Piece", snowmanpiece);
         items.put("Monster Candy", monstercandy);

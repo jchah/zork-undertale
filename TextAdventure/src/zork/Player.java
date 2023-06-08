@@ -34,7 +34,7 @@ public class Player extends Entity{
         while (exp >= expToLv[lv]) {
             exp -= expToLv[lv];
             lv++;
-            Game.printText("Your LV increased.");
+            Game.printText("Your LV increased to " + lv + ".");
             setMaxHp(getMaxHp() + 4);
             attackBoost += 0.2;
         }
