@@ -580,7 +580,7 @@
         {
           "isLocked": false,
           "direction": "East",
-          "adjacentRoom": "Danger Bridge"
+          "adjacentRoom": "Snowdin Bridge"
         }
       ],
       "isSave": true
@@ -606,9 +606,9 @@
       ]
     },
     {
-      "id": "Danger Bridge",
-      "name": "Danger Bridge",
-      "description": "Papyrus wants to capture you on this bridge, but he might have taken it too far.",
+      "id": "Snowdin Bridge",
+      "name": "Snowdin Bridge",
+      "description": "Papyrus wants to capture you on this bridge.",
       "exits": [
         {
           "isLocked": false,
@@ -621,6 +621,13 @@
           "adjacentRoom": "Snowdin Town"
         }
       ],
+      "items": [
+        {
+          "name": "Tough Glove",
+          "cost": 0,
+          "itemDesc": "Weapon AT 5 A worn pink leather glove. For five-fingered folk."
+        }
+      ],
       "isSave": false
     },
     {
@@ -631,7 +638,7 @@
         {
           "isLocked": false,
           "direction": "West",
-          "adjacentRoom": "Danger Bridge"
+          "adjacentRoom": "Snowdin Bridge"
         },
         {
           "isLocked": false,

@@ -9,7 +9,7 @@ public class ItemList {
         Armor bandage = new Armor(1, "Bandage");
         Weapon stick = new Weapon(1, "Stick");
         Weapon toyknife = new Weapon(3, "ToyKnife");
-        Armor tuffglove = new Armor(5, "ToughGlove");
+        Weapon tuffglove = new Weapon(5, "ToughGlove");
         Armor bandanna = new Armor(7, "Bandanna");
         Food nicecream = new Food(15, "NiceCream");
         Food cinnabun = new Food(22, "CinnaBun");
