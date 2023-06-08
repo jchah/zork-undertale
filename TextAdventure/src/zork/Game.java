@@ -57,10 +57,10 @@ public class Game {
         System.out.println("2. Open the terminal or command prompt.");
         System.out.println("3. Type 'chcp 65001' and press Enter.");
         System.out.println("4. Restart the game and continue playing.");
+        System.out.println("Recommended to expand the terminal all the way.");
         System.out.println("Press Enter if you wish to continue.");
         in.nextLine();
         Charset utf8Charset = StandardCharsets.UTF_8;
-        // charset is windows-1252
 
         try {
             out = new PrintStream(System.out, true, utf8Charset.name());
