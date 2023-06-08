@@ -217,15 +217,27 @@ public class Game {
                 printText("Someone ought to teach you how things work around here!");
                 printText("I guess little old me will have to do.");
                 printText("In this world, you have a SOUL.");
-                Game.sleep(500);
+                sleep(500);
                 printText("When you encounter a monster, you can move your soul around to dodge their attacks!");
                 printText("Let's play a game, try and get as many of the \"friendliness pellets\" as you can!");
-                Game.sleep(500);
+                sleep(500);
                 printText("Ready? Here we go!");
-                Game.sleep(500);
+                sleep(500);
+
+                printText("RULES OF AN ENCOUNTER: ");
+                printText("YOU'RE GIVEN THE OPTION TO FIGHT, ACT, SPARE, or use an ITEM");
+                printText("FIGHT: Use the attack bar, press ENTER to hit. The closer to the center, the more damage.");
+                printText("ACT: Choose one of the monsters ACT options. In most cases, one of them let's you spare.");
+                printText("SPARE: If you've chosen the right options, you should be able to spare the monster.");
+                printText("ITEM: If you need to heal by eating or switch your armor or weapon.");
+                printText("When the monster attacks, use the grid to move around and dodge their attacks using WASD.");
+
+                System.out.println("Press ENTER to continue.");
+                in.nextLine();
+
                 Monster flowey = new Monster(999, 0,0, 0, 0, "flowey");
                 playMiniGame(flowey);
-                Game.sleep(500);
+                sleep(500);
                 PlayMusic.stop();
                 printAsciiImage("evil flowey");
                 player.takeDamage(39);
@@ -237,7 +249,7 @@ public class Game {
                 printText("Why would ANYBODY pass up an opportunity like this!?!");
                 printText("Die.");
                 printText("AHAHAHAAHAHAHAHAHAHA");
-                Game.sleep(600);
+                sleep(600);
                 printAsciiImage("toriel");
                 printText("Toriel: What a terrible creature. Torturing such a poor, innocent youth.");
                 printText("Ah, do not be afraid, my child.");
@@ -306,14 +318,14 @@ public class Game {
                 printText("What are you proving this way?");
                 printText("Fight me or leave!");
                 printText("Stop looking at me that way.");
-                Game.sleep(500);
+                sleep(500);
                 printText("I know you want to go home but...");
-                Game.sleep(400);
+                sleep(400);
                 printText("But please go upstairs.");
-                Game.sleep(200);
+                sleep(200);
                 printText("I promise I'll take good care of you here.");
                 printText("I know we don't have much but...");
-                Game.sleep(300);
+                sleep(300);
                 printText("You can have a good life here..");
                 printText("Why are you making this so difficult");
                 printText("Pathetic, is it not? I could not save a single child.");
@@ -381,9 +393,9 @@ public class Game {
             if (currentRoom.getRoomName().equals("Asgore Encounter") && !asgoreDefeated) {
                 printAsciiImage("asgore");
                 printText("Howdy! How can I...");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("Oh.");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("I so badly want to say, \"Would you like a cup of tea?\".");
                 printText("But... You know how it is.");
                 printText("Nice day today, huh?");
@@ -408,7 +420,7 @@ public class Game {
                 printText("And then, with my newfound powers...");
                 printText("Monster. Humans. Everyone. I'll show them ALL the real meaning of this world.");
                 printText("KILL OR BE KILLED.");
-                Game.sleep(1000);
+                sleep(1000);
                 floweyDefeated = encounter("omega flowey");
             }
 
@@ -417,7 +429,7 @@ public class Game {
                 PlayMusic.play("TextAdventure/src/zork/data/music/Undertale-Papyrus.wav", true);
                 printAsciiImage("sans");
                 printText("hey Kiddo.");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("soooo.... you're a human, right?");
                 printText("that's hilarious.");
                 printText("i'm Sans. Sans the skeleton");
@@ -430,7 +442,7 @@ public class Game {
                 printText("i have an idea. Go through this gate thingy.");
                 printAsciiImage("gate");
                 printText("yeah, go right through. my bro made the bars too wide to stop anyone.");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("sup, bro");
                 printAsciiImage("papyrus");
                 printText("Papyrus: YOU KNOW WHAT. SUP, BROTHER.");
@@ -438,13 +450,13 @@ public class Game {
                 printText("RECALIBRATED. YOUR. PUZZLES.");
                 printText("YOU JUST HANG AROUND YOUR STATION.");
                 printText("WHAT ARE YOU EVEN DOING!?!");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("sans: staring at this lamp. it's really cool. do you wanna look?");
-                Game.sleep(500);
+                sleep(500);
                 printAsciiImage("lamp");
-                Game.sleep(2000);
+                sleep(2000);
                 printText("Papyrus: NO!! I DON'T HAVE TIME FOR THAT!!!");
-                Game.sleep(500);
+                sleep(500);
                 printAsciiImage("papyrus");
                 printText("WHAT IF A HUMAN COMES THROUGH HERE???");
                 printText("I WANT TO BE READY!!!");
@@ -456,39 +468,39 @@ public class Game {
                 printText("I WILL FINALLY BE ABLE TO JOIN THE ROYAL GUARD!!!");
                 printText("PEOPLE WILL ASK, TO, BE MY, FRIEND!");
                 printText("I WILL BATHE IN A SHOWER OF KISSES EVERY MORNING.");
-                Game.sleep(500);
+                sleep(500);
                 printText("sans: hmm. maybe this lamp will help you.");
                 printText("papyrus: SANS!! YOU ARE NOT HELPING!! YOU LAZYBONES!!!");
                 printText("ALL YOU DO IS SIT AND BOONDOGGLE");
                 printText("YOU GET LAZIER AND LAZIER EVERY DAY!!!");
-                Game.sleep(500);
+                sleep(500);
                 printText("sans: hey, take it easy. I've gotten a TON of work done today. a SKELE-TON!");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("papyrus: SANS!!!");
-                Game.sleep(300);
+                sleep(300);
                 printText("sans: come on.. you're smiling.");
-                Game.sleep(200);
+                sleep(200);
                 printText("papyrus: I AM AND I HATE IT!!!");
-                Game.sleep(300);
+                sleep(300);
                 printText("SIGH...");
                 printText("WHY DOES SOMEONE AS GREAT AS ME...");
                 printText("HAVE TO DO SO MUCH JUST TO GET SOME RECOGNITION.");
-                Game.sleep(500);
+                sleep(500);
                 printText("sans: wow.. sounds like you're really working yourself...");
                 printText("down to the bone...");
-                Game.sleep(1200);
+                sleep(1200);
                 printText("Papyrus: UGH.. I'LL ATTEND TO MY WORK. AS FOR YOUR WORK.. PUT A LITTLE MORE..");
                 printText("BACKBONE INTO IT!!!!");
                 printText("NYEHEHEHEHEHEHEHEHEHEHEHEHEHEH!!!");
-                Game.sleep(1000);
+                sleep(1000);
                 printText("*Papyrus leaves*");
                 printText("sans to frisk: ok.. you can come out now");
                 printText("you oughta get going. he might come back. and if he does...");
                 printText("you'll have to sit through more of my hilarious jokes.");
-                Game.sleep(2000);
+                sleep(2000);
                 printText("what's the holdup? Look. there's nothing to be afraid of.");
                 printText("it's just a dark caven filled with skeletons and monsters.");
-                Game.sleep(500);
+                sleep(500);
                 printText("hey, before you go, can you do me a favor?");
                 printText("my brothers been down lately, and seeing a human, it might make his day.");
                 printText("Don't worry, he's not dangerous, even if he tried to be.");
@@ -521,7 +533,7 @@ public class Game {
         int minutes = (int) PlayMusic.clip.getMicrosecondLength() / 1000 / 1000 / 60;
         int seconds = (int) PlayMusic.clip.getMicrosecondLength() / 1000 / 1000 % 60;
         System.out.println("Song length: " + minutes + ":" + seconds);
-        Game.sleep((int) PlayMusic.clip.getMicrosecondLength() / 1000);
+        sleep((int) PlayMusic.clip.getMicrosecondLength() / 1000);
         PlayMusic.clip.stop();
     }
 
@@ -538,13 +550,13 @@ public class Game {
                 "   \\ \\_______\\   \\ \\__\\\\ \\__\\   \\ \\_______\\   \\ \\_______\\   \\ \\__\\\\ _\\        \\ \\__\\   \\ \\__\\ \\__\\   \\ \\_______\\   \\ \\_______\\\n" +
                 "    \\|_______|    \\|__| \\|__|    \\|_______|    \\|_______|    \\|__|\\|__|        \\|__|    \\|__|\\|__|    \\|_______|    \\|_______|\n", 1);
         printTextCustomDelay("Long ago, two races ruled over Earth: HUMANS and MONSTERS.", 50);
-        Game.sleep(500);
+        sleep(500);
         printTextCustomDelay("One day, war broke out between the two races.", 50);
-        Game.sleep(500);
+        sleep(500);
         printTextCustomDelay("After a long battle, the humans were victorious.", 50);
-        Game.sleep(500);
+        sleep(500);
         printTextCustomDelay("They sealed the monsters underground with a magic spell.", 50);
-        Game.sleep(500);
+        sleep(500);
         printTextCustomDelay("Legends say that those who climb the mountain never return.", 50);
 
         PlayMusic.stop();
@@ -552,7 +564,7 @@ public class Game {
 
     private static void printAsciiImage(String name) {
         // allow readers to read text before image
-        Game.sleep(1000);
+        sleep(1000);
         try {
             File ascii = new File("TextAdventure\\src\\zork\\data\\ascii_art\\" + name.toLowerCase() + ".txt");
             Scanner reader = new Scanner(ascii);
@@ -567,9 +579,10 @@ public class Game {
     }
 
     public static void printText(String str) {
+        final String ANSI_BLUE = "\u001B[34m";
         String[] chars = str.split("");
         for (String aChar : chars) {
-            System.out.print(aChar);
+            System.out.print(ANSI_BLUE + aChar);
             sleep(30);
         }
         System.out.println();
@@ -679,7 +692,7 @@ public class Game {
                 return true;
             }
             if (keepFighting) {
-                Game.sleep(1000);
+                sleep(1000);
                 player.takeDamage(playMiniGame(monster));
             }
         }
