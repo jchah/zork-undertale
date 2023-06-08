@@ -579,10 +579,9 @@ public class Game {
     }
 
     public static void printText(String str) {
-        final String ANSI_BLUE = "\u001B[34m";
         String[] chars = str.split("");
         for (String aChar : chars) {
-            System.out.print(ANSI_BLUE + aChar);
+            System.out.print(aChar);
             sleep(30);
         }
         System.out.println();
